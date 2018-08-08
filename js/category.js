@@ -44,7 +44,7 @@ var iconReduce = document.getElementsByClassName("icon-reduce");
 var total_fee = 0;
 var serviceChosenList = [];
 var xmlhttp = new XMLHttpRequest;
-xmlhttp.open("GET", API_PREFIX+"/order/api/service", true);
+xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service", true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function(){
   if(xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -62,11 +62,11 @@ xmlhttp.onreadystatechange = function(){
     // 获取service_list所有列表
     for(var i=0; i<data.service_list.length;i++){
       var dataList = data.service_list[i];
-      categoryList.innerHTML += '<li data-name="'+dataList.name+'" data-unit-price="'+dataList.unit_price+'" data-unit="'+dataList.unit+'" data-count="0">'+
+      categoryList.innerHTML += '<li data-name="'+dataList.name+'" data-unit-price="'+dataList.unit_price/100+'" data-unit="'+dataList.unit+'" data-count="0">'+
         '<img class="icon_logo" src="img/'+dataList.name.toLowerCase()+'.svg" alt="'+dataList.name.toLowerCase()+'" />'+
         '<article>'+
           '<h2>'+dataList.name+'</h2>'+
-          '<p><em>¥'+parseFloat(dataList.unit_price)+'</em>/<strong>'+dataList.unit+'</strong></p>'+
+          '<p><em>¥'+dataList.unit_price/100+'</em>/<strong>'+dataList.unit+'</strong></p>'+
         '</article>'+
         '<section class="icon-p"><img src="img/icon_reduce.svg" class="icon-reduce" alt="减"/><em>0</em><img src="img/icon_plus.svg" class="icon-plus" alt="加"/></section>'+
       '</li>';
@@ -89,8 +89,8 @@ xmlhttp.onreadystatechange = function(){
           "unit": grandParent.dataset.unit,
           "count": grandParent.dataset.count
         };
-        total_fee += parseFloat(category.unit_price);
-        settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+        total_fee += parseInt(category.unit_price*100);
+        settlement.innerHTML = "&yen;" + total_fee/100;
 
         sessionStorage.setItem(name, JSON.stringify(category));
         shoppingEm.innerHTML = sessionStorage.length;
@@ -119,16 +119,16 @@ xmlhttp.onreadystatechange = function(){
             sessionStorage.setItem(name, JSON.stringify(category));
           }
 
-          total_fee -= parseFloat(category.unit_price);
+          total_fee -= parseInt(category.unit_price*100);
           if(total_fee == 0) {
             settlement.innerHTML = "&yen;0";
           }else{
-            settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+            settlement.innerHTML = "&yen;" + total_fee/100;
           }
 
           shoppingEm.innerHTML = sessionStorage.length;
           parent.getElementsByTagName("em")[0].innerHTML = grandParent.dataset.count;
-        }       
+        }
       }
     }
 
@@ -169,7 +169,7 @@ xmlhttp.onreadystatechange = function(){
           var parents = this.parentElement;
           var name = parents.dataset.name;
           var s = JSON.parse(sessionStorage.getItem(name));
-          total_fee -= parseFloat(parents.dataset.unitPrice) * s.count;
+          total_fee -= parseInt(parents.dataset.unitPrice*100) * s.count;
           sessionStorage.removeItem(name);
           shoppingEm.innerHTML = sessionStorage.length;
 
@@ -190,7 +190,7 @@ xmlhttp.onreadystatechange = function(){
           if(total_fee == 0) {
             settlement.innerHTML = "&yen;0";
           }else{
-            settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+            settlement.innerHTML = "&yen;" + total_fee/100;
           }
 
         }
@@ -202,7 +202,7 @@ xmlhttp.onreadystatechange = function(){
         if(sessionStorage.length == 0){
           shoppingEm.innerHTML = sessionStorage.length;
           total_fee = 0;
-          settlement.innerHTML = "&yen;" + total_fee;
+          settlement.innerHTML = "&yen;" + total_fee/100;
           shoppingList.style.display = "none";
           mask.style.display = "none";
           for(var i=0; i<categoryLi.length; i++) {
@@ -237,7 +237,7 @@ settlement.onclick = function(){
   ajax.send(JSON.stringify({
     "title": "技术情报订阅",
     "details": details,
-    "total_fee": total_fee
+    "total_fee": total_fee  // 单位：分
   }));
   ajax.onreadystatechange = function(){
     if(ajax.readyState==4) {
