@@ -1,0 +1,255 @@
+
+// 遮罩
+var mask = document.getElementById("mask");
+
+var footer = document.getElementsByTagName("footer")[0];
+
+// 购物车
+var shopping = document.getElementById("shoppingcart");
+var shoppingEm = shopping.getElementsByTagName("em")[0];
+var shoppingList = document.getElementById("shopping_list");
+var removeList = document.getElementById("remove");
+var shoppingListUl = shoppingList.getElementsByTagName("ul")[0];
+var shoppingListLi = shoppingList.getElementsByTagName("li");
+
+// 没有我想要的（点单）
+var pointlist = document.getElementById("pointlist");
+var addCategory = document.getElementById("add_category");
+var close = document.getElementById("close");
+pointlist.onclick = function(){
+  footer.style.display = "none";
+  shoppingList.style.display = "none";
+  mask.style.display = "block";
+  addCategory.style.display = "block";
+}
+close.onclick = function(){
+  location.reload();
+}
+
+
+
+/**
+ * 后端接口
+ */
+var API_PREFIX = "http://test.zhiliaokeji.com";
+
+// 门类列表
+var categoryList = document.getElementById("category_list");
+var categoryLi = categoryList.getElementsByTagName("li");
+var settlement = document.getElementById("settlement");
+var iconP = document.getElementsByClassName("icon-p");
+var iconPlus = document.getElementsByClassName("icon-plus");
+var iconReduce = document.getElementsByClassName("icon-reduce");
+
+var total_fee = 0;
+var serviceChosenList = [];
+var xmlhttp = new XMLHttpRequest;
+xmlhttp.open("GET", API_PREFIX+"/order/api/service", true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    var data = JSON.parse(xmlhttp.responseText);
+    var errElement = document.getElementById("error");
+    if(!data.ok){
+      errElement.style.display = "block";
+      errElement.innerHTML = data.msg;
+    }
+
+    if(data.service_list.length == 0){
+      errElement.style.display = "block";
+    }
+
+    // 获取service_list所有列表
+    for(var i=0; i<data.service_list.length;i++){
+      var dataList = data.service_list[i];
+      categoryList.innerHTML += '<li data-name="'+dataList.name+'" data-unit-price="'+dataList.unit_price+'" data-unit="'+dataList.unit+'" data-count="0">'+
+        '<img class="icon_logo" src="img/'+dataList.name.toLowerCase()+'.svg" alt="'+dataList.name.toLowerCase()+'" />'+
+        '<article>'+
+          '<h2>'+dataList.name+'</h2>'+
+          '<p><em>¥'+parseFloat(dataList.unit_price)+'</em>/<strong>'+dataList.unit+'</strong></p>'+
+        '</article>'+
+        '<section class="icon-p"><img src="img/icon_reduce.svg" class="icon-reduce" alt="减"/><em>0</em><img src="img/icon_plus.svg" class="icon-plus" alt="加"/></section>'+
+      '</li>';
+    }
+
+    // 选中服务类别
+    var offon = true;
+    sessionStorage.clear();
+
+    // 加
+    for(var i=0;i<iconPlus.length;i++){
+      iconPlus[i].onclick = function(){
+        var parent = this.parentElement;
+        var grandParent = parent.parentElement;
+        var name = grandParent.dataset.name;
+        grandParent.dataset.count++;
+        var category = {
+          "name": name,
+          "unit_price": grandParent.dataset.unitPrice,
+          "unit": grandParent.dataset.unit,
+          "count": grandParent.dataset.count
+        };
+        total_fee += parseFloat(category.unit_price);
+        settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+
+        sessionStorage.setItem(name, JSON.stringify(category));
+        shoppingEm.innerHTML = sessionStorage.length;
+        parent.getElementsByTagName("em")[0].innerHTML = grandParent.dataset.count;
+        offon = true;
+      }
+    }
+
+    // 减
+    for(var i=0;i<iconReduce.length;i++){
+      iconReduce[i].onclick = function(){
+        var parent = this.parentElement;
+        var grandParent = parent.parentElement;
+        var name = grandParent.dataset.name;
+        if(grandParent.dataset.count != 0){
+          grandParent.dataset.count--;
+          var category = {
+            "name": name,
+            "unit_price": grandParent.dataset.unitPrice,
+            "unit": grandParent.dataset.unit,
+            "count": grandParent.dataset.count
+          };
+          if (grandParent.dataset.count == 0){
+            sessionStorage.removeItem(name);
+          } else{
+            sessionStorage.setItem(name, JSON.stringify(category));
+          }
+
+          total_fee -= parseFloat(category.unit_price);
+          if(total_fee == 0) {
+            settlement.innerHTML = "&yen;0";
+          }else{
+            settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+          }
+
+          shoppingEm.innerHTML = sessionStorage.length;
+          parent.getElementsByTagName("em")[0].innerHTML = grandParent.dataset.count;
+        }       
+      }
+    }
+
+    // 显示选中服务类别列表
+    shopping.onclick = function(){
+      // console.log(sessionStorage.length)
+      if(sessionStorage.length == 0){
+        return false;
+      }
+      shoppingListUl.innerHTML = "";
+      for(var i=0;i<sessionStorage.length;i++){
+        var userJsonStr = sessionStorage.getItem(sessionStorage.key(i));
+        userEntity = JSON.parse(userJsonStr);
+        shoppingListUl.innerHTML += '<li data-name="'+userEntity.name+'" data-unit-price="'+userEntity.unit_price+'">'+
+          '<p><img src="img/'+userEntity.name.toLowerCase()+'.svg" alt="'+userEntity.name.toLowerCase()+'" /><strong>'+userEntity.name+'</strong></p>'+
+          '<p><em>¥'+userEntity.unit_price+'</em>/'+userEntity.unit+' 数量：'+userEntity.count+'</p>'+
+          '<p class="delete"><img src="img/delete.svg" alt="删除" /></p>'+
+        '</li>';
+        shoppingEm.innerHTML =  shoppingListLi.length;
+      }
+      
+      if(offon){
+        shoppingList.style.display = "block";
+        mask.style.display = "block";
+        offon = false;
+      }else{
+        mask.style.display = "none";
+        shoppingList.style.display = "none";
+        offon = true;
+      }
+
+      // 删除购物车列表
+      var deleteShoppingList = document.getElementsByClassName("delete");
+      for(var i=0; i<deleteShoppingList.length; i++){
+        deleteShoppingList[i].onclick =function(){
+          var ed =this;
+          this.parentNode.remove(this.parentNode);
+          var parents = this.parentElement;
+          var name = parents.dataset.name;
+          var s = JSON.parse(sessionStorage.getItem(name));
+          total_fee -= parseFloat(parents.dataset.unitPrice) * s.count;
+          sessionStorage.removeItem(name);
+          shoppingEm.innerHTML = sessionStorage.length;
+
+          for(var i=0; i<categoryLi.length; i++) {
+            var c = categoryLi[i];
+            if(c.dataset.name == name){
+              c.dataset.count = 0;
+              c.getElementsByClassName("icon-p")[0].getElementsByTagName("em")[0].innerHTML = 0;
+            }
+          }
+
+          if(sessionStorage.length == 0){
+            total_fee = 0;
+            shoppingList.style.display = "none";
+            mask.style.display = "none";
+          }
+
+          if(total_fee == 0) {
+            settlement.innerHTML = "&yen;0";
+          }else{
+            settlement.innerHTML = "&yen;" + total_fee.toFixed(2);
+          }
+
+        }
+      }
+
+      // 清空购物车
+      removeList.onclick = function(){
+        sessionStorage.clear();
+        if(sessionStorage.length == 0){
+          shoppingEm.innerHTML = sessionStorage.length;
+          total_fee = 0;
+          settlement.innerHTML = "&yen;" + total_fee;
+          shoppingList.style.display = "none";
+          mask.style.display = "none";
+          for(var i=0; i<categoryLi.length; i++) {
+            var c = categoryLi[i];
+            c.getElementsByClassName("icon-p")[0].getElementsByTagName("em")[0].innerHTML = 0;
+            c.dataset.count = 0;
+          }
+        }
+      }
+    }
+  }
+};
+
+// 支付
+settlement.onclick = function(){
+  if(total_fee == 0){
+    return false;
+  }
+
+  var details = [];
+  for(var i=0; i<sessionStorage.length;i++){
+    var deta = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
+    var item = {
+      "name": deta.name,
+      "count": deta.count
+    }
+    details.push(item);
+  }
+  var ajax = new XMLHttpRequest();
+  ajax.open("POST", API_PREFIX+"/order/api/order/?payment=wx", true);
+  ajax.setRequestHeader("Content-type", "application/json");
+  ajax.send(JSON.stringify({
+    "title": "技术情报订阅",
+    "details": details,
+    "total_fee": total_fee
+  }));
+  ajax.onreadystatechange = function(){
+    if(ajax.readyState==4) {
+      var status = ajax.status;
+      if(status == 200){
+        var data = JSON.parse(ajax.responseText);
+        if(!data.ok){
+          alert(data.msg);
+        }
+      } else if(status == 0) {  // 302跨域
+        window.location.href = "/wx/login/";
+      }
+    }
+  }
+}
