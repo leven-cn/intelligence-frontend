@@ -1,2 +1,3 @@
 # intelligence-frontend
+
 Intelligence Frontend
