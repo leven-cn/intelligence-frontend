@@ -2,7 +2,7 @@
  * WeChat Pay
  */
 
-function wxpay(_product, _fee, _d,){
+function wxpay(_product, _fee, _d){
   var _xhr = new XMLHttpRequest();
   _xhr.open("POST", "/backend/order/api/order/?payment=wx", true);
   _xhr.setRequestHeader("Content-Type", "application/json");
