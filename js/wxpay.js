@@ -2,29 +2,22 @@
  * WeChat Pay
  */
 
-var _wxpayList = document.getElementsByClassName("wxpay");
-var _wxpayDetails = null;
-function wxpay(_d){
-  _wxpayDetails = _d
-}
-for(var i=0; i<_wxpayList.length; i++){
-  _wxpayList[i].onclick = function(){
-    var product = this.dataset.product;
-    var fee = parseInt(this.dataset.fee);
-
-    xhr = new XMLHttpRequest();
-    xhr.open("POST", "/backend/order/api/order/?payment=wx", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function(){
-      if (xhr.readyState==4 && xhr.status==200){
-        data = JSON.parse(xhr.responseText);
-        if(data.ok){
-          console.log(data.params);
+function wxpay(_product, _fee, _d,){
+  var _xhr = new XMLHttpRequest();
+  _xhr.open("POST", "/backend/order/api/order/?payment=wx", true);
+  _xhr.setRequestHeader("Content-Type", "application/json");
+  _xhr.onreadystatechange = function(){
+    if (_xhr.readyState==4){
+      var _status = _xhr.status;
+      if(_status == 200){
+        var _data = JSON.parse(_xhr.responseText);
+        if(_data.ok){
+          console.log(_data.params);
 
           // 微信支付弹框
           WeixinJSBridge.invoke(
             'getBrandWCPayRequest',
-            data.params,
+            _data.params,
             function(res){
               if(res.err_msg == "get_brand_wcpay_request：ok"){
                 alert('支付成功，等待处理');
@@ -32,14 +25,16 @@ for(var i=0; i<_wxpayList.length; i++){
             }
           );
         }else{
-          alert(data.msg);
+          alert(_data.msg);
         }
+      } else if(_status == 0){  // 302跨域
+        window.location.href = "/backend/wx/login/";
       }
     }
-    xhr.send(JSON.stringify({
-      "details": _wxpayDetails,
-      "fee" : fee,
-      "product": product
-    }));
-  };
+  }
+  _xhr.send(JSON.stringify({
+    "details": _d,
+    "fee" : _fee,
+    "product": _product
+  }));
 }

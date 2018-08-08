@@ -9,6 +9,7 @@ var shopping = document.getElementById("shoppingcart");
 var shoppingEm = shopping.getElementsByTagName("em")[0];
 var shoppingList = document.getElementById("shopping_list");
 var removeList = document.getElementById("remove");
+var removeListEm = removeList.getElementsByTagName("em");
 var shoppingListUl = shoppingList.getElementsByTagName("ul")[0];
 var shoppingListLi = shoppingList.getElementsByTagName("li");
 
@@ -197,7 +198,7 @@ xmlhttp.onreadystatechange = function(){
       }
 
       // 清空购物车
-      removeList.onclick = function(){
+      removeListEm[0].onclick = function(){
         sessionStorage.clear();
         if(sessionStorage.length == 0){
           shoppingEm.innerHTML = sessionStorage.length;
@@ -221,7 +222,7 @@ settlement.onclick = function(){
   if(total_fee == 0){
     return false;
   }
-
+  
   var details = [];
   for(var i=0; i<sessionStorage.length;i++){
     var deta = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
@@ -231,25 +232,6 @@ settlement.onclick = function(){
     }
     details.push(item);
   }
-  var ajax = new XMLHttpRequest();
-  ajax.open("POST", API_PREFIX+"/order/api/order/?payment=wx", true);
-  ajax.setRequestHeader("Content-type", "application/json");
-  ajax.send(JSON.stringify({
-    "title": "技术情报订阅",
-    "details": details,
-    "total_fee": total_fee  // 单位：分
-  }));
-  ajax.onreadystatechange = function(){
-    if(ajax.readyState==4) {
-      var status = ajax.status;
-      if(status == 200){
-        var data = JSON.parse(ajax.responseText);
-        if(!data.ok){
-          alert(data.msg);
-        }
-      } else if(status == 0) {  // 302跨域
-        window.location.href = "/wx/login/";
-      }
-    }
-  }
+  
+  wxpay(this.dataset.product, total_fee, details);
 }
