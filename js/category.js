@@ -1,3 +1,16 @@
+// 微信登录
+_wxAuthToken = localStorage.getItem("wxAuthToken");
+if(_wxAuthToken == null){
+  _wxAuthToken = getQueryVariable("wxAuthToken");
+  if(_wxAuthToken == null){
+    wxlogin();
+  } else {
+    localStorage.setItem("wxAuthToken", _wxAuthToken);
+  }
+}
+alert(_wxAuthToken);
+// localStorage.removeItem("wxAuthToken");
+
 
 // 遮罩
 var mask = document.getElementById("mask");
@@ -224,13 +237,13 @@ settlement.onclick = function(){
   if(total_fee == 0){
     return false;
   }
-  
+
   var details = [];
   for(var i=0; i<sessionStorage.length;i++){
-    var deta = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
+    var data = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
     var item = {
-      "name": deta.name,
-      "count": deta.count
+      "name": data.name,
+      "count": parseInt(data.count)
     }
     details.push(item);
   }
