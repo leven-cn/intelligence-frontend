@@ -8,7 +8,6 @@ if(_wxAuthToken == null){
     localStorage.setItem("wxAuthToken", _wxAuthToken);
   }
 }
-alert(_wxAuthToken);
 // localStorage.removeItem("wxAuthToken");
 
 
