@@ -1,13 +1,14 @@
 // 微信登录
-_wxAuthToken = localStorage.getItem("wxAuthToken");
-if(_wxAuthToken == null){
-  _wxAuthToken = getQueryVariable("wxAuthToken");
-  if(_wxAuthToken == null){
-    wxlogin();
-  } else {
-    localStorage.setItem("wxAuthToken", _wxAuthToken);
-  }
-}
+// _wxAuthToken = localStorage.getItem("wxAuthToken");
+// if(_wxAuthToken == null){
+//   _wxAuthToken = getQueryVariable("wxAuthToken");
+//   if(_wxAuthToken == null){
+//     wxlogin();
+//   } else {
+//     localStorage.setItem("wxAuthToken", _wxAuthToken);
+//   }
+// }
+localStorage.removeItem("wxAuthToken");
 
 
 // 遮罩
@@ -233,7 +234,7 @@ settlement.onclick = function(){
   if(total_fee == 0){
     return false;
   }
-  
+
   var details = [];
   for(var i=0; i<sessionStorage.length;i++){
     var data = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
