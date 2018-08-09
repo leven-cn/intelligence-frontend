@@ -1,14 +1,14 @@
-// 微信登录
-// _wxAuthToken = localStorage.getItem("wxAuthToken");
-// if(_wxAuthToken == null){
-//   _wxAuthToken = getQueryVariable("wxAuthToken");
-//   if(_wxAuthToken == null){
-//     wxlogin();
-//   } else {
-//     localStorage.setItem("wxAuthToken", _wxAuthToken);
-//   }
-// }
-localStorage.removeItem("wxAuthToken");
+微信登录
+_wxAuthToken = localStorage.getItem("wxAuthToken");
+if(_wxAuthToken == null){
+  _wxAuthToken = getQueryVariable("wxAuthToken");
+  if(_wxAuthToken == null){
+    wxlogin();
+  } else {
+    localStorage.setItem("wxAuthToken", _wxAuthToken);
+  }
+}
+// localStorage.removeItem("wxAuthToken");
 
 
 // 遮罩
