@@ -1,4 +1,4 @@
-微信登录
+// 微信登录
 _wxAuthToken = localStorage.getItem("wxAuthToken");
 if(_wxAuthToken == null){
   _wxAuthToken = getQueryVariable("wxAuthToken");
