@@ -2,6 +2,13 @@
 // 遮罩
 var mask = document.getElementById("mask");
 
+mask.onclick = function(){
+  this.style.display = "none";
+  shoppingList.style.display = "none";
+  addCategory.style.display = "none";
+  footer.style.display = "block"
+}
+
 var footer = document.getElementsByTagName("footer")[0];
 
 // 购物车
@@ -16,15 +23,11 @@ var shoppingListLi = shoppingList.getElementsByTagName("li");
 // 没有我想要的（点单）
 var pointlist = document.getElementById("pointlist");
 var addCategory = document.getElementById("add_category");
-var close = document.getElementById("close");
 pointlist.onclick = function(){
   footer.style.display = "none";
   shoppingList.style.display = "none";
   mask.style.display = "block";
   addCategory.style.display = "block";
-}
-close.onclick = function(){
-  location.reload();
 }
 
 
@@ -75,7 +78,6 @@ xmlhttp.onreadystatechange = function(){
 
     // 选中服务类别
     var offon = true;
-    sessionStorage.clear();
 
     // 加
     for(var i=0;i<iconPlus.length;i++){
@@ -233,5 +235,9 @@ settlement.onclick = function(){
     details.push(item);
   }
   
+  var user = localStorage.getItem("user");
+  if(user == null){
+    window.location.href = "/backend/wx/login/?next=/intelligence/";
+  }
   wxpay(this.dataset.product, total_fee, details);
 }

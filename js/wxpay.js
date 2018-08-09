@@ -27,8 +27,6 @@ function wxpay(_product, _fee, _d){
         }else{
           alert(_data.msg);
         }
-      } else if(_status == 0){  // 302跨域
-        window.location.href = "/backend/wx/login/";
       }
     }
   }
