@@ -267,7 +267,7 @@ if(sloganName == null){
   sloganName = 1;
   sloganShow();
 }else{
-  sloganLogo.style.display = "block";
+  sloganImg.style.display = "block";
 }
 
 function sloganShow(){
