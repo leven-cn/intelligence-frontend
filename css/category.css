@@ -309,3 +309,41 @@ footer{
   padding-top: 1rem;
   display: none;
 }
+
+#slogan{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  top:0;
+  text-align: center;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: all 1s;
+}
+
+#slogan img{
+  opacity: 0;
+  transition: all 1s;
+}
+
+#slogan img:nth-child(1){
+  margin: -1rem 0 0.5rem;
+}
+
+#slogan-logo{
+  position: fixed;
+  top:50%;
+  right: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  padding:0.1rem;
+  margin-top: -1rem;
+  background: #ec6630;
+  border-radius: 1rem;
+  display: none;
+  transition: all 1s;
+}

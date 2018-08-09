@@ -241,3 +241,38 @@ settlement.onclick = function(){
   }
   wxpay(this.dataset.product, total_fee, details);
 }
+
+
+// 标语
+var slogan = document.getElementById("slogan");
+var sloganLogo = document.getElementById("slogan-logo");
+var sloganImg = slogan.getElementsByTagName("img");
+
+function sloganShow(){
+  setTimeout(function(){
+    slogan.style.opacity = "1";
+  },500)
+  setTimeout(function(){
+    sloganImg[0].style.opacity = "1";
+  },2000)
+  setTimeout(function(){
+    sloganImg[1].style.opacity = "1";
+  },1500)
+}
+
+sloganShow();
+
+slogan.onclick = function(){
+  this.style.opacity = "0";
+  this.style.zIndex = "-1";
+  for(var i=0; i<sloganImg.length; i++){
+    sloganImg[i].style.opacity = "0";
+  }
+  sloganLogo.style.display = "block";
+}
+
+sloganLogo.onclick = function(){
+  // this.style.display = "none";
+  slogan.style.zIndex = "3";
+  sloganShow();
+}
