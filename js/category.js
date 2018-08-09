@@ -260,6 +260,16 @@ var slogan = document.getElementById("slogan");
 var sloganLogo = document.getElementById("slogan-logo");
 var sloganImg = slogan.getElementsByTagName("img");
 
+var sloganName = localStorage.getItem("sloganname");
+
+
+if(sloganName == null){
+  sloganName = 1;
+  sloganShow();
+}else{
+  sloganLogo.style.display = "block";
+}
+
 function sloganShow(){
   setTimeout(function(){
     slogan.style.opacity = "1";
@@ -272,8 +282,6 @@ function sloganShow(){
   },1500)
 }
 
-sloganShow();
-
 slogan.onclick = function(){
   this.style.opacity = "0";
   this.style.zIndex = "-1";
@@ -284,7 +292,7 @@ slogan.onclick = function(){
 }
 
 sloganLogo.onclick = function(){
-  // this.style.display = "none";
+  this.style.display = "none";
   slogan.style.zIndex = "3";
   sloganShow();
 }
