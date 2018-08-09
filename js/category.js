@@ -236,10 +236,10 @@ settlement.onclick = function(){
   
   var details = [];
   for(var i=0; i<sessionStorage.length;i++){
-    var deta = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
+    var data = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
     var item = {
-      "name": deta.name,
-      "count": deta.count
+      "name": data.name,
+      "count": parseInt(data.count)
     }
     details.push(item);
   }
