@@ -47,6 +47,7 @@ function wxpay(_product, _fee, _d){
         }
       } else if(_xhr.status == 401){
         alert("微信未登录，请刷新页面");
+        wxlogin();
       }
     }
   }
