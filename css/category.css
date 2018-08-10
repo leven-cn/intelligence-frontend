@@ -41,14 +41,6 @@ main{
   margin-top: 0.18rem;
 }
 
-main ul{
-  width: 10000px;
-  height: 100%;
-  position: absolute;
-  top:0;
-  left: -4.65rem;
-}
-
 main h1{
   font-size:0.3rem;
   color:rgba(255,255,255,0.7);
@@ -56,82 +48,36 @@ main h1{
   margin:0 0 0.1rem 1.03rem;
 }
 
-main ul li p{
-  font-size: 0;
-  margin: 1% 0 0 1%;
+main h2{
+  font-size:0.6rem;
+  line-height:0.52rem;
+  color: #fff;
+  margin-left: 1.03rem;
 }
 
-main ul li p img{
+
+main section:nth-child(3){
+  font-size: 0;
+  margin: 0.2rem 0 0.2rem 1.03rem;
+}
+
+main section:nth-child(3) img{
   width: 0.2rem;
   margin-right: 0.1rem;
 }
 
-main ul li{
-  width: 5.6rem;
-  height: 100%;
-  float: left;
-  transform: scale(0.85);
-  display: flex;
-  flex-direction: column;
-}
-
-main ul li h2{
-  font-size:0.6rem;
-  line-height:0.52rem;
-  color: #fff;
-  margin-left: 0.1rem;
-}
-
-main ul li.rotating{
-  transform:scale(1);
-}
-
-main ul li article{
-  box-shadow:0 0.1rem 0.3rem 0.02rem rgba(0,0,0,0.2);
-  display: inline-block;
+nav{
   width: 100%;
-  height:calc(100% - 20px);
-  background: #fff;
-  border-radius: 0.2rem;
-  text-align: center;
-  margin: 21.6% 0 32%;
+  margin-left: 1.06rem;
 }
 
-main ul li article img{
-  width: 3rem;
-  margin: 8% 0 4.7%;
+nav ul{
+  width: 10000px;
+  height: 0.6rem;
+  overflow: hidden;
 }
 
-main ul li article p{
-  font-size:0.3rem;
-  color: rgb(120, 100, 210);
-  margin: 0;
-}
-
-main ul li article p em{
-  font-size:0.8rem;
-}
-
-main ul li article section{
-  width: 3.6rem;
-  color: #fff;
-  border:0.01rem solid rgb(120, 100, 210);
-  background: rgb(120, 100, 210);
-  height: 0.96rem;
-  line-height: 0.96rem;
-  border-radius: 0.96rem;
-  text-align: left;
-  margin: 5% 0 0 1rem;
-}
-
-main ul li article section em{
-  display: inline-block;
-  width: 0.9rem;
-  font-size: 0.4rem;
-  text-align: center;
-}
-
-main article:nth-child(2) em{
+nav ul li{
   font-size: 0.2rem;
   display: inline-block;
   height: 0.55rem;
@@ -142,46 +88,13 @@ main article:nth-child(2) em{
   border: 0.01rem solid rgba(255,255,255,0.8);
 }
 
-main ul li article section em:nth-child(2){
-  height: 0.83rem;
-  line-height: 0.83rem;
-  margin-top: 0.05rem;
-  width: 1.8rem;
-  color: #555;
-  background: #fff;
-}
-
-main article:nth-child(2){
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top:13.8%;
-  left: 1.06rem;
-}
-
-main article:nth-child(2) section{
-  width: 10000px;
-  height: 0.6rem;
-  overflow: hidden;
-}
-
-main article:nth-child(2) p{
+nav div{
   position: absolute;
   right:1rem;
   top:0;
   width: 2.5rem;
   height: 0.57rem;
   background: linear-gradient(to left,rgba(126, 109, 213,1),rgba(126, 109, 213,0))
-}
-
-#shoppingcart{
-  width: 0.7rem;
-  height: 0.6rem;
-  position: relative;
-  margin: 0.2rem 0.55rem 0 0;
-  float: right;
-  background: none;
-  border:none;
 }
 
 #shoppingcart img{
@@ -202,3 +115,85 @@ main article:nth-child(2) p{
   top: -0.05rem;
   right: -0.2rem;
 }
+
+#category-list{
+  width: 10000px;
+  height: 100%;
+  position: absolute;
+  top:5%;
+  margin-bottom:32%;
+  left: -4.65rem;
+  display: none;
+}
+
+
+#category-list li{
+  width: 5.6rem;
+  height: 100%;
+  box-shadow:0 0.1rem 0.3rem 0.02rem rgba(0,0,0,0.2);
+  background: #fff;
+  float: left;
+  transform: scale(0.85);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+#category-list li.rotating{
+  transform:scale(1);
+}
+
+#category-list li img{
+  width: 3rem;
+  margin: 8% 0 4.7%;
+}
+
+#category-list li p{
+  font-size:0.3rem;
+  color: rgb(120, 100, 210);
+  margin: 0;
+}
+
+#category-list li p em{
+  font-size:0.8rem;
+}
+
+#category-list li section{
+  width: 3.6rem;
+  color: #fff;
+  border:0.01rem solid rgb(120, 100, 210);
+  background: rgb(120, 100, 210);
+  height: 0.96rem;
+  line-height: 0.96rem;
+  border-radius: 0.96rem;
+  text-align: left;
+  margin: 5% 0 0 1rem;
+}
+
+#category-list li section em{
+  display: inline-block;
+  width: 0.9rem;
+  font-size: 0.4rem;
+  text-align: center;
+}
+
+#category-list li section em:nth-child(2){
+  height: 0.83rem;
+  line-height: 0.83rem;
+  margin-top: 0.05rem;
+  width: 1.8rem;
+  color: #555;
+  background: #fff;
+}
+
+#shoppingcart{
+  width: 0.7rem;
+  height: 0.6rem;
+  position: relative;
+  margin: 0.2rem 0.55rem 0 0;
+  float: right;
+  background: none;
+  border:none;
+}
+
