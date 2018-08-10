@@ -55,7 +55,6 @@ main h2{
   margin-left: 1.03rem;
 }
 
-
 main section:nth-child(3){
   font-size: 0;
   margin: 0.2rem 0 0.2rem 1.03rem;
@@ -66,9 +65,20 @@ main section:nth-child(3) img{
   margin-right: 0.1rem;
 }
 
+main button{
+  font-size: 0.4rem;
+  width: 100%;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  color: #fff;
+  position: absolute;
+  bottom: 0.6rem; 
+}
+
 nav{
   width: 100%;
   margin-left: 1.06rem;
+  position: relative;
 }
 
 nav ul{
@@ -120,25 +130,22 @@ nav div{
   width: 10000px;
   height: 100%;
   position: absolute;
-  top:5%;
-  margin-bottom:32%;
+  top:20.6%;
   left: -4.65rem;
-  display: none;
 }
-
 
 #category-list li{
   width: 5.6rem;
-  height: 100%;
+  height: 65%;
   box-shadow:0 0.1rem 0.3rem 0.02rem rgba(0,0,0,0.2);
   background: #fff;
+  border-radius: 0.2rem;
   float: left;
   transform: scale(0.85);
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 }
-
 
 #category-list li.rotating{
   transform:scale(1);
@@ -146,13 +153,12 @@ nav div{
 
 #category-list li img{
   width: 3rem;
-  margin: 8% 0 4.7%;
+  margin: 12% 0 8%;
 }
 
 #category-list li p{
   font-size:0.3rem;
   color: rgb(120, 100, 210);
-  margin: 0;
 }
 
 #category-list li p em{
@@ -167,8 +173,7 @@ nav div{
   height: 0.96rem;
   line-height: 0.96rem;
   border-radius: 0.96rem;
-  text-align: left;
-  margin: 5% 0 0 1rem;
+  margin: 8% 0 0 0;
 }
 
 #category-list li section em{
