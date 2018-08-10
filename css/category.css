@@ -45,7 +45,7 @@ main ul{
   width: 10000px;
   height: 100%;
   position: absolute;
-  top:4%;
+  top:5%;
   left: -4.65rem;
 }
 
@@ -77,6 +77,7 @@ main ul li{
 
 main ul li h2{
   font-size:0.6rem;
+  line-height:0.52rem;
   color: #fff;
   margin-left: 0.1rem;
 }
@@ -154,7 +155,7 @@ main article:nth-child(2){
   width: 100%;
   position: absolute;
   z-index: 1;
-  top:15.8%;
+  top:13.8%;
   left: 1.06rem;
 }
 
