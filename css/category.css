@@ -130,13 +130,13 @@ nav div{
   width: 10000px;
   height: 100%;
   position: absolute;
-  top:22%;
+  top:24%;
   left: -3.73rem;
 }
 
 #category-list li{
   width: 5rem;
-  height: 65%;
+  height: 58%;
   box-shadow:0 0.1rem 0.3rem 0.02rem rgba(0,0,0,0.2);
   background: #fff;
   border-radius: 0.2rem;
