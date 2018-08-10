@@ -73,6 +73,8 @@ main button{
   color: #fff;
   position: absolute;
   bottom: 0.6rem; 
+  background: none;
+  border: none;
 }
 
 nav{
@@ -90,10 +92,8 @@ nav ul{
 nav ul li{
   font-size: 0.2rem;
   display: inline-block;
-  height: 0.55rem;
-  line-height: 0.55rem;
   color: #fff;
-  padding:0 0.3rem;
+  padding:0.1rem 0.3rem;
   border-radius: 0.6rem;
   border: 0.01rem solid rgba(255,255,255,0.8);
 }
