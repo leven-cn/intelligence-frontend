@@ -10,41 +10,71 @@
 		<link rel="stylesheet" href="css/category.css"/>
 	</head>
 	<body>
-    <header id="search">
+    <header>
       <input type="text" name="text" placeholder="请输入关键词搜索" />
-      <input type="button" name="search" id="" value="" />
+      <input type="button" name="search" data-ok="true"/>
+      <button id="shoppingcart"><img src="img/shoppingcart.svg" alt="购物车"/><em>0</em></button>
     </header>
     <main>
-      <ul id="category_list"></ul>
-      <article id="error">没有数据</article>
+      <h1>选择比努力更重要</h1>
+      <article>
+        <section>
+          <em>Web</em>
+          <em>Python</em>
+          <em>GO</em>
+          <em>JavaScript</em>
+        </section>
+        <p></p>
+      </article>
+      <ul id="category_list">
+        <li>
+          <h2>JavaScript</h2>
+          <p>
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+          </p>
+          <article>
+            <img src="img/js.svg" alt="JavaScript"/>
+            <p>$20.00</p>
+            <section><em>1</em></section>
+          </article>
+        </li>
+        <li class="rotating">
+          <h2>HTML</h2>
+          <p>
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+          </p>
+          <article>
+            <img src="img/html.svg" alt="HTML"/>
+            <p><em>&yen;20</em>/季度</p>
+            <section><em>-</em><em>1</em><em>+</em></section>
+          </article>
+        </li>
+        <li>
+          <h2 style="opacity: 0;">CSS</h2>
+          <p style="opacity: 0;">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+            <img src="img/star.svg" alt="star">
+          </p>
+          <article>
+            <img src="img/css.svg" alt="CSS"/>
+            <p>$20.00</p>
+            <section><em>1</em></section>
+          </article>
+        </li>
+      </ul>
     </main>
-
-    <footer>
-      <button id="shoppingcart"><img src="img/shoppingcart.svg" alt="购物车"/><em>0</em></button>
-      <button id="pointlist">没有我想要的</button>
-      <button id="settlement" data-product="技术情报">&yen;0</button>
-    </footer>
-
-    <section id="shopping_list">
-      <button id="remove"><em><img src="img/delete.svg" alt="删除" />清空</em></button>
-      <ul></ul>
-    </section>
-
-    <section id="add_category">
-      <textarea placeholder="我感兴趣的......"></textarea>
-      <button>点单</button>
-    </section>
-
-    <section id="mask"></section>
-
-    <section id="slogan">
-      <img src="img/rocket.svg" alt="rocket"/>
-      <img src="img/slogan.svg" alt="领先一步，步步领薪"/>
-    </section>
-
-    <img src="img/sloganlogo.svg" alt="sloganlogo" id="slogan-logo">
-
-    <script src="js/wx.js"></script>
+    <!-- <script src="js/wx.js"></script> -->
     <script src="js/category.js"></script>
     <script src="js/fontsize.js"></script>
 	</body>
