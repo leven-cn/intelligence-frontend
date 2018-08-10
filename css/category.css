@@ -17,7 +17,7 @@ header input[type="button"]{
   background: url(../img/search.svg) no-repeat;
   background-size:0.6rem;
   border:none;
-  margin: 0.2rem 0 0 0.38rem;
+  margin: 0.2rem 0 0 0;
 }
 
 header input[type="text"]{
@@ -30,7 +30,7 @@ header input[type="text"]{
   box-sizing: border-box;
   font-size: 0.2rem;
   padding-left: 0.2rem;
-  margin: 0.15rem 0.15rem 0 -0.3rem;
+  margin: 0.15rem 0.53rem 0 -0.3rem;
 }
 
 main{

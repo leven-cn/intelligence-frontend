@@ -305,13 +305,13 @@ input[1].onclick = function(){
     input[0].style.width = "4.5rem";
     input[0].style.transition = "all 1s";
     input[0].style.marginLeft = "0.52rem";
-    this.style.marginLeft= "0";
+    input[0].style.marginRight = "0.15rem";
     this.dataset.ok = "false";
   }else{
-    this.style.marginLeft= "0.38rem";
     input[0].style.width = "0";
     input[0].style.transition = "all 1s";
-    input[0].style.marginLeft = "-0.3rem";
+    input[0].style.marginLeft = "-0.33rem";
+    input[0].style.marginRight = "0.53rem";
     this.dataset.ok = "true";
   }
 }
