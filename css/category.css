@@ -45,6 +45,7 @@ main ul{
   width: 10000px;
   height: 100%;
   position: absolute;
+  top:4%;
   left: -4.65rem;
 }
 
@@ -159,7 +160,7 @@ main article:nth-child(2){
 
 main article:nth-child(2) section{
   width: 10000px;
-  height: 0.57rem;
+  height: 0.6rem;
   overflow: hidden;
 }
 
