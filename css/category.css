@@ -134,7 +134,7 @@ nav div{
   height: 100%;
   position: absolute;
   top:25.5%;
-  left: -3.73rem;
+  left: 1.3rem;
 }
 
 #category-list li{
@@ -150,7 +150,7 @@ nav div{
   align-items: center;
 }
 
-#category-list li.rotating{
+#category-list li.active{
   transform:scale(1);
 }
 
