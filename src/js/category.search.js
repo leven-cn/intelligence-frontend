@@ -1,7 +1,7 @@
 // 搜索效果
-var search = document.getElementsByTagName("header")[0].getElementsByTagName("input");
-search[1].onclick = function(){
-  var searchStyle = search[0].style;
+var searchInput = document.getElementsByTagName("header")[0].getElementsByTagName("input");
+searchInput[1].onclick = function(){
+  var searchStyle = searchInput[0].style;
   if(this.dataset.ok == "true"){
     searchStyle.width= "4.4rem";
     searchStyle.transition = "all 1s";
