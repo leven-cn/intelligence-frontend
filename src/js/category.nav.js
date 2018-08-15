@@ -44,10 +44,14 @@ function slideNav(element){
         this.setAttribute("class", "active");
         displayServiceList(categoryList, this.innerHTML);
         categoryList.style.left = "1.3rem";
+        document.getElementsByTagName("div")[0].style.background = "linear-gradient(to left,rgba(126, 109, 213,1),rgba(126, 109, 213,0))";
+        document.body.style.background  = "linear-gradient(rgb(120, 100, 210),rgb(138,123,248))";
       }else if(this.className == "active"){
         this.className = "";
         displayServiceList(categoryList);
         categoryList.style.left = "1.3rem";
+        document.getElementsByTagName("div")[0].style.background = "linear-gradient(to left,rgba(126, 109, 213,1),rgba(126, 109, 213,0))";
+        document.body.style.background  = "linear-gradient(rgb(120, 100, 210),rgb(138,123,248))";
       }
       
     }
