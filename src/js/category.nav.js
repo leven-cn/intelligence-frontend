@@ -2,7 +2,7 @@
  * 服务类别滑动
  * @param {Element} element 服务类别区域<ul>
  */
-function  slideNav(element){
+function slideNav(element){
   var startX = 0;
   element.addEventListener("touchstart", function(event){
     startX = event.targetTouches[0].pageX;
