@@ -2,7 +2,7 @@
 function _addRemoveItemEventHandler(itemList){
   for(var i=0; i<itemList.length; i++){
     e = itemList[i].getElementsByTagName("section")[0].getElementsByTagName("em");
-  
+    var sumList = document.querySelector("header").querySelector("button").querySelector("em");
     // 删除
     e[0].onclick = function(){
       var item = this.parentElement.parentElement.dataset;
@@ -25,13 +25,17 @@ function _addRemoveItemEventHandler(itemList){
         var total_fee = parseInt(sessionStorage.getItem("total_fee"));
         total_fee -= category.unitPrice*100;
         sessionStorage.setItem("total_fee", total_fee);
-
+        if(sessionStorage.length-1 == 0){
+          sumList.style.display = "none";
+        }
+        sumList.innerHTML = sessionStorage.length-1;
         this.parentElement.getElementsByTagName("em")[1].innerHTML = count;
       }
     }
   
     // 增加
     e[2].onclick = function(){
+      sumList.style.display = "block";
       var item = this.parentElement.parentElement.dataset;
       var count = 0;
       var c = sessionStorage.getItem(item.name);
@@ -49,7 +53,8 @@ function _addRemoveItemEventHandler(itemList){
       };
       this.parentElement.getElementsByTagName("em")[1].innerHTML = count;
       sessionStorage.setItem(item.name, JSON.stringify(category));
-
+      
+      sumList.innerHTML = sessionStorage.length-1;
       var total_fee = parseInt(sessionStorage.getItem("total_fee"));
       total_fee += category.unitPrice*100;
       sessionStorage.setItem("total_fee", total_fee);
