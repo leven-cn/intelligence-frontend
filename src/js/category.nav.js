@@ -8,14 +8,18 @@ function  slideNav(element){
 
     // 右滑
     if(touchLength > 30 && navIndex > 0){
+      navIndex--;
+      var width = (element.offsetLeft + element.getElementsByTagName("li")[navIndex].offsetWidth) + 12;
+      element.style.left = width + "px";
+      element.style.transition = "all 1s";
     }
 
     // 左滑
     if(touchLength < -30 && navIndex < element.getElementsByTagName("li").length-1){
       var width = (element.offsetLeft - element.getElementsByTagName("li")[navIndex].offsetWidth) - 12;
       navIndex++;
-      console.log(width);
       element.style.left = width + "px";
+      element.style.transition = "all 1s";
     }
   });
   element.addEventListener("touchmove", function(event){
