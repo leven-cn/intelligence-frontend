@@ -71,13 +71,16 @@ function displayServiceList(categoryList){
     if(xmlhttp.readyState==4 && xmlhttp.status==200){
       var data = JSON.parse(xmlhttp.responseText);
       var errElement = document.getElementsByTagName("main")[0].getElementsByTagName("section")[1];
+      var h2Element = document.getElementsByTagName("h2")[0];
       if(!data.ok){
         errElement.style.display = "block";
         errElement.innerHTML = data.msg;
+        h2Element.innerHTML = "暂无服务";
       }else{
         if(data.service_list.length == 0){
           errElement.style.display = "block";
           errElement.innerHTML = "暂无服务选择";
+          h2Element.innerHTML = "暂无服务";
         }else{
           errElement.style.display = "none";
           
@@ -92,6 +95,7 @@ function displayServiceList(categoryList){
           }
           var itemList = categoryList.getElementsByTagName("li");
           itemList[0].className = "active";
+          h2Element.innerHTML = data.service_list[0].name;
           _addRemoveItemEventHandler(itemList);
           sessionStorage.setItem("total_fee", "0");
         }

@@ -1,4 +1,4 @@
-function  slide(element){
+function  slide(element, titleElement){
   var startX = 0;
   var leftRem = 13;
   element.style.left = _rem(leftRem);
@@ -18,6 +18,7 @@ function  slide(element){
         leftRem += 50;
         element.style.left = _rem(leftRem);
         element.style.transition = "all 1s";
+        titleElement.innerHTML = liList[index-1].dataset.name;
       }
     }
 
@@ -31,6 +32,7 @@ function  slide(element){
         leftRem -= 50;
         element.style.left = _rem(leftRem);
         element.style.transition = "all 1s";
+        titleElement.innerHTML = liList[index+1].dataset.name;
       }
     }
   });
@@ -53,4 +55,5 @@ function _rem(n){
 }
 
 var categoryList = document.getElementById("category-list");
-slide(categoryList);
+var titleElement = document.getElementsByTagName("h2")[0];
+slide(categoryList, titleElement);
