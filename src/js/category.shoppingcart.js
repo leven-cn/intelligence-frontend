@@ -2,8 +2,9 @@
 function _addRemoveItemEventHandler(itemList){
   var sumList = document.querySelector("header").querySelector("button").querySelector("em");
   var categoryNum = sessionStorage.length - 1;
-  if(categoryNum == 0){
+  if(categoryNum <= 0){
     sumList.style.display = "none";
+    sessionStorage.setItem("total_fee", "0");
   }else{
     sumList.style.display = "block";
     sumList.innerHTML = categoryNum;
@@ -115,7 +116,6 @@ function displayServiceList(categoryList, category){
           itemList[0].className = "active";
           h2Element.innerHTML = data.service_list[0].name;
           _addRemoveItemEventHandler(itemList);
-          sessionStorage.setItem("total_fee", "0");
         }
       }
     }
