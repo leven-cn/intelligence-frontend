@@ -27,7 +27,7 @@ function  slideNav(element){
 
     if(width != null){
       element.style.left = flexible.px2rem(String(width)) + "rem";
-      element.style.transition = "all 1s";
+      element.style.transition = "all 0.5s";
     }
   });
   element.addEventListener("touchmove", function(event){
