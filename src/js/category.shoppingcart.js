@@ -91,10 +91,15 @@ function displayServiceList(categoryList, category){
           categoryList.innerHTML = "";
           for(var i=0; i<data.service_list.length;i++){
             var dataList = data.service_list[i];
+            var curr = sessionStorage.getItem(dataList.name);
+            var currCount = 0;
+            if(curr != null){
+              currCount = JSON.parse(curr).count;
+            }
             categoryList.innerHTML += '<li data-name="'+dataList.name+'" data-unit-price="'+dataList.unit_price/100+'" data-unit="'+dataList.unit+'">'+
               '<img src="img/'+dataList.name.toLowerCase()+'.svg" alt="'+dataList.name.toLowerCase()+'"/>'+
               '<p><em>&yen;'+dataList.unit_price/100+'</em>/'+dataList.unit+'</p>'+
-              '<section><em>-</em><em>0</em><em>+</em></section>'+
+              '<section><em>-</em><em>'+currCount+'</em><em>+</em></section>'+
             '</li>';            
           }
           var itemList = categoryList.getElementsByTagName("li");
