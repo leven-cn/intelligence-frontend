@@ -66,9 +66,11 @@ function _addRemoveItemEventHandler(itemList){
 /**
  * 后端接口: 显示服务列表
  */
-function displayServiceList(categoryList){
+function displayServiceList(categoryList, category){
+  category = category || "";
+
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service", true);
+  xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service/?category="+category, true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
     if(xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -86,6 +88,7 @@ function displayServiceList(categoryList){
           errElement.style.display = "none";
           
           // 获取service_list所有列表
+          categoryList.innerHTML = "";
           for(var i=0; i<data.service_list.length;i++){
             var dataList = data.service_list[i];
             categoryList.innerHTML += '<li data-name="'+dataList.name+'" data-unit-price="'+dataList.unit_price/100+'" data-unit="'+dataList.unit+'">'+
