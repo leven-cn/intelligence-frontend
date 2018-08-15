@@ -75,12 +75,10 @@ function displayServiceList(categoryList){
       if(!data.ok){
         errElement.style.display = "block";
         errElement.innerHTML = data.msg;
-        h2Element.innerHTML = "暂无服务";
       }else{
         if(data.service_list.length == 0){
           errElement.style.display = "block";
           errElement.innerHTML = "暂无服务选择";
-          h2Element.innerHTML = "暂无服务";
         }else{
           errElement.style.display = "none";
           
