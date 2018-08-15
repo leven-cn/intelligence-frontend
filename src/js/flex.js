@@ -161,4 +161,3 @@ function flex(win, lib) {
 }
 
 var flexible = flex(window, window.lib || (window.lib = {}));
-console.log(flexible);

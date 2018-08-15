@@ -10,22 +10,23 @@ function  slideNav(element){
   element.addEventListener("touchend", function(event){
     var touchLength = event.changedTouches[0].pageX - startX;
     var liList = this.getElementsByTagName("li");
+    var mr = parseFloat(window.getComputedStyle(liList[0], null)["margin-right"].slice(0, -2));
     var width = null;
 
     // 右滑
     if(touchLength > 30 && navIndex > 0){
       navIndex--;
-      width = element.offsetLeft + liList[navIndex].offsetWidth + 12;
+      width = element.offsetLeft + liList[navIndex].offsetWidth + mr;
     }
 
     // 左滑
     if(touchLength < -30 && navIndex < liList.length-1){
-      width = element.offsetLeft - liList[navIndex].offsetWidth - 12;
+      width = element.offsetLeft - liList[navIndex].offsetWidth - mr;
       navIndex++;
     }
 
     if(width != null){
-      element.style.left = width + "px";
+      element.style.left = flexible.px2rem(String(width)) + "rem";
       element.style.transition = "all 1s";
     }
   });
