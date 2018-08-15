@@ -1,4 +1,8 @@
-!function(win, lib) {
+/**
+ * 弹性布局
+ */
+
+function flex(win, lib) {
     var timer,
         doc     = win.document,
         docElem = doc.documentElement,
@@ -152,4 +156,9 @@
         }
         return c;
     }
-}(window, window.lib || (window.lib = {}));
+
+    return flexible;
+}
+
+var flexible = flex(window, window.lib || (window.lib = {}));
+console.log(flexible);
