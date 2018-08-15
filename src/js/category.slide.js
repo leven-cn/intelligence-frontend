@@ -1,4 +1,13 @@
-function  slide(element, titleElement){
+/**
+ * 服务选择滑动
+ */
+
+/**
+ * 滑动效果
+ * @param {Element} element 服务显示块
+ * @param {Element} titleElement 服务名称（标题）显示
+ */
+function slide(element, titleElement){
   var startX = 0;
   var leftRem = 13;
   element.style.left = _rem(leftRem);
@@ -83,8 +92,6 @@ function _changeBgColor(n){
   document.getElementsByTagName("div")[0].style.background = "linear-gradient(to left,"+BG_COLOR_OPACITY_FROM[bgColorIndex]+","+BG_COLOR_OPACITY_TO[bgColorIndex]+")";
 }
 
-var categoryList = document.getElementById("category-list");
-var titleElement = document.getElementsByTagName("h2")[0];
 var bgColorIndex = 0;
 var BG_COLOR_TOP = [
   "rgb(86, 196, 236)","rgb(226, 198, 85)","rgb(230, 127, 89)","rgb(153, 177, 56)","rgb(126, 109, 213)"
@@ -99,4 +106,3 @@ var BG_COLOR_OPACITY_TO = [
   "rgba(86, 196, 236,0)","rgba(226, 198, 85,0)","rgba(230, 127, 89,0)","rgba(153, 177, 56,0)","rgba(126, 109, 213,0)"
 ];
 var BG_COLOR_NUMS = BG_COLOR_TOP.length;
-slide(categoryList, titleElement);

@@ -1,4 +1,10 @@
-wxlogin();
+//wxlogin();
+
+// 服务选择滑动
+// @see category.slide.js
+var categoryList = document.getElementById("category-list");
+var titleElement = document.getElementsByTagName("h2")[0];
+slide(categoryList, titleElement);
 
 // // 遮罩
 // var mask = document.getElementById("mask");
