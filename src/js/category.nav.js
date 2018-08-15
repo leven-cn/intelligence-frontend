@@ -37,9 +37,16 @@ function slideNav(element){
   // 点击类别，按类别搜索
   for(var i=0; i<liList.length; i++){
     liList[i].onclick = function(){
-      displayServiceList(categoryList, this.innerHTML);
-      this.style.backgroundColor = "white";
-      this.style.color = "#666";
+      if(this.className == "") {
+        this.setAttribute("class", "active");
+        displayServiceList(categoryList, this.innerHTML);
+        categoryList.style.left = "1.3rem";
+      }else{
+        this.className = "";
+        displayServiceList(categoryList);
+        categoryList.style.left = "1.3rem";
+      }
+      
     }
   }
 }

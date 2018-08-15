@@ -9,8 +9,6 @@
  */
 function slide(element, titleElement){
   var startX = 0;
-  var leftRem = 13;
-  element.style.left = _rem(leftRem);
   element.addEventListener("touchstart", function(event){
     startX = event.targetTouches[0].pageX;
   });
@@ -24,8 +22,7 @@ function slide(element, titleElement){
       if(index>0){
         liList[index].className = "";
         liList[index-1].className = "active";
-        leftRem += 50;
-        element.style.left = _rem(leftRem);
+        element.style.left = (flexible.px2rem(element.offsetLeft) + 5) + "rem";
         element.style.transition = "all 1s";
 
         // 随机不重复选择背景颜色
@@ -43,8 +40,7 @@ function slide(element, titleElement){
       if(index<liList.length-1){
         liList[index].className = "";
         liList[index+1].className = "active";
-        leftRem -= 50;
-        element.style.left = _rem(leftRem);
+        element.style.left = (flexible.px2rem(element.offsetLeft) - 5) + "rem";
         element.style.transition = "all 1s";
 
         // 随机不重复选择背景颜色
@@ -67,10 +63,6 @@ function _currentSlideIndex(liList){
       return i;
     }
   }
-}
-
-function _rem(n){
-  return (n/10).toFixed(1) + "rem";
 }
 
 // 随机不重复更新背景颜色

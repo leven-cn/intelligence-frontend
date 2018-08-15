@@ -110,6 +110,11 @@ nav ul li{
   margin-right: 0.12rem;
 }
 
+nav li.active{
+  background: #fff;
+  color: #666;
+}
+
 nav div{
   position: absolute;
   right:1rem;
