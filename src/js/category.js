@@ -1,8 +1,14 @@
+var API_PREFIX = "http://test.zhiliaokeji.com";
+
 //wxlogin();
+
+// 服务列表
+// @see category.shoppingcart.js
+var categoryList = document.getElementById("category-list");
+displayServiceList(categoryList);
 
 // 服务选择滑动
 // @see category.slide.js
-var categoryList = document.getElementById("category-list");
 var titleElement = document.getElementsByTagName("h2")[0];
 slide(categoryList, titleElement);
 

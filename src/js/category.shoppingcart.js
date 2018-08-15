@@ -59,10 +59,8 @@ function _addRemoveItemEventHandler(itemList){
 
 
 /**
- * 后端接口
+ * 后端接口: 显示服务列表
  */
-var API_PREFIX = "http://test.zhiliaokeji.com";
-
 function displayServiceList(categoryList){
   var xmlhttp = new XMLHttpRequest;
   xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service", true);
@@ -101,4 +99,4 @@ function displayServiceList(categoryList){
     }
   }
 }
-displayServiceList(categoryList);
+
