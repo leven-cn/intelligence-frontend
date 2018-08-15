@@ -5,7 +5,6 @@ html,body{
 body{
   background: rgb(120, 100, 210);
   background: linear-gradient(rgb(120, 100, 210),rgb(138,123,248));
-  transition: all 2s;
 }
 
 header{
@@ -93,6 +92,7 @@ nav ul{
   width: 10000px;
   height: 0.6rem;
   overflow: hidden;
+  font-size:0;
 }
 
 nav ul li{
@@ -102,6 +102,7 @@ nav ul li{
   padding:0.1rem 0.3rem;
   border-radius: 0.6rem;
   border: 0.01rem solid rgba(255,255,255,0.8);
+  margin-right: 0.12rem;
 }
 
 nav div{
