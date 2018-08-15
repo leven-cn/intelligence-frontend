@@ -176,7 +176,7 @@ main section:nth-child(6){
 
 #category-list li p{
   font-size:0.3rem;
-  color: rgb(120, 100, 210);
+  color: #666;
 }
 
 #category-list li p em{
