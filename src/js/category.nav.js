@@ -4,12 +4,12 @@
  */
 function slideNav(element){
   var startX = 0;
+  var liList = element.getElementsByTagName("li");
   element.addEventListener("touchstart", function(event){
     startX = event.targetTouches[0].pageX;
   });
   element.addEventListener("touchend", function(event){
     var touchLength = event.changedTouches[0].pageX - startX;
-    var liList = this.getElementsByTagName("li");
     var mr = Math.round(window.getComputedStyle(liList[0], null)["margin-right"].slice(0, -2));
     var width = null;
 
@@ -33,4 +33,13 @@ function slideNav(element){
   element.addEventListener("touchmove", function(event){
     event.preventDefault();
   });
+
+  // 点击类别，按类别搜索
+  for(var i=0; i<liList.length; i++){
+    liList[i].onclick = function(){
+      displayServiceList(categoryList, this.innerHTML);
+      this.style.backgroundColor = "white";
+      this.style.color = "#666";
+    }
+  }
 }
