@@ -38,10 +38,13 @@ function slideNav(element){
   for(var i=0; i<liList.length; i++){
     liList[i].onclick = function(){
       if(this.className == "") {
+        for(var j=0; j<liList.length; j++){
+          liList[j].className = "";
+        }
         this.setAttribute("class", "active");
         displayServiceList(categoryList, this.innerHTML);
         categoryList.style.left = "1.3rem";
-      }else{
+      }else if(this.className == "active"){
         this.className = "";
         displayServiceList(categoryList);
         categoryList.style.left = "1.3rem";
