@@ -1,8 +1,17 @@
 // 购物车增加/删除事件处理函数
 function _addRemoveItemEventHandler(itemList){
+  var sumList = document.querySelector("header").querySelector("button").querySelector("em");
+  var categoryNum = sessionStorage.length - 1;
+  if(categoryNum == 0){
+    sumList.style.display = "none";
+  }else{
+    sumList.style.display = "block";
+    sumList.innerHTML = categoryNum;
+  }
+
   for(var i=0; i<itemList.length; i++){
     e = itemList[i].getElementsByTagName("section")[0].getElementsByTagName("em");
-    var sumList = document.querySelector("header").querySelector("button").querySelector("em");
+    
     // 删除
     e[0].onclick = function(){
       var item = this.parentElement.parentElement.dataset;
@@ -28,7 +37,7 @@ function _addRemoveItemEventHandler(itemList){
         if(sessionStorage.length-1 == 0){
           sumList.style.display = "none";
         }
-        sumList.innerHTML = sessionStorage.length-1;
+        sumList.innerHTML = sessionStorage.length - 1;
         this.parentElement.getElementsByTagName("em")[1].innerHTML = count;
       }
     }
