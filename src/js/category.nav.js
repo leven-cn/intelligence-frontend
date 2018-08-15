@@ -10,7 +10,7 @@ function  slideNav(element){
   element.addEventListener("touchend", function(event){
     var touchLength = event.changedTouches[0].pageX - startX;
     var liList = this.getElementsByTagName("li");
-    var mr = parseFloat(window.getComputedStyle(liList[0], null)["margin-right"].slice(0, -2));
+    var mr = Math.round(window.getComputedStyle(liList[0], null)["margin-right"].slice(0, -2));
     var width = null;
 
     // 右滑
@@ -27,7 +27,7 @@ function  slideNav(element){
 
     if(width != null){
       element.style.left = flexible.px2rem(String(width)) + "rem";
-      element.style.transition = "all 1s";
+      element.style.transition = "all 0.5s";
     }
   });
   element.addEventListener("touchmove", function(event){
