@@ -5,19 +5,22 @@ function  slideNav(element){
   });
   element.addEventListener("touchend", function(event){
     var touchLength = event.changedTouches[0].pageX - startX;
+    var liList = this.getElementsByTagName("li");
+    var width = null;
 
     // 右滑
     if(touchLength > 30 && navIndex > 0){
       navIndex--;
-      var width = (element.offsetLeft + element.getElementsByTagName("li")[navIndex].offsetWidth) + 12;
-      element.style.left = width + "px";
-      element.style.transition = "all 1s";
+      width = element.offsetLeft + liList[navIndex].offsetWidth + 12;
     }
 
     // 左滑
-    if(touchLength < -30 && navIndex < element.getElementsByTagName("li").length-1){
-      var width = (element.offsetLeft - element.getElementsByTagName("li")[navIndex].offsetWidth) - 12;
+    if(touchLength < -30 && navIndex < liList.length-1){
+      width = element.offsetLeft - liList[navIndex].offsetWidth - 12;
       navIndex++;
+    }
+
+    if(width != null){
       element.style.left = width + "px";
       element.style.transition = "all 1s";
     }
