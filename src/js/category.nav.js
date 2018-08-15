@@ -1,3 +1,7 @@
+/**
+ * 服务类别滑动
+ * @param {Element} element 服务类别区域<ul>
+ */
 function  slideNav(element){
   var startX = 0;
   element.addEventListener("touchstart", function(event){
@@ -29,8 +33,3 @@ function  slideNav(element){
     event.preventDefault();
   });
 }
-
-
-var navUl = document.getElementsByTagName("nav")[0].getElementsByTagName("ul")[0];
-var navIndex = 0;
-slideNav(navUl);

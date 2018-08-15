@@ -12,6 +12,11 @@ displayServiceList(categoryList);
 var titleElement = document.getElementsByTagName("h2")[0];
 slide(categoryList, titleElement);
 
+// 服务类别滑动
+var navUl = document.getElementsByTagName("nav")[0].getElementsByTagName("ul")[0];
+var navIndex = 0;
+slideNav(navUl);
+
 // // 遮罩
 // var mask = document.getElementById("mask");
 
