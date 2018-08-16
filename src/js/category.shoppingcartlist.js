@@ -33,8 +33,8 @@ showShopping.onclick = function(){
       var s = JSON.parse(sessionStorage.getItem(name));
       var total_fee = parseInt(sessionStorage.getItem("total_fee"));
       total_fee -= parseInt(parents.dataset.unitPrice*100) * s.count;
-      sessionStorage.setItem("total_fee", total_fee);
       shoppingMallList.querySelector("h2").innerHTML = "<em>&yen;"+total_fee/100+"</em>元";
+      sessionStorage.setItem("total_fee", total_fee);
       sessionStorage.removeItem(name);
 
       var sumList = document.querySelector("header").querySelector("button").querySelector("em");

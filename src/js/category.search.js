@@ -16,3 +16,11 @@ searchInput[1].onclick = function(){
     this.dataset.ok = "true";
   }
 }
+
+searchInput[0].onfocus = function(){
+  categoryList.style.display = "none";
+}
+
+searchInput[0].onblur = function(){
+  categoryList.style.display = "block";
+}
