@@ -17,6 +17,12 @@ var navUl = document.getElementsByTagName("nav")[0].getElementsByTagName("ul")[0
 var navIndex = 0;
 slideNav(navUl);
 
+// 购物车列表
+var shoppingcartButtonElement = document.getElementById("shoppingcart");
+var shoppingcartMask = document.getElementById("mask");
+var shoppingcartBox = document.getElementById("shoppingcart-box");
+shoppingcartList(shoppingcartButtonElement, shoppingcartMask, shoppingcartBox);
+
 // // 遮罩
 // var mask = document.getElementById("mask");
 

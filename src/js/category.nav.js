@@ -2,7 +2,7 @@
  * 服务类别滑动
  * @param {Element} element 服务类别区域<ul>
  */
-function slideNav(element){
+function slideNav(element, shoppingcartBox){
   var startX = 0;
   var liList = element.getElementsByTagName("li");
   element.addEventListener("touchstart", function(event){

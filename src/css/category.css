@@ -242,7 +242,7 @@ main section:nth-child(6){
   width: 100%;
 }
 
-#shopping-mall{
+#shoppingcart-box{
   display: none;
   position: fixed;
   top: 0;
@@ -258,21 +258,21 @@ main section:nth-child(6){
   padding-top: 1.5rem;
 }
 
-#shopping-mall img{
+#shoppingcart-box img{
   width:3rem;
 }
 
-#shopping-mall h2{
+#shoppingcart-box h2{
   font-size:0.4rem;
   color: #333;
   margin: 5.5% 0;
 }
 
-#shopping-mall em{
+#shoppingcart-box em{
   font-size:1.14rem;
 }
 
-#shopping-mall button{
+#shoppingcart-box button{
   background: #fe3231;
   width: 3.6rem;
   height: 1rem;
@@ -283,12 +283,12 @@ main section:nth-child(6){
   font-size: 0.35rem;
 }
 
-#shopping-mall-list{
+#shoppingcart-box ul{
   height: 4.1rem;
   overflow-y: auto;
 }
 
-#shopping-mall-list li {
+#shoppingcart-box ul li {
   width: calc(100% - 0.7rem);
   box-sizing: border-box;
   float: left;
@@ -301,31 +301,31 @@ main section:nth-child(6){
   position: relative;
 }
 
-#shopping-mall-list li img{
+#shoppingcart-box ul li img{
   margin: 0;
   width: 0.8rem;
   float: left;
 }
 
-#shopping-mall-list li h3{
+#shoppingcart-box ul li h3{
   font-size:0.34rem;
   display: inline-block;
   margin-left: 0.3rem;
 }
 
-#shopping-mall-list li section{
+#shoppingcart-box ul li section{
   float: right;
   font-size:0.26rem;
   padding-right: 0.6rem;
 }
 
-#shopping-mall-list li em{
+#shoppingcart-box ul li em{
   font-size:0.36rem;
   margin-right: 0.1rem;
   font-weight: bold;
 }
 
-#shopping-mall-list li button{
+#shoppingcart-box ul li button{
   border:none;
   background: none;
   position:absolute;
@@ -336,13 +336,13 @@ main section:nth-child(6){
   margin: 0;
 }
 
-#shopping-mall-list li button img{
+#shoppingcart-box ul li button img{
   width: 0.3rem;
   height: 0.3rem;
 }
 
 
-#shopping-mall img:nth-child(4){
+#shoppingcart-box img:nth-child(4){
   position: absolute;
   top:3.6rem;
   left: 2.4rem;

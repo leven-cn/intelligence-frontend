@@ -40,7 +40,6 @@ function _addRemoveItemEventHandler(itemList){
         }
         sumList.innerHTML = sessionStorage.length - 1;
         this.parentElement.getElementsByTagName("em")[1].innerHTML = count;
-        shoppingMallList.querySelector("h2").innerHTML = "<em>&yen;"+sessionStorage.total_fee/100+"</em>元";
       }
     }
   
@@ -69,7 +68,6 @@ function _addRemoveItemEventHandler(itemList){
       var total_fee = parseInt(sessionStorage.getItem("total_fee"));
       total_fee += category.unitPrice*100;
       sessionStorage.setItem("total_fee", total_fee);
-      shoppingMallList.querySelector("h2").innerHTML = "<em>&yen;"+sessionStorage.total_fee/100+"</em>元";      
     }
   } 
 }
