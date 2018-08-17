@@ -23,6 +23,8 @@ showShopping.onclick = function(){
     '</li>'
   }
 
+  shoppingMallList.querySelector("h2").innerHTML = "<em>&yen;"+sessionStorage.total_fee/100+"</em>元";
+
   // 删除购物车
   var deleteShoppingList = shoppingListUl.querySelectorAll("button");
   for(var i=0; i<deleteShoppingList.length; i++){
@@ -55,8 +57,6 @@ showShopping.onclick = function(){
     }
   }
 }
-
-
 
 // 关闭购物车
 mask.onclick = function(){
