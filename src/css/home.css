@@ -2,7 +2,7 @@ header{
   height: 4rem;
   width: 100%;
   color: #fff;
-  padding: 0 0.5rem;
+  padding: 0 0.3rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -44,7 +44,7 @@ header a{
   position: relative;
   z-index: 1;
   float: right;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 header img{
@@ -67,6 +67,7 @@ header h2{
   z-index: 2;
   display: inline-block;
   font-size:0.7rem;
+  padding-top: 0.1rem;
 }
 header h2 em{
   font-size: 0.28rem;
@@ -97,18 +98,18 @@ header button{
 ul{
   width: 100%;
   box-sizing: border-box;
-  padding: 0 0.5rem;
-  margin-top: -0.6rem;
+  padding: 0 0.3rem;
+  margin-top: -0.8rem;
 }
 
 ul li{
   width: 100%;
   background: #fff;
   border-radius: 0.2rem;
-  padding: 0.25rem 0;
+  padding: 0.3rem 0;
   height: 0.8rem;
   line-height: 0.8rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   box-shadow: 0 0 0.1rem 0.01rem #D7D7D7;
   position: relative;
 }
@@ -129,13 +130,13 @@ ul li em:nth-child(3){
   padding-right: 0.3rem;
 } 
 ul li em:nth-child(4){
-  width: 0.38rem;
-  height: 0.38rem;
+  width: 0.36rem;
+  height: 0.36rem;
   text-align: center;
-  line-height: 0.38rem;
+  line-height: 0.36rem;
   position: absolute;
-  top: -0.15rem;
-  right: -0.15rem;
+  top: -0.13rem;
+  right: -0.13rem;
   background: #EC6630;
   color: #fff;
   border-radius:  0.4rem;
