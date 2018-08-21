@@ -76,11 +76,12 @@ function _addRemoveItemEventHandler(itemList){
 /**
  * 后端接口: 显示服务列表
  */
-function displayServiceList(categoryList, category){
+function displayServiceList(categoryList, category, name){
   category = category || "";
+  name = name || "";
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service/?category="+category, true);
+  xmlhttp.open("GET", API_PREFIX+"/backend/order/api/service/?category="+category+"&name="+name, true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
     if(xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -93,9 +94,13 @@ function displayServiceList(categoryList, category){
       }else{
         if(data.service_list.length == 0){
           errElement.style.display = "block";
+          categoryList.style.display = "none";
+          h2Element.innerHTML = name;
+
           errElement.innerHTML = "暂无服务选择";
         }else{
           errElement.style.display = "none";
+          categoryList.style.display = "block";
           
           // 获取service_list所有列表
           categoryList.innerHTML = "";
