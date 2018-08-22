@@ -133,9 +133,10 @@ ul li ul li{
   height: 0.8rem;
   line-height: 0.8rem;
   font-size: 0.24rem;
-  margin-top: 0.03rem;
+  margin-top: 0.05rem;
   border-radius: 0.04rem;
-  border-bottom: rgb(119, 119, 119) solid 0.01rem;
+  font-weight: bold;
+  border-bottom: rgb(119, 119, 119) dashed 0.01rem;
 }
 
 ul li ul li a{
@@ -148,8 +149,9 @@ ul li ul li a{
 }
 
 ul li ul li.active{
-  background: rgb(235, 235, 235);
+  background: rgb(255, 255, 255);
   border: none;
+  font-weight: normal;
 }
 ul li ul li.active a{
   color: rgb(163, 162, 162);
