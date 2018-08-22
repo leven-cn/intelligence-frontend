@@ -20,12 +20,9 @@ header section select{
   height: 0.7rem;
   border: none;
   background: none;
-  width: 1.2rem;
+  width: 1.5rem;
   border-right: 0.01rem solid rgb(214, 213, 213);
   padding-left: 0.2rem;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
 }
 
 header section input[type="text"]{
