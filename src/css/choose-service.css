@@ -53,7 +53,7 @@ ul li{
   float: left;
   text-align: center;
   background: #fff;
-  border:0.03rem solid rgb(111,182,236);
+  border:0.04rem solid rgb(111,182,236);
   border-radius: 0.1rem;
   font-size: 0.2rem;
   margin:0.32rem 0 0 0.32rem;
@@ -61,8 +61,22 @@ ul li{
   color:#333;
 }
 ul li.active{
-  border: 0.03rem solid rgb(109,203,129);
+  border: 0.04rem solid rgb(109,203,129);
 }
+ul li.ash{
+  border: 0.04rem solid rgb(231, 231, 231);
+  color: rgb(175, 175, 175);
+  pointer-events: none;
+}
+ul li.ash img{
+  filter: grayscale(100%);
+  filter: gray;
+}
+ul li.ash svg{
+  filter: grayscale(100%);
+  filter: gray;
+}
+
 ul li img{
   width: 1rem;
   padding:0.25rem 0 0.1rem;
