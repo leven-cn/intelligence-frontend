@@ -136,7 +136,7 @@ ul li ul li{
   margin-top: 0.05rem;
   border-radius: 0.04rem;
   font-weight: bold;
-  border-bottom: rgb(119, 119, 119) dashed 0.01rem;
+  border-bottom: rgb(119, 119, 119) solid 0.01rem;
 }
 
 ul li ul li a{
