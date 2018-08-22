@@ -1,0 +1,93 @@
+body{
+  font-family: "微软雅黑";
+  background: #fff;
+}
+
+header{
+  width: 100%;
+  background: rgb(99,86,195);
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0.3rem 0.38rem 0.8rem;
+}
+
+header p{
+  font-size:0.22rem;
+}
+header p img{
+  float: right;
+}
+header h1{
+  padding: 0.1rem;
+  font-size: 0.6rem;
+}
+
+ul{
+  width: 99%;
+  margin: 0 0.5%;
+  background: #fff;
+  height: 0.7rem;
+  border-radius: 0.1rem;
+  box-shadow: 0 0.1rem 0.25rem 0.01rem rgb(219, 218, 218);
+  display: flex;
+  padding: 0.1rem 0;
+  margin-top: -0.3rem;
+}
+
+ul li{
+  flex: 1;
+  text-align: center;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  float: left;
+  font-size:0.26rem;
+  border-right: 0.01rem solid #ccc;
+  box-sizing: border-box;
+  color: #444;
+}
+
+ul li.active{
+  background: #fff;
+  height: 1rem;
+  line-height: 1rem;
+  border-radius: 0.1rem;
+  margin-top: -0.15rem;
+  color: rgb(99,86,195);
+}
+
+ul li:nth-child(2){
+  font-size: 0.24rem;
+  padding: 0 0.13rem;
+}
+ul li:last-child{
+  font-size: 0.22rem;
+  border-right: none;
+}
+
+article{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.4rem 0;
+  font-size: 0.2rem;
+  color:#333;
+  display: none;
+}
+article p{
+  background: url(../img/point.svg) no-repeat -0.13rem -0.05rem;
+  background-size: 0.6rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+article section{
+  background: rgb(230,230,230);
+  border-radius: 0.1rem;
+  padding:0.2rem;
+  font-size: 0.18rem;
+  color: #666;
+  margin:0 0 0.2rem 0.5rem;
+}
+
+article:first-child{
+  display: block;
+}
