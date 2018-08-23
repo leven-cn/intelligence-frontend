@@ -12,3 +12,15 @@ for(var i=0;i<detailsList.length;i++){
 		detailsArticle[this.index].style.display = "block";
 	}
 }
+
+var detailsUl = document.querySelector("ul");
+
+document.body.onscroll = function(){
+	if(document.documentElement.scrollTop > 742){
+		detailsUl.style.position = "fixed";
+		detailsUl.style.top = "0.4rem";
+	}else if(document.documentElement.scrollTop < 742){
+		detailsUl.style.position = "static";
+		detailsUl.style.top = "";
+	}
+}
