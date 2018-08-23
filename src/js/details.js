@@ -15,12 +15,11 @@ for(var i=0;i<detailsList.length;i++){
 
 var detailsUl = document.querySelector("ul");
 
-document.body.onscroll = function(){
-	console.log(detailsUl.offsetTop)
-	if(document.documentElement.scrollTop > detailsUl.offsetTop){
+window.onscroll = function(){
+	if(document.body.scrollTop > detailsUl.offsetTop){
 		detailsUl.style.position = "fixed";
 		detailsUl.style.top = "0.4rem";
-	}else if(document.documentElement.scrollTop < 742){
+	}else if(document.body.scrollTop < detailsUl.offsetTop){
 		detailsUl.style.position = "static";
 		detailsUl.style.top = "";
 	}
