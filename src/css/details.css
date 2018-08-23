@@ -74,10 +74,11 @@ article{
   display: none;
 }
 article p{
-  background: url(../img/point.svg) no-repeat -0.13rem -0.05rem;
+  background: url(../img/point.svg) no-repeat -0.13rem -0.07rem;
   background-size: 0.6rem;
   padding-left: 0.5rem;
   margin-bottom: 0.2rem;
+  line-height: 0.4rem;
 }
 
 article section{
