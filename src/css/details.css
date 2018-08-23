@@ -71,8 +71,6 @@ ul li:last-child{
 }
 
 main{
-  height: 5rem;
-  overflow-y: auto;
   margin-top: 0.5rem;
 }
 
