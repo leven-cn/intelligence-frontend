@@ -5,7 +5,7 @@ body{
 
 header{
   width: 100%;
-  background: rgb(99,86,195);
+  background: linear-gradient(to left,rgb(98,87,195),rgb(127, 98, 252));
   color: #fff;
   box-sizing: border-box;
   padding: 0.3rem 0.38rem 0.8rem;
@@ -16,6 +16,7 @@ header p{
 }
 header p img{
   float: right;
+  width: 0.4rem;
 }
 header h1{
   padding: 0.1rem;
