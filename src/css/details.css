@@ -23,6 +23,11 @@ header h1{
   font-size: 0.6rem;
 }
 
+header h1 em{
+  font-size: 0.75rem;
+  text-shadow:0.05rem 0.03rem rgb(59, 47, 168);
+}
+
 ul{
   width: 99%;
   margin: 0 0.5%;
