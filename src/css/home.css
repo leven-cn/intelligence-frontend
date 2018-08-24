@@ -127,7 +127,6 @@ ul li ul{
 }
 
 ul li ul li{
-  pointer-events: none;
   background: rgb(235, 235, 235);
   margin: 0;
   height: 0.8rem;
