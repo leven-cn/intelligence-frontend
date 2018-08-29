@@ -13,12 +13,14 @@ function getQueryVariable(variable) {
 }
 
 // 微信登录接口
-function wxlogin(){
+function wxlogin(prefix){
+  prefix = prefix || "";
+
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     token = getQueryVariable("wxAuthToken");
     if(token == null){
-      _wxlogin();
+      _wxlogin(prefix);
     }else{
       localStorage.setItem("wxAuthToken", token);
     }
@@ -26,9 +28,9 @@ function wxlogin(){
   return token;
 }
 
-function _wxlogin(){
+function _wxlogin(prefix){
   localStorage.removeItem("wxAuthToken");
-  window.location.href = "/wx/login/?auth=token&next="
+  window.location.href = prefix + "/wx/login/?auth=token&next="
       + window.location.pathname + window.location.search
       + window.location.hash;
 }

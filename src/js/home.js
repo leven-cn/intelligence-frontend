@@ -1,4 +1,33 @@
-wxlogin();
+function home(prefix){
+  var token = localStorage.getItem("wxAuthToken");
+  if(token == null){
+    wxlogin(prefix);
+    return;
+  }
+
+  var xmlhttp = new XMLHttpRequest;
+  xmlhttp.open("GET", prefix+"/rest/home/", true);
+  xmlhttp.setRequestHeader("Authorization", token);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4){
+      if(xmlhttp.status == 200){
+        var data = JSON.parse(xmlhttp.responseText);
+        if(data.code !=0){
+          alert("error");
+          return;
+        }
+        
+        alert(data.points);
+      }else if(xmlhttp.status == 401){
+        wxlogin(prefix);
+      }
+    }
+  }
+}
+
+var prefix = "http://t1.zhiliaokeji.com";
+home(prefix);
 
 // 点击下拉出现
 var homeList = document.querySelector("ul").querySelectorAll("li");
