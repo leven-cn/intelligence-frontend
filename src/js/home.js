@@ -1,5 +1,8 @@
 function home(prefix){
   var token = localStorage.getItem("wxAuthToken");
+  if(token == null){
+    return;
+  }
 
   var xmlhttp = new XMLHttpRequest;
   xmlhttp.open("GET", prefix+"/rest/home/", false);
@@ -18,6 +21,8 @@ function home(prefix){
       }else if(xmlhttp.status == 401){
         localStorage.removeItem("wxAuthToken");
         wxlogin(prefix, home, prefix);
+      }else if(xmlhttp.status == 400){
+        alert("登录超时");
       }
     }
   }
