@@ -2,7 +2,7 @@ function home(prefix){
   var token = localStorage.getItem("wxAuthToken");
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", prefix+"/rest/home/", true);
+  xmlhttp.open("GET", prefix+"/rest/home/", false);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
