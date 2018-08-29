@@ -2,7 +2,6 @@ function home(prefix){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     wxlogin(prefix);
-    return;
   }
 
   var xmlhttp = new XMLHttpRequest;
@@ -21,6 +20,7 @@ function home(prefix){
         alert(data.points);
       }else if(xmlhttp.status == 401){
         wxlogin(prefix);
+        home(prefix);
       }
     }
   }
