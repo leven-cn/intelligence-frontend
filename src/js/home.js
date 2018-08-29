@@ -17,7 +17,14 @@ for(var i=0;i<homeList.length;i++){
     }
 	}
 	homeList[i].querySelectorAll("em")[1].onclick = function(ev){
-		var oEvent = ev || event;
+    var oEvent = ev || event;
 		oEvent.cancelBubble = true; 
-	}
+  }
+  var deleteImg = homeList[i].getElementsByClassName("delete");
+  for(var j=0;j<deleteImg.length;j++){
+    deleteImg[j].onclick = function(ev){
+      var oEvent = ev || event;
+      oEvent.cancelBubble = true; 
+    }
+  }
 }
