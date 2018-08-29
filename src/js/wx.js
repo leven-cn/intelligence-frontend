@@ -28,7 +28,7 @@ function wxlogin(){
 
 function _wxlogin(){
   localStorage.removeItem("wxAuthToken");
-  window.location.href = "/backend/wx/login/?auth=token&next="
+  window.location.href = "/wx/login/?auth=token&next="
       + window.location.pathname + window.location.search
       + window.location.hash;
 }

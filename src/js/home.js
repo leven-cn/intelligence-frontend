@@ -1,3 +1,5 @@
+wxlogin();
+
 // 点击下拉出现
 var homeList = document.querySelector("ul").querySelectorAll("li");
 for(var i=0;i<homeList.length;i++){
