@@ -121,9 +121,18 @@ ul li section{
   box-shadow: 0 0 0.1rem 0.01rem #D7D7D7;
 }
 
+ul li .dela{
+  width: 0.35rem;
+  position: absolute;
+  top: -0.34rem;
+  left: -0.4rem;
+  display: none;
+}
+
 ul li ul{
   padding: 0 0.2rem;
   margin-top: 0.05rem;
+  display: none;
 }
 
 ul li ul li{
@@ -173,12 +182,18 @@ ul li h3{
   font-size: 0.3rem;
   padding-left: 0.2rem;
 }
-ul li em:nth-child(3){
+ul li em:nth-child(4){
   float: right;
   font-size:0.3rem;
-  padding-right: 0.3rem;
+  padding-right: 0.2rem;
+}
+ul li em:nth-child(5){
+  float: right;
+  font-size:0.3rem;
+  padding-right: 0.2rem;
+  display: none;
 } 
-ul li em:nth-child(4){
+ul li em:nth-child(6){
   width: 0.44rem;
   height: 0.44rem;
   text-align: center;
@@ -190,6 +205,16 @@ ul li em:nth-child(4){
   color: #fff;
   border-radius:  0.4rem;
   font-size: 0.22rem;
+}
+
+ul li button{
+  float: right;
+  border:0.01rem solid #ccc;
+  font-size:0.27rem;
+  background: none;
+  padding: 0.1rem 0.23rem;
+  border-radius: 0.04rem;
+  margin:0.12rem 0.2rem 0 0;
 }
 
 article{
