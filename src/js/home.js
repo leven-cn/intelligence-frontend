@@ -5,7 +5,7 @@ function home(prefix){
   }
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", prefix+"/rest/home/", false);
+  xmlhttp.open("GET", prefix+"/rest/home/", true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
@@ -22,7 +22,7 @@ function home(prefix){
         localStorage.removeItem("wxAuthToken");
         wxlogin(prefix, home, prefix);
       }else if(xmlhttp.status == 400){
-        alert("登录超时");
+        alert("非法请求");
       }
     }
   }
