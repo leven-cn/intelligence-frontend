@@ -1,4 +1,6 @@
 function home(prefix){
+  var token = localStorage.getItem("wxAuthToken");
+
   var xmlhttp = new XMLHttpRequest;
   xmlhttp.open("GET", prefix+"/rest/home/", true);
   xmlhttp.setRequestHeader("Authorization", token);
@@ -14,6 +16,7 @@ function home(prefix){
         
         alert(data.points);
       }else if(xmlhttp.status == 401){
+        localStorage.removeItem("wxAuthToken");
         wxlogin(prefix, home, prefix);
       }
     }
