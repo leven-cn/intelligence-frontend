@@ -1,9 +1,4 @@
 function home(prefix){
-  var token = localStorage.getItem("wxAuthToken");
-  if(token == null){
-    wxlogin(prefix);
-  }
-
   var xmlhttp = new XMLHttpRequest;
   xmlhttp.open("GET", prefix+"/rest/home/", true);
   xmlhttp.setRequestHeader("Authorization", token);
@@ -19,15 +14,14 @@ function home(prefix){
         
         alert(data.points);
       }else if(xmlhttp.status == 401){
-        wxlogin(prefix);
-        home(prefix);
+        wxlogin(prefix, home, prefix);
       }
     }
   }
 }
 
 var prefix = "http://t1.zhiliaokeji.com";
-home(prefix);
+wxlogin(prefix, home, prefix);
 
 // 点击下拉出现
 var homeList = document.querySelector("ul").querySelectorAll("li");

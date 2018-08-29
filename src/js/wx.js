@@ -13,7 +13,7 @@ function getQueryVariable(variable) {
 }
 
 // 微信登录接口
-function wxlogin(prefix){
+function wxlogin(prefix, callback, args){
   prefix = prefix || "";
 
   var token = localStorage.getItem("wxAuthToken");
@@ -25,7 +25,7 @@ function wxlogin(prefix){
       localStorage.setItem("wxAuthToken", token);
     }
   }
-  return token;
+  callback(args);
 }
 
 function _wxlogin(prefix){
