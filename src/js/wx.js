@@ -2,30 +2,20 @@
  * WeChat API
  */
 
-function getQueryVariable(variable) {
-  var query = window.location.search.substr(1);
-  var vars = query.split("&");
-  for (var i=0;i<vars.length;i++) {
-    var pair = vars[i].split("=");
-    if(pair[0] == variable){return pair[1];}
-  }
-  return null;
-}
-
 // 微信登录接口
-function wxlogin(prefix, callback, args){
+function wxlogin(callback, arg, prefix){
   prefix = prefix || "";
 
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    token = getQueryVariable("wxAuthToken");
+    token = getQueryParam("wxAuthToken");
     if(token == null){
       _wxlogin(prefix);
     }else{
       localStorage.setItem("wxAuthToken", token);
     }
   }
-  callback(args);
+  callback(arg);
 }
 
 function _wxlogin(prefix){

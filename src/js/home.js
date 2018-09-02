@@ -21,15 +21,13 @@ function home(prefix){
       }else if(xmlhttp.status == 401){
         localStorage.removeItem("wxAuthToken");
         wxlogin(prefix, home, prefix);
-      }else if(xmlhttp.status == 400){
-        alert("非法请求");
       }
     }
   }
 }
 
 var prefix = "http://t1.zhiliaokeji.com";
-wxlogin(prefix, home, prefix);
+wxlogin(home, prefix, prefix);
 
 // 点击下拉出现
 var homeList = document.querySelector("ul").querySelectorAll("li");
