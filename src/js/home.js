@@ -17,7 +17,8 @@ function home(prefix){
           return;
         }
         var ulList = document.querySelector("ul");
-        lList.innerHTML = "";
+        console.log(ulList);
+        ulList.innerHTML = "";
         for(var i=0; i<data.stars.length; i++){
           var dataStars = data.stars[i];
           ulList.innerHTML += '<li data-offon="true">'+
