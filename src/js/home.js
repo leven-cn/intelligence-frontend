@@ -36,11 +36,7 @@ function home(prefix){
           '<em>机密档案</em>'+
           '<em>'+dataStars.unread+'</em>'+
           '</section>'+
-          '<ul>'+
-          // '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-          // '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-          // '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
-          '</ul>'+
+          '<ul></ul>'+
           '</li>';
 
         } 
@@ -54,6 +50,7 @@ function home(prefix){
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
+            var $this = this.querySelector(ul);
             var h3Text = this.querySelector("h3").innerHTML;
             console.log(h3Text);
             var spinnerhttp = new XMLHttpRequest;
@@ -64,7 +61,15 @@ function home(prefix){
               if(spinnerhttp.readyState == 4){
                 if(spinnerhttp.status == 200){
                   var spinnerData = JSON.parse(spinnerhttp.responseText);
-                  console.log(spinnerData);
+                  console.log(spinnerData.intelligence);
+                  if(spinnerData.code == 0){
+                    for(var i=0; i<spinnerData.intelligence.length;i++){
+                      var intelligence = spinnerData.intelligence[i];
+                      $this.innerHTML += '<li><a href="details.html"><em>'+intelligence.version+'</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                    }
+                  }else{
+                    alert(spinnerData.msg);
+                  }
                 }
               }
             }
