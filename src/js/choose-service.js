@@ -37,7 +37,7 @@ function chooseList(prefix){
         console.log(data);
         chooseUl.innerHTML = "";
         for(var i=0;i<data.types.length;i++){
-          chooseUl.innerHTML += '<li>'
+          chooseUl.innerHTML += '<li>'+
           '<img src="img/'+data.types[i].type.toLowerCase()+'.svg" alt="'+data.types[i].type+'">'+
           '<h2>'+data.types[i].type+'</h2>'+
           '<em>'+
