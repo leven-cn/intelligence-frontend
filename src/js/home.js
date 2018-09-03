@@ -86,7 +86,7 @@ function home(prefix){
                   if(deletehttp.status == 200){
                     // console.log($t);
                     console.log(deletehttp.responseText);
-                    $t.remove($t);
+                    // $t.remove($t);
                   }
                 }
               }
