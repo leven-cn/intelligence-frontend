@@ -108,11 +108,8 @@ function home(prefix){
                 }
               }
             }
-          }
-          
+          } 
         }
-        
-
       }else if(xmlhttp.status == 401){
         _wxlogin(prefix);
       }
