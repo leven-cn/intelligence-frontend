@@ -23,34 +23,33 @@ function home(prefix){
         // 订阅列表填充
         var ulList = document.querySelector("ul");
         var articleElement = document.querySelector("article");
-        var homeLists = document.getElementsByClassName("homeList");
         ulList.innerHTML = "";
         
-        if(data.stars.length != 0){
-          for(var i=0; i<data.stars.length; i++){
-            var dataStars = data.stars[i];
-            ulList.innerHTML += '<li data-offon="true" class="homeList">'+
-              '<img src="img/x.svg" class="delete" alt="删除">'+
-              '<section>'+
-                '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
-                '<h3>'+dataStars.techType+'</h3>'+
-                '<em>共'+dataStars.total+'条</em>'+
-                '<em>机密档案</em>'+
-                '<em>'+dataStars.unread+'</em>'+
-              '</section>'+
-              '<ul>'+
-                '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-                '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-                '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
-              '</ul>'+
-            '</li>';
-          } 
-        }else{
+        for(var i=0; i<data.stars.length; i++){
+          var dataStars = data.stars[i];
+          ulList.innerHTML += '<li data-offon="true" class="homeList">'+
+          '<img src="img/x.svg" class="delete" alt="删除">'+
+          '<section>'+
+          '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
+          '<h3>'+dataStars.techType+'</h3>'+
+          '<em>共'+dataStars.total+'条</em>'+
+          '<em>机密档案</em>'+
+          '<em>'+dataStars.unread+'</em>'+
+          '</section>'+
+          '<ul>'+
+          '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          '</ul>'+
+          '</li>';
+        } 
+        if(data.stars.length == 0){
           articleElement.style.display = "block";
         }
-
+        
         // 点击下拉出现
-        var homeList = ulList.querySelectorAll("li");
+        // var homeList = ulList.querySelectorAll("li");
+        var homeList = ulList.getElementsByClassName("homeList");
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
@@ -86,8 +85,8 @@ function home(prefix){
                 if(deletehttp.readyState == 4){
                   if(deletehttp.status == 200){
                     $t.remove($t);
-                    console.log(homeLists.length);
-                    if(homeLists.length == 0){
+                    console.log(homeList.length);
+                    if(homeList.length == 0){
                       articleElement.style.display = "block";
                     }
                   }
