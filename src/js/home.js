@@ -16,8 +16,12 @@ function home(prefix){
           alert("error");
           return;
         }
+        // 点数
+        var homeH2 = document.querySelector("h2");
+        homeH2.innerHTML = data.points + "<em>点</em>";
+
+        // 订阅列表填充
         var ulList = document.querySelector("ul");
-        console.log(ulList);
         ulList.innerHTML = "";
         for(var i=0; i<data.stars.length; i++){
           var dataStars = data.stars[i];
@@ -38,7 +42,37 @@ function home(prefix){
           '</li>';
         }
 
-        alert(data.points);
+        // 点击下拉出现
+        var homeList = document.querySelector("ul").querySelectorAll("li");
+        for(var i=0;i<homeList.length;i++){
+          homeList[i].onclick = function(ev){
+            var oEvent = ev || event;
+            var liElementEm = this.querySelectorAll("em");
+            if(this.dataset.offon == "true"){
+              liElementEm[0].style.display = "none";
+              liElementEm[1].style.display = "block";
+              this.dataset.offon = "false";
+              this.querySelector("ul").style.display = "block";
+            }else{
+              this.querySelector("ul").style.display = "none";
+              liElementEm[0].style.display = "block";
+              liElementEm[1].style.display = "none";
+              this.dataset.offon = "true";
+            }
+          }
+          homeList[i].querySelectorAll("em")[1].onclick = function(ev){
+            var oEvent = ev || event;
+            oEvent.cancelBubble = true; 
+          }
+          var deleteImg = homeList[i].getElementsByClassName("delete");
+          for(var j=0;j<deleteImg.length;j++){
+            deleteImg[j].onclick = function(ev){
+              var oEvent = ev || event;
+              oEvent.cancelBubble = true; 
+            }
+          }
+        }
+
       }else if(xmlhttp.status == 401){
         localStorage.removeItem("wxAuthToken");
         wxlogin(prefix, home, prefix);
@@ -49,34 +83,3 @@ function home(prefix){
 
 var prefix = "http://t1.zhiliaokeji.com";
 wxlogin(home, prefix, prefix);
-
-// 点击下拉出现
-var homeList = document.querySelector("ul").querySelectorAll("li");
-for(var i=0;i<homeList.length;i++){
-	homeList[i].onclick = function(ev){
-		var oEvent = ev || event;
-    var liElementEm = this.querySelectorAll("em");
-    if(this.dataset.offon == "true"){
-      liElementEm[0].style.display = "none";
-      liElementEm[1].style.display = "block";
-      this.dataset.offon = "false";
-      this.querySelector("ul").style.display = "block";
-    }else{
-      this.querySelector("ul").style.display = "none";
-      liElementEm[0].style.display = "block";
-      liElementEm[1].style.display = "none";
-      this.dataset.offon = "true";
-    }
-	}
-	homeList[i].querySelectorAll("em")[1].onclick = function(ev){
-    var oEvent = ev || event;
-		oEvent.cancelBubble = true; 
-  }
-  var deleteImg = homeList[i].getElementsByClassName("delete");
-  for(var j=0;j<deleteImg.length;j++){
-    deleteImg[j].onclick = function(ev){
-      var oEvent = ev || event;
-      oEvent.cancelBubble = true; 
-    }
-  }
-}
