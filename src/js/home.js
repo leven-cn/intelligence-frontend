@@ -23,13 +23,13 @@ function home(prefix){
         // 订阅列表填充
         var ulList = document.querySelector("ul");
         var articleElement = document.querySelector("article");
-        var homeLists = document.getElementsByClassName("home-list");
+        var homeLists = document.getElementsByClassName("homeList");
         ulList.innerHTML = "";
         
         if(data.stars.length != 0){
           for(var i=0; i<data.stars.length; i++){
             var dataStars = data.stars[i];
-            ulList.innerHTML += '<li data-offon="true" class="home-list">'+
+            ulList.innerHTML += '<li data-offon="true" class="homeList">'+
               '<img src="img/x.svg" class="delete" alt="删除">'+
               '<section>'+
                 '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
