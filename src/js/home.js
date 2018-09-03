@@ -22,24 +22,30 @@ function home(prefix){
 
         // 订阅列表填充
         var ulList = document.querySelector("ul");
+        var articleElement = document.querySelector("article");
         ulList.innerHTML = "";
-        for(var i=0; i<data.stars.length; i++){
-          var dataStars = data.stars[i];
-          ulList.innerHTML += '<li data-offon="true">'+
-            '<img src="img/x.svg" class="delete" alt="删除">'+
-            '<section>'+
-              '<img src="img/'+dataStars.category.toLowerCase()+'.svg" alt="HTMl"/>'+
-              '<h3>'+dataStars.category+'</h3>'+
-              '<em>共'+dataStars.total+'条</em>'+
-              '<em>机密档案</em>'+
-              '<em>'+dataStars.unread+'</em>'+
-            '</section>'+
-            '<ul>'+
-              '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-              '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-              '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
-            '</ul>'+
-          '</li>';
+        
+        if(data.stars.length != 0){
+          for(var i=0; i<data.stars.length; i++){
+            var dataStars = data.stars[i];
+            ulList.innerHTML += '<li data-offon="true">'+
+              '<img src="img/x.svg" class="delete" alt="删除">'+
+              '<section>'+
+                '<img src="img/'+dataStars.category.toLowerCase()+'.svg" alt="HTMl"/>'+
+                '<h3>'+dataStars.category+'</h3>'+
+                '<em>共'+dataStars.total+'条</em>'+
+                '<em>机密档案</em>'+
+                '<em>'+dataStars.unread+'</em>'+
+              '</section>'+
+              '<ul>'+
+                '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+                '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+                '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
+              '</ul>'+
+            '</li>';
+          } 
+        }else{
+          articleElement.style.display = "block";
         }
 
         // 点击下拉出现
