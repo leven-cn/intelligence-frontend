@@ -84,14 +84,14 @@ function home(prefix){
             }
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
-          var remove = confirm("确认删除吗？");
-          if(remove == true){
-            for(var j=0;j<deleteImg.length;j++){
-              deleteImg[j].onclick = function(ev){
-                var $t = this.parentElement;
-                var oEvent = ev || event;
-                oEvent.cancelBubble = true; 
-                var h3Text = this.parentElement.querySelector("h3").innerHTML;
+          for(var j=0;j<deleteImg.length;j++){
+            deleteImg[j].onclick = function(ev){
+              var remove = confirm("确认删除吗？");
+              var $t = this.parentElement;
+              var oEvent = ev || event;
+              oEvent.cancelBubble = true; 
+              var h3Text = this.parentElement.querySelector("h3").innerHTML;
+              if(remove == true){
                 var deletehttp = new XMLHttpRequest;
                 deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
                 deletehttp.setRequestHeader("Authorization", token);
@@ -109,6 +109,7 @@ function home(prefix){
               }
             }
           }
+          
         }
         
 
