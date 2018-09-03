@@ -66,31 +66,7 @@ function home(prefix){
                 liElementEm[1].style.display = "none";
                 this.dataset.offon = "true";
               }
-              var spinnerhttp = new XMLHttpRequest;
-              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=1", true);
-              spinnerhttp.setRequestHeader("Authorization", token);
-              spinnerhttp.send();
-              spinnerhttp.onreadystatechange = function(){
-                if(spinnerhttp.readyState == 4){
-                  if(spinnerhttp.status == 200){
-                    var spinnerData = JSON.parse(spinnerhttp.responseText);
-                    if(spinnerData.code == 0){
-                      $this.innerHTML = "";
-                      for(var i=0; i<spinnerData.intelligence.length;i++){
-                        var intelligence = spinnerData.intelligence[i];
-                        var elemntStr = "<li";
-                        if(intelligence.isRead){
-                          elemntStr += ' class="active"';
-                        }
-                        elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
-                        $this.innerHTML += elemntStr;
-                      }
-                    }else{
-                      alert(spinnerData.msg);
-                    }
-                  }
-                }
-              }
+              intelligenceList(prefix,h3Text,"1",token,$this);
             }
           }
           homeList[i].querySelectorAll("em")[1].onclick = function(ev){
@@ -98,34 +74,13 @@ function home(prefix){
             oEvent.cancelBubble = true;
             var $this = this.parentElement.parentElement.querySelector("ul");
             var h3Text = this.parentElement.querySelector("h3").innerHTML;
-            // var xhr = new XMLHttpRequest;
-            // xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=0", true);
-            // xhr.setRequestHeader("Authorization", token);
-            // xhr.send();
-            // xhr.onreadystatechange = function(){
-            //   if(xhr.readyState == 4){
-            //     if(xhr.status == 200){
-            //       var data = JSON.parse(xhr.responseText);
-            //       console.log(data);
-            //       if(data.code == 0){
-            //         $this.innerHTML = "";
-            //         for(var i=0; i<data.intelligence.length;i++){
-            //           var intelligence = data.intelligence[i];
-            //           var elemntStr = "<li";
-            //           if(intelligence.isRead){
-            //             elemntStr += ' class="active"';
-            //           }
-            //           elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
-            //           $this.innerHTML += elemntStr;
-            //         }
-            //       }else{
-            //         alert(data.msg);
-            //       }
-            //     }
-            //   }
-            // }
-
-            intelligenceList(prefix,h3Text,"0",token,$this);
+            if(this.innerHTML == "历史档案"){
+              intelligenceList(prefix,h3Text,"0",token,$this);
+              this.innerHTML = "最新情报";
+            }else{
+              this.innerHTML = "历史档案";
+              intelligenceList(prefix,h3Text,"1",token,$this);
+            }
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
