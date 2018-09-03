@@ -31,8 +31,8 @@ function home(prefix){
             ulList.innerHTML += '<li data-offon="true">'+
               '<img src="img/x.svg" class="delete" alt="删除">'+
               '<section>'+
-                '<img src="img/'+dataStars.category.toLowerCase()+'.svg" alt="HTMl"/>'+
-                '<h3>'+dataStars.category+'</h3>'+
+                '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
+                '<h3>'+dataStars.techType+'</h3>'+
                 '<em>共'+dataStars.total+'条</em>'+
                 '<em>机密档案</em>'+
                 '<em>'+dataStars.unread+'</em>'+
@@ -49,7 +49,7 @@ function home(prefix){
         }
 
         // 点击下拉出现
-        var homeList = document.querySelector("ul").querySelectorAll("li");
+        var homeList = ulList.querySelectorAll("li");
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
