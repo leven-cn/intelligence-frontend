@@ -84,9 +84,11 @@ function home(prefix){
               deletehttp.onreadystatechange = function(){
                 if(deletehttp.readyState == 4){
                   if(deletehttp.status == 200){
-                    // console.log($t);
-                    console.log(deletehttp.responseText);
-                    // $t.remove($t);
+                    var datas = JSON.parse(deletehttp.responseTex);
+                    $t.remove($t);
+                    if(datas.code == 0){
+                      articleElement.style.display = "block";
+                    }
                   }
                 }
               }
