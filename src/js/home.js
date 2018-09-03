@@ -75,8 +75,8 @@ function home(prefix){
             deleteImg[j].onclick = function(ev){
               var oEvent = ev || event;
               oEvent.cancelBubble = true; 
-              // var h2Text = this.parentElement.querySelector("h2").innerHTML;
-              console.log(this.parentElement)
+              var h3Text = this.parentElement.querySelector("h3").innerHTML;
+              console.log(h3Text)
               var deletehttp = new XMLHttpRequest;
               deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h2Text, true);
               deletehttp.send();
