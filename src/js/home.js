@@ -96,6 +96,7 @@ function home(prefix){
           homeList[i].querySelectorAll("em")[1].onclick = function(ev){
             var oEvent = ev || event;
             oEvent.cancelBubble = true;
+            console.log(this.parentElement);
             var xhr = new XMLHttpRequest;
             var h3Text = this.parentElement.querySelector("h3").innerHTML;
             xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"?release=1", true);
