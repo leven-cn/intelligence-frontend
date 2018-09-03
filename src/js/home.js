@@ -28,103 +28,100 @@ function home(prefix){
         for(var i=0; i<data.stars.length; i++){
           var dataStars = data.stars[i];
           ulList.innerHTML += '<li data-offon="true" class="homeList">'+
-          '<img src="img/x.svg" class="delete" alt="删除">'+
-          '<section>'+
-          '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
-          '<h3>'+dataStars.techType+'</h3>'+
-          '<em>共'+dataStars.total+'条</em>'+
-          '<em>历史档案</em>'+
-          '<em>'+dataStars.unread+'</em>'+
-          '</section>'+
-          '<ul></ul>'+
-          '</li>';
+              '<img src="img/x.svg" class="delete" alt="删除">'+
+              '<section>'+
+              '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
+              '<h3>'+dataStars.techType+'</h3>'+
+              '<em>共<strong>'+dataStars.total+'<strong>条</em>'+
+              '<em>历史档案</em>'+
+              '<em>'+dataStars.unread+'</em>'+
+              '</section>'+
+              '<ul></ul>'+
+              '</li>';
+        }
+        if(data.stars.length == 0){
+          articleElement.style.display = "block";
+        }
 
-          var homeList = ulList.getElementsByClassName("homeList");
-          if(dataStars.total == 0){
-            for(var i=0;i<homeList.length;i++){
-              homeList[i].onclick = function(ev){
-                alert("暂无数据");
+        var homeList = ulList.getElementsByClassName("homeList");
+        // 点击下拉出现
+        for(var i=0;i<homeList.length;i++){
+          homeList[i].onclick = function(ev){
+            var oEvent = ev || event;
+            var liElementEm = this.querySelectorAll("em");
+            var strongElement = this.querySelector("strong"); 
+            var $this = this.querySelector("ul");
+            var h3Text = this.querySelector("h3").innerHTML;
+            if(strongElement.innerHTML == 0){
+              alert("暂无数据");
+            }else{
+              if(this.dataset.offon == "true"){
+                liElementEm[0].style.display = "none";
+                liElementEm[1].style.display = "block";
+                this.dataset.offon = "false";
+                this.querySelector("ul").style.display = "block";
+              }else{
+                this.querySelector("ul").style.display = "none";
+                liElementEm[0].style.display = "block";
+                liElementEm[1].style.display = "none";
+                this.dataset.offon = "true";
               }
-            }
-          }else{
-            // 点击下拉出现
-            for(var i=0;i<homeList.length;i++){
-              homeList[i].onclick = function(ev){
-                var oEvent = ev || event;
-                var $this = this.querySelector("ul");
-                var h3Text = this.querySelector("h3").innerHTML;
-                var spinnerhttp = new XMLHttpRequest;
-                spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type=" + h3Text, true);
-                spinnerhttp.setRequestHeader("Authorization", token);
-                spinnerhttp.send();
-                spinnerhttp.onreadystatechange = function(){
-                  if(spinnerhttp.readyState == 4){
-                    if(spinnerhttp.status == 200){
-                      var spinnerData = JSON.parse(spinnerhttp.responseText);
-                      if(spinnerData.code == 0){
-                        $this.innerHTML = "";
-                        for(var i=0; i<spinnerData.intelligence.length;i++){
-                          var intelligence = spinnerData.intelligence[i];
-                          var elemntStr = "<li";
-                          if(intelligence.isRead){
-                            elemntStr += ' class="active"';
-                          }
-                          elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
-                          $this.innerHTML += elemntStr;
+              var spinnerhttp = new XMLHttpRequest;
+              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type=" + h3Text, true);
+              spinnerhttp.setRequestHeader("Authorization", token);
+              spinnerhttp.send();
+              spinnerhttp.onreadystatechange = function(){
+                if(spinnerhttp.readyState == 4){
+                  if(spinnerhttp.status == 200){
+                    var spinnerData = JSON.parse(spinnerhttp.responseText);
+                    if(spinnerData.code == 0){
+                      $this.innerHTML = "";
+                      for(var i=0; i<spinnerData.intelligence.length;i++){
+                        var intelligence = spinnerData.intelligence[i];
+                        var elemntStr = "<li";
+                        if(intelligence.isRead){
+                          elemntStr += ' class="active"';
                         }
-                      }else{
-                        alert(spinnerData.msg);
+                        elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                        $this.innerHTML += elemntStr;
                       }
-                    }
-                  }
-                }
-                var liElementEm = this.querySelectorAll("em");
-                if(this.dataset.offon == "true"){
-                  liElementEm[0].style.display = "none";
-                  liElementEm[1].style.display = "block";
-                  this.dataset.offon = "false";
-                  this.querySelector("ul").style.display = "block";
-                }else{
-                  this.querySelector("ul").style.display = "none";
-                  liElementEm[0].style.display = "block";
-                  liElementEm[1].style.display = "none";
-                  this.dataset.offon = "true";
-                }
-              }
-              homeList[i].querySelectorAll("em")[1].onclick = function(ev){
-                var oEvent = ev || event;
-                oEvent.cancelBubble = true; 
-              }
-              var deleteImg = homeList[i].getElementsByClassName("delete");
-              for(var j=0;j<deleteImg.length;j++){
-                deleteImg[j].onclick = function(ev){
-                  var $t = this.parentElement;
-                  var oEvent = ev || event;
-                  oEvent.cancelBubble = true; 
-                  var h3Text = this.parentElement.querySelector("h3").innerHTML;
-                  var deletehttp = new XMLHttpRequest;
-                  deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
-                  deletehttp.setRequestHeader("Authorization", token);
-                  deletehttp.send();
-                  deletehttp.onreadystatechange = function(){
-                    if(deletehttp.readyState == 4){
-                      if(deletehttp.status == 200){
-                        $t.remove($t);
-                        if(homeList.length == 0){
-                          articleElement.style.display = "block";
-                        }
-                      }
+                    }else{
+                      alert(spinnerData.msg);
                     }
                   }
                 }
               }
             }
           }
-
-        } 
-        if(data.stars.length == 0){
-          articleElement.style.display = "block";
+          homeList[i].querySelectorAll("em")[1].onclick = function(ev){
+            var oEvent = ev || event;
+            oEvent.cancelBubble = true; 
+          }
+          var deleteImg = homeList[i].getElementsByClassName("delete");
+          for(var j=0;j<deleteImg.length;j++){
+            deleteImg[j].onclick = function(ev){
+              var $t = this.parentElement;
+              var oEvent = ev || event;
+              oEvent.cancelBubble = true; 
+              var h3Text = this.parentElement.querySelector("h3").innerHTML;
+              var deletehttp = new XMLHttpRequest;
+              deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
+              deletehttp.setRequestHeader("Authorization", token);
+              deletehttp.send();
+              deletehttp.onreadystatechange = function(){
+                if(deletehttp.readyState == 4){
+                  if(deletehttp.status == 200){
+                    $t.remove($t);
+                    if(homeList.length == 0){
+                      articleElement.style.display = "block";
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
+        
 
       }else if(xmlhttp.status == 401){
         _wxlogin(prefix);
