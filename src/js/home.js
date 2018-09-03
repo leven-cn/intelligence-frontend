@@ -78,7 +78,7 @@ function home(prefix){
               var h3Text = this.parentElement.querySelector("h3").innerHTML;
               console.log(h3Text)
               var deletehttp = new XMLHttpRequest;
-              deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h2Text, true);
+              deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h3Text, true);
               deletehttp.send();
               xmlhttp.onreadystatechange = function(){
 
