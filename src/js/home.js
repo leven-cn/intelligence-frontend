@@ -53,7 +53,7 @@ function home(prefix){
             var $this = this.querySelector("ul");
             var h3Text = this.querySelector("h3").innerHTML;
             if(strongElement.innerHTML == 0){
-              alert("暂无数据");
+              alert("暂无情报");
             }else{
               if(this.dataset.offon == "true"){
                 liElementEm[0].style.display = "none";
@@ -67,7 +67,7 @@ function home(prefix){
                 this.dataset.offon = "true";
               }
               var spinnerhttp = new XMLHttpRequest;
-              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type=" + h3Text, true);
+              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"?release=1", true);
               spinnerhttp.setRequestHeader("Authorization", token);
               spinnerhttp.send();
               spinnerhttp.onreadystatechange = function(){
@@ -95,7 +95,33 @@ function home(prefix){
           }
           homeList[i].querySelectorAll("em")[1].onclick = function(ev){
             var oEvent = ev || event;
-            oEvent.cancelBubble = true; 
+            oEvent.cancelBubble = true;
+            var xhr = new XMLHttpRequest;
+            var h3Text = this.parentElement.querySelector("h3").innerHTML;
+            xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"?release=1", true);
+            xhr.setRequestHeader("Authorization", token);
+            xhr.send();
+            xhr.onreadystatechange = function(){
+              if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                  var data = JSON.parse(xhr.responseText);
+                  if(data.code == 0){
+                    $this.innerHTML = "";
+                    for(var i=0; i<data.intelligence.length;i++){
+                      var intelligence = data.intelligence[i];
+                      var elemntStr = "<li";
+                      if(intelligence.isRead){
+                        elemntStr += ' class="active"';
+                      }
+                      elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                      $this.innerHTML += elemntStr;
+                    }
+                  }else{
+                    alert(data.msg);
+                  }
+                }
+              }
+            }
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
