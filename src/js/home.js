@@ -109,8 +109,7 @@ function home(prefix){
         }
 
       }else if(xmlhttp.status == 401){
-        localStorage.removeItem("wxAuthToken");
-        wxlogin(home, prefix, prefix);
+        _wxlogin(prefix);
       }
     }
   }
