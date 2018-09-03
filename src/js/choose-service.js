@@ -1,18 +1,4 @@
-// li选中样式
-// technology-type
-
-// var chooseServiceList = document.querySelector("ul").getElementsByTagName("li")
-
-// for(var i=0; i<chooseServiceList.length;i++){
-//   chooseServiceList[i].onclick = function(){
-//     if(this.className == ""){
-//       this.className = "active";
-//     }else{
-//       this.className = "";
-//     }
-//   }
-// }
-
+//
 function chooseList(prefix){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
@@ -39,9 +25,12 @@ function chooseList(prefix){
         for(var i=0;i<data.types.length;i++){
           var dataType = data.types[i];
           var elemntStr = "<li";
-          if(dataType.isStar){
+          if(!dataType.isActive){
+            elemntStr += ' class="ash"';
+          }else if(dataType.isStar){
             elemntStr += ' class="active"';
           }
+          
           elemntStr += '>'+
             '<img src="img/'+dataType.type.toLowerCase()+'.svg" alt="'+dataType.type+'">'+
             '<h2>'+dataType.type+'</h2>'+
@@ -66,6 +55,8 @@ function chooseList(prefix){
           '</li>';
           chooseUl.innerHTML += elemntStr;
         }
+
+        var chooseServiceList = chooseUl.querySelectorAll("li");
 
       }else if(xmlhttp.status == 401){
         _wxlogin(prefix);
