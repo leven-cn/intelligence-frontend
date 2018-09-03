@@ -79,9 +79,16 @@ function home(prefix){
               console.log(h3Text)
               var deletehttp = new XMLHttpRequest;
               deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h3Text, true);
+              xmlhttp.setRequestHeader("Authorization", token);
               deletehttp.send();
               xmlhttp.onreadystatechange = function(){
-
+                if(xmlhttp.readyState == 4){
+                  if(xmlhttp.status == 200){
+                    var data = JSON.parse(xmlhttp.responseText);
+                    this.parentElement.remove(this.parentElement);
+                    
+                  }
+                }
               }
             }
           }
@@ -89,7 +96,7 @@ function home(prefix){
 
       }else if(xmlhttp.status == 401){
         localStorage.removeItem("wxAuthToken");
-        wxlogin(prefix, home, prefix);
+        wxlogin(home, prefix, prefix);
       }
     }
   }
