@@ -1,4 +1,4 @@
-var API_PREFIX = "http://test.zhiliaokeji.com";
+var API_PREFIX = "http://t1.zhiliaokeji.com";
 
 //wxlogin();
 
