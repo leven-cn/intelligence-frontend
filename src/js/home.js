@@ -86,7 +86,7 @@ function home(prefix){
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
             deleteImg[j].onclick = function(ev){
-              var remove = confirm("确认删除吗？");
+              var remove = confirm("确认取消关注吗？");
               var $t = this.parentElement;
               var oEvent = ev || event;
               oEvent.cancelBubble = true; 
