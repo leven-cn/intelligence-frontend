@@ -58,15 +58,16 @@ function home(prefix){
               if(this.dataset.offon == "true"){
                 liElementEm[0].style.display = "none";
                 liElementEm[1].style.display = "block";
+                liElementEm[1].innerHTML = "历史档案";
                 this.dataset.offon = "false";
                 this.querySelector("ul").style.display = "block";
+                intelligenceList(prefix,h3Text,"1",token,$this);
               }else{
                 this.querySelector("ul").style.display = "none";
                 liElementEm[0].style.display = "block";
                 liElementEm[1].style.display = "none";
                 this.dataset.offon = "true";
               }
-              intelligenceList(prefix,h3Text,"1",token,$this);
             }
           }
           homeList[i].querySelectorAll("em")[1].onclick = function(ev){
