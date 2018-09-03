@@ -125,7 +125,7 @@ function home(prefix){
             //   }
             // }
 
-            intelligenceList(prefix,h3Text,"1",token,$this);
+            intelligenceList(prefix,h3Text,"0",token,$this);
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
