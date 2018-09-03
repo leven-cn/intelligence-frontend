@@ -84,9 +84,8 @@ function home(prefix){
               deletehttp.onreadystatechange = function(){
                 if(deletehttp.readyState == 4){
                   if(deletehttp.status == 200){
-                    var datas = JSON.parse(deletehttp.responseTex);
                     $t.remove($t);
-                    if(datas.code == 0){
+                    if(homeList.length == 0){
                       articleElement.style.display = "block";
                     }
                   }
