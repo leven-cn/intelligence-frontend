@@ -69,6 +69,7 @@ function home(prefix){
                         elemntStr += ' class="active"';
                       }
                       elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                      console.log(elemntStr);
                       $this.innerHTML += elemntStr;
                     }
                   }else{
