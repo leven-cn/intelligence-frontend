@@ -65,6 +65,7 @@ function home(prefix){
                     for(var i=0; i<spinnerData.intelligence.length;i++){
                       var intelligence = spinnerData.intelligence[i];
                       $this.innerHTML += '<li';
+                      console.log($this.innerHTML);
                       if(intelligence.isRead){
                         $this.innerHTML += ' class="active"';
                       }
