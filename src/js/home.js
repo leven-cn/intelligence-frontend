@@ -64,12 +64,12 @@ function home(prefix){
                     $this.innerHTML = "";
                     for(var i=0; i<spinnerData.intelligence.length;i++){
                       var intelligence = spinnerData.intelligence[i];
-                      $this.innerHTML += '&lt;li';
-                      console.log($this.innerHTML);
+                      var elemntStr = "<li";
                       if(intelligence.isRead){
-                        $this.innerHTML += ' class="active"';
+                        elemntStr += ' class="active"';
                       }
-                      $this.innerHTML += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                      elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                      $this.innerHTML += elemntStr;
                     }
                   }else{
                     alert(spinnerData.msg);
