@@ -39,6 +39,11 @@ function chooseList(prefix){
 
         // }
       }
+    }else if(xmlhttp.status == 401){
+      _wxlogin(prefix);
     }
   }
 }
+
+var prefix = "http://t1.zhiliaokeji.com";
+wxlogin(chooseList, prefix, prefix);
