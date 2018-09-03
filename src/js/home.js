@@ -105,6 +105,7 @@ function home(prefix){
               if(xhr.readyState == 4){
                 if(xhr.status == 200){
                   var data = JSON.parse(xhr.responseText);
+                  console.log(data);
                   if(data.code == 0){
                     $this.innerHTML = "";
                     for(var i=0; i<data.intelligence.length;i++){
