@@ -67,7 +67,7 @@ function home(prefix){
                 this.dataset.offon = "true";
               }
               var spinnerhttp = new XMLHttpRequest;
-              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"?release=1", true);
+              spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=1", true);
               spinnerhttp.setRequestHeader("Authorization", token);
               spinnerhttp.send();
               spinnerhttp.onreadystatechange = function(){
@@ -100,7 +100,7 @@ function home(prefix){
             var $this = this.parentElement.parentElement.querySelector("ul");
             var xhr = new XMLHttpRequest;
             var h3Text = this.parentElement.querySelector("h3").innerHTML;
-            xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"?release=0", true);
+            xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=0", true);
             xhr.setRequestHeader("Authorization", token);
             xhr.send();
             xhr.onreadystatechange = function(){
