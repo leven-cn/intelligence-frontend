@@ -39,11 +39,15 @@ function home(prefix){
           '<ul></ul>'+
           '</li>';
 
+          var homeList = ulList.getElementsByClassName("homeList");
           if(dataStars.total == 0){
-            alert("暂无数据")
+            for(var i=0;i<homeList.length;i++){
+              homeList[i].onclick = function(ev){
+                alert("暂无数据");
+              }
+            }
           }else{
             // 点击下拉出现
-            var homeList = ulList.getElementsByClassName("homeList");
             for(var i=0;i<homeList.length;i++){
               homeList[i].onclick = function(ev){
                 var oEvent = ev || event;
