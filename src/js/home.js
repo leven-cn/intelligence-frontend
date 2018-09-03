@@ -54,7 +54,7 @@ function home(prefix){
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
-            var h3Text = thi.querySelector("h3").innerHTML;
+            var h3Text = this.querySelector("h3").innerHTML;
             console.log(h3Text);
             var spinnerhttp = new XMLHttpRequest;
             spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type=" + h3Text, true);
