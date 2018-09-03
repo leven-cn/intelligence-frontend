@@ -37,9 +37,9 @@ function home(prefix){
           '<em>'+dataStars.unread+'</em>'+
           '</section>'+
           '<ul>'+
-          '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-          '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
-          '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          // '<li class="active"><a href="details.html"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          // '<li class="active"><a href="#"><em>5.2版本更新</em><em>2018.08.22</em></a></li>'+
+          // '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
           '</ul>'+
           '</li>';
         } 
@@ -54,14 +54,14 @@ function home(prefix){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
           
-            var intehttp = new XMLHttpRequest;
-            intehttp.open("GET", prefix+"/rest/intelligence/", true);
-            intehttp.setRequestHeader("Authorization", token);
-            intehttp.send();
-            intehttp.onreadystatechange = function(){
-              if(intehttp.readyState == 4){
-                if(intehttp.status == 200){
-                  var inteData = JSON.parse(intehttp.responseText);
+            var spinnerhttp = new XMLHttpRequest;
+            spinnerhttp.open("GET", prefix+"/rest/intelligence/", true);
+            spinnerhttp.setRequestHeader("Authorization", token);
+            spinnerhttp.send();
+            spinnerhttp.onreadystatechange = function(){
+              if(spinnerhttp.readyState == 4){
+                if(spinnerhttp.status == 200){
+                  var inteData = JSON.parse(spinnerhttp.responseText);
                   console.log(inteData);
                 }
               }
