@@ -48,11 +48,24 @@ function home(prefix){
         }
         
         // 点击下拉出现
-        // var homeList = ulList.querySelectorAll("li");
+        // var homeList = ulList.querySelectorAll("li"); intelligence
         var homeList = ulList.getElementsByClassName("homeList");
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
+          
+            var intehttp = new XMLHttpRequest;
+            intehttp.open("GET", prefix+"/rest/intelligence/", true);
+            intehttp.setRequestHeader("Authorization", token);
+            intehttp.send();
+            intehttp.onreadystatechange = function(){
+              if(intehttp.readyState == 4){
+                if(intehttp.status == 200){
+                  var inteData = JSON.parse(intehttp.responseText);
+                  console.log(inteData);
+                }
+              }
+            }
             var liElementEm = this.querySelectorAll("em");
             if(this.dataset.offon == "true"){
               liElementEm[0].style.display = "none";
