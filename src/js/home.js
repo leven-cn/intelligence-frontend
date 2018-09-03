@@ -65,7 +65,11 @@ function home(prefix){
                     $this.innerHTML = "";
                     for(var i=0; i<spinnerData.intelligence.length;i++){
                       var intelligence = spinnerData.intelligence[i];
-                      $this.innerHTML += '<li><a href="details.html"><em>'+intelligence.version+'</em><em>'+intelligence.releaseTime+'</em></a></li>';
+                      $this.innerHTML += '<li'
+                      if(intelligence.isRead){
+                        $this.innerHTML += ' class="active"';
+                      }
+                      $this.innerHTML += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>'
                     }
                   }else{
                     alert(spinnerData.msg);
