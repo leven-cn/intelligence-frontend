@@ -85,7 +85,6 @@ function home(prefix){
                 if(deletehttp.readyState == 4){
                   if(deletehttp.status == 200){
                     $t.remove($t);
-                    console.log(homeList.length);
                     if(homeList.length == 0){
                       articleElement.style.display = "block";
                     }
