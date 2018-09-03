@@ -77,7 +77,6 @@ function home(prefix){
               var oEvent = ev || event;
               oEvent.cancelBubble = true; 
               var h3Text = this.parentElement.querySelector("h3").innerHTML;
-              console.log(h3Text)
               var deletehttp = new XMLHttpRequest;
               deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
               deletehttp.setRequestHeader("Authorization", token);
@@ -85,7 +84,8 @@ function home(prefix){
               deletehttp.onreadystatechange = function(){
                 if(deletehttp.readyState == 4){
                   if(deletehttp.status == 200){
-                    console.log($t);
+                    // console.log($t);
+                    console.log(deletehttp.responseText);
                     $t.remove($t);
                   }
                 }
