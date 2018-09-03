@@ -84,22 +84,25 @@ function home(prefix){
             }
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
-          for(var j=0;j<deleteImg.length;j++){
-            deleteImg[j].onclick = function(ev){
-              var $t = this.parentElement;
-              var oEvent = ev || event;
-              oEvent.cancelBubble = true; 
-              var h3Text = this.parentElement.querySelector("h3").innerHTML;
-              var deletehttp = new XMLHttpRequest;
-              deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
-              deletehttp.setRequestHeader("Authorization", token);
-              deletehttp.send();
-              deletehttp.onreadystatechange = function(){
-                if(deletehttp.readyState == 4){
-                  if(deletehttp.status == 200){
-                    $t.remove($t);
-                    if(homeList.length == 0){
-                      articleElement.style.display = "block";
+          var remove = confirm("确认删除吗？");
+          if(remove == true){
+            for(var j=0;j<deleteImg.length;j++){
+              deleteImg[j].onclick = function(ev){
+                var $t = this.parentElement;
+                var oEvent = ev || event;
+                oEvent.cancelBubble = true; 
+                var h3Text = this.parentElement.querySelector("h3").innerHTML;
+                var deletehttp = new XMLHttpRequest;
+                deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
+                deletehttp.setRequestHeader("Authorization", token);
+                deletehttp.send();
+                deletehttp.onreadystatechange = function(){
+                  if(deletehttp.readyState == 4){
+                    if(deletehttp.status == 200){
+                      $t.remove($t);
+                      if(homeList.length == 0){
+                        articleElement.style.display = "block";
+                      }
                     }
                   }
                 }
