@@ -73,6 +73,7 @@ function home(prefix){
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
             deleteImg[j].onclick = function(ev){
+              var $t = this.parentElement;
               var oEvent = ev || event;
               oEvent.cancelBubble = true; 
               var h3Text = this.parentElement.querySelector("h3").innerHTML;
@@ -81,11 +82,11 @@ function home(prefix){
               deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h3Text, true);
               deletehttp.setRequestHeader("Authorization", token);
               deletehttp.send();
-              xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState == 4){
-                  if(xmlhttp.status == 200){
-                    var data = JSON.parse(xmlhttp.responseText);
-                    this.parentElement.remove(this.parentElement);
+              deletehttp.onreadystatechange = function(){
+                if(deletehttp.readyState == 4){
+                  if(deletehttp.status == 200){
+                    console.log($t);
+                    $t.remove($t);
                   }
                 }
               }
