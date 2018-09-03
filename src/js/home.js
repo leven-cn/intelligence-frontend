@@ -76,7 +76,7 @@ function home(prefix){
               var oEvent = ev || event;
               oEvent.cancelBubble = true; 
               var h2Text = this.parentElement.querySelector("h2").innerHTML;
-              console.log(h2Text)
+              console.log(this.parentElement)
               var deletehttp = new XMLHttpRequest;
               deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h2Text, true);
               deletehttp.send();
