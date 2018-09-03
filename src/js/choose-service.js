@@ -20,7 +20,7 @@ function chooseList(prefix){
   }
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", prefix+"/rest/home/", true);
+  xmlhttp.open("GET", prefix+"/rest/technology-type/", true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
@@ -28,7 +28,7 @@ function chooseList(prefix){
       if(xmlhttp.status == 200){
         var data = JSON.parse(xmlhttp.responseText);
         if(data.code !=0){
-          alert("error");
+          alert(data.msg);
           return;
         }
 

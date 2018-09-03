@@ -13,7 +13,7 @@ function home(prefix){
       if(xmlhttp.status == 200){
         var data = JSON.parse(xmlhttp.responseText);
         if(data.code !=0){
-          alert("error");
+          alert(data.msg);
           return;
         }
         // 点数
