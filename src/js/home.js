@@ -42,6 +42,7 @@ function home(prefix){
           // '<li class="active"><a href="#"><em>html5.2版本更新</em><em>2018.08.22</em></a></li>'+
           '</ul>'+
           '</li>';
+
         } 
         if(data.stars.length == 0){
           articleElement.style.display = "block";
@@ -53,16 +54,17 @@ function home(prefix){
         for(var i=0;i<homeList.length;i++){
           homeList[i].onclick = function(ev){
             var oEvent = ev || event;
-          
+            var h3Text = thi.querySelector("h3").innerHTML;
+            console.log(h3Text);
             var spinnerhttp = new XMLHttpRequest;
-            spinnerhttp.open("GET", prefix+"/rest/intelligence/", true);
+            spinnerhttp.open("GET", prefix + "/rest/intelligence/?tech-type=" + h3Text, true);
             spinnerhttp.setRequestHeader("Authorization", token);
             spinnerhttp.send();
             spinnerhttp.onreadystatechange = function(){
               if(spinnerhttp.readyState == 4){
                 if(spinnerhttp.status == 200){
-                  var inteData = JSON.parse(spinnerhttp.responseText);
-                  console.log(inteData);
+                  var spinnerData = JSON.parse(spinnerhttp.responseText);
+                  console.log(spinnerData);
                 }
               }
             }
