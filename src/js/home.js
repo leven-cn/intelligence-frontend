@@ -32,7 +32,7 @@ function home(prefix){
               '<section>'+
               '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
               '<h3>'+dataStars.techType+'</h3>'+
-              '<em>共<strong>'+dataStars.total+'<strong>条</em>'+
+              '<em>共<strong>'+dataStars.total+'</strong>条</em>'+
               '<em>历史档案</em>'+
               '<em>'+dataStars.unread+'</em>'+
               '</section>'+
