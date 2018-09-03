@@ -48,6 +48,20 @@ function home(prefix){
           articleElement.style.display = "block";
         }
 
+        var deleteElement = document.getElementsByClassName("delete");
+        for(var i=0;i<deleteElement.length;i++){
+          deleteElement[i].onclick = function(){
+            var h2Text = this.parentElement.querySelector("h2").innerHTML;
+            console.log(h2Text)
+            var deletehttp = new XMLHttpRequest;
+            deletehttp.open("DELETE", prefix + "/rest/home/?techType=" + h2Text, true);
+            deletehttp.send();
+            xmlhttp.onreadystatechange = function(){
+              
+            }
+          }
+        }
+
         // 点击下拉出现
         var homeList = ulList.querySelectorAll("li");
         for(var i=0;i<homeList.length;i++){
