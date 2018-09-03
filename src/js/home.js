@@ -96,35 +96,36 @@ function home(prefix){
           homeList[i].querySelectorAll("em")[1].onclick = function(ev){
             var oEvent = ev || event;
             oEvent.cancelBubble = true;
-            console.log(this.parentElement);
             var $this = this.parentElement.parentElement.querySelector("ul");
-            var xhr = new XMLHttpRequest;
             var h3Text = this.parentElement.querySelector("h3").innerHTML;
-            xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=0", true);
-            xhr.setRequestHeader("Authorization", token);
-            xhr.send();
-            xhr.onreadystatechange = function(){
-              if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                  var data = JSON.parse(xhr.responseText);
-                  console.log(data);
-                  if(data.code == 0){
-                    $this.innerHTML = "";
-                    for(var i=0; i<data.intelligence.length;i++){
-                      var intelligence = data.intelligence[i];
-                      var elemntStr = "<li";
-                      if(intelligence.isRead){
-                        elemntStr += ' class="active"';
-                      }
-                      elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
-                      $this.innerHTML += elemntStr;
-                    }
-                  }else{
-                    alert(data.msg);
-                  }
-                }
-              }
-            }
+            // var xhr = new XMLHttpRequest;
+            // xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+h3Text+"&release=0", true);
+            // xhr.setRequestHeader("Authorization", token);
+            // xhr.send();
+            // xhr.onreadystatechange = function(){
+            //   if(xhr.readyState == 4){
+            //     if(xhr.status == 200){
+            //       var data = JSON.parse(xhr.responseText);
+            //       console.log(data);
+            //       if(data.code == 0){
+            //         $this.innerHTML = "";
+            //         for(var i=0; i<data.intelligence.length;i++){
+            //           var intelligence = data.intelligence[i];
+            //           var elemntStr = "<li";
+            //           if(intelligence.isRead){
+            //             elemntStr += ' class="active"';
+            //           }
+            //           elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+            //           $this.innerHTML += elemntStr;
+            //         }
+            //       }else{
+            //         alert(data.msg);
+            //       }
+            //     }
+            //   }
+            // }
+
+            intelligenceList(prefix,h3Text,"1",token,$this);
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
           for(var j=0;j<deleteImg.length;j++){
@@ -154,6 +155,34 @@ function home(prefix){
 
       }else if(xmlhttp.status == 401){
         _wxlogin(prefix);
+      }
+    }
+  }
+}
+
+function intelligenceList(prefix,techType,release, token, box){
+  var xhr = new XMLHttpRequest;
+  xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+techType+"&release="+release, true);
+  xhr.setRequestHeader("Authorization", token);
+  xhr.send();
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4){
+      if(xhr.status == 200){
+        var data = JSON.parse(xhr.responseText);
+        if(data.code == 0){
+          box.innerHTML = "";
+          for(var i=0; i<data.intelligence.length;i++){
+            var intelligence = data.intelligence[i];
+            var elemntStr = "<li";
+            if(intelligence.isRead){
+              elemntStr += ' class="active"';
+            }
+            elemntStr += '><a href="details.html"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseTime+'</em></a></li>';
+            box.innerHTML += elemntStr;
+          }
+        }else{
+          alert(data.msg);
+        }
       }
     }
   }
