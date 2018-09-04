@@ -1,4 +1,4 @@
-//
+// 门类显示
 function chooseList(prefix){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
@@ -57,7 +57,15 @@ function chooseList(prefix){
         }
 
         var chooseServiceList = chooseUl.querySelectorAll("li");
-
+        for(var i=0; i<chooseServiceList.length;i++){
+          chooseServiceList[i].onclick = function(){
+            if(this.className==""){
+              this.className = "active";
+            }else{
+              this.className = "";
+            }
+          }
+        }
       }else if(xmlhttp.status == 401){
         _wxlogin(prefix);
       }
