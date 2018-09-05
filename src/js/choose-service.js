@@ -64,13 +64,13 @@ function chooseList(prefix){
           iconFontEm.innerHTML = activeClassName.length;
           num = activeClassName.length;
         }
-        
+
         for(var i=0; i<chooseServiceList.length;i++){
           chooseServiceList[i].onclick = function(){
             if(this.className==""){
               this.className = "active";
               num++;
-              conFontEm.innerHTML = num;
+              iconFontEm.innerHTML = num;
             }else{
               num--;
               iconFontEm.innerHTML = num;
