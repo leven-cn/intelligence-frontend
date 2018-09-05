@@ -57,11 +57,23 @@ function chooseList(prefix){
         }
 
         var chooseServiceList = chooseUl.querySelectorAll("li");
+        var num = 0;
+        var activeClassName = document.getElementsByClassName("active");
+
+        for(var i=0;i<activeClassName.length;i++){
+          iconFontEm.innerHTML = activeClassName.length;
+          num = activeClassName.length;
+        }
+        
         for(var i=0; i<chooseServiceList.length;i++){
           chooseServiceList[i].onclick = function(){
             if(this.className==""){
               this.className = "active";
+              num++;
+              conFontEm.innerHTML = num;
             }else{
+              num--;
+              iconFontEm.innerHTML = num;
               this.className = "";
             }
           }
