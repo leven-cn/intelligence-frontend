@@ -20,7 +20,6 @@ function chooseList(prefix){
 
         // 门类选择
         var chooseUl = document.querySelector("ul");
-        console.log(data);
         chooseUl.innerHTML = "";
         for(var i=0;i<data.types.length;i++){
           var dataType = data.types[i];
@@ -63,18 +62,29 @@ function chooseList(prefix){
         for(var i=0;i<activeClassName.length;i++){
           iconFontEm.innerHTML = activeClassName.length;
           num = activeClassName.length;
+          var item = activeClassName[i].querySelector("h2").innerHTML; 
+          var category = {
+            "stars": [item]
+          };         
+          localStorage.setItem(item, JSON.stringify(category));
         }
 
         for(var i=0; i<chooseServiceList.length;i++){
           chooseServiceList[i].onclick = function(){
+            var item = this.querySelector("h2").innerHTML;
             if(this.className==""){
               this.className = "active";
               num++;
               iconFontEm.innerHTML = num;
+              var category = {
+                "stars": [item]
+              };
+              localStorage.setItem(item, JSON.stringify(category));
             }else{
               num--;
               iconFontEm.innerHTML = num;
               this.className = "";
+              localStorage.removeItem(item);
             }
           }
         }

@@ -43,3 +43,40 @@ function defaultEvent(e) {
 
   e.preventDefault();
 }
+
+function drags(prefix){
+
+  for(var i=0;i<localStorage.length-1;i++){
+    var userJsonStr = localStorage.getItem(localStorage.key(i));
+    userEntity = JSON.parse(userJsonStr).stars;
+
+    var token = localStorage.getItem("wxAuthToken");
+    if(token == null){
+      return;
+    }
+  
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.open("POST", prefix+"/rest/technology-type/", true);
+    xmlhttp.setRequestHeader("Authorization", token);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.onreadystatechange = function(){
+      if(xmlhttp.readyState == 4){
+        if(xmlhttp.status == 200){
+          var data = JSON.parse(xmlhttp.responseText);
+          if(data.code == 0){
+            window.location.href  = "home.html";
+          }
+        }
+      }
+    }
+    xmlhttp.send(JSON.stringify({
+      "stars":userEntity
+    }));
+  }
+
+}
+
+var prefix = "http://t1.zhiliaokeji.com";
+iconFont.onclick = function(){
+  wxlogin(drags, prefix, prefix);
+}
