@@ -21,6 +21,7 @@ function chooseList(prefix){
         // 门类选择
         var chooseUl = document.querySelector("ul");
         chooseUl.innerHTML = "";
+        sessionStorage.removeItem("stars");
         for(var i=0;i<data.types.length;i++){
           var dataType = data.types[i];
           var elemntStr = "<li";
@@ -53,22 +54,23 @@ function chooseList(prefix){
             '<img src="img/tick.svg" alt="tick">'+
           '</li>';
           chooseUl.innerHTML += elemntStr;
+
+          
+          if(dataType.isStar && dataType.isActive){
+            addStar(dataType.type);
+          }
         }
 
+        // 计算所选个数
+        var  num = 0;
+        var stars = sessionStorage.getItem("stars");
+        if(stars != null){
+          num = JSON.parse(stars).length;
+        }
+        iconFontEm.innerHTML = num;
+        
+        //li active
         var chooseServiceList = chooseUl.querySelectorAll("li");
-        var num = 0;
-        var activeClassName = document.getElementsByClassName("active");
-
-        for(var i=0;i<activeClassName.length;i++){
-          iconFontEm.innerHTML = activeClassName.length;
-          num = activeClassName.length;
-          var item = activeClassName[i].querySelector("h2").innerHTML; 
-          var category = {
-            "stars": [item]
-          };         
-          localStorage.setItem(item, JSON.stringify(category));
-        }
-
         for(var i=0; i<chooseServiceList.length;i++){
           chooseServiceList[i].onclick = function(){
             var item = this.querySelector("h2").innerHTML;
@@ -76,15 +78,12 @@ function chooseList(prefix){
               this.className = "active";
               num++;
               iconFontEm.innerHTML = num;
-              var category = {
-                "stars": [item]
-              };
-              localStorage.setItem(item, JSON.stringify(category));
+              addStar(item);
             }else{
               num--;
               iconFontEm.innerHTML = num;
               this.className = "";
-              localStorage.removeItem(item);
+              removeStar(item);
             }
           }
         }
@@ -95,5 +94,31 @@ function chooseList(prefix){
   }
 }
 
-var prefix = "http://t1.zhiliaokeji.com";
-wxlogin(chooseList, prefix, prefix);
+function addStar(item){
+  var starsList = [];
+  var stars = sessionStorage.getItem("stars");
+  if(stars != null){
+    starsList = JSON.parse(stars);
+  }
+  if(starsList.indexOf(item) == -1){
+    starsList.push(item);
+  }
+  sessionStorage.setItem("stars", JSON.stringify(starsList));
+}
+
+function removeStar(item){
+  var starsList = [];
+  var stars = sessionStorage.getItem("stars");
+  if(stars != null){
+    starsList = JSON.parse(stars);
+  }
+  var index = starsList.indexOf(item);
+  if(index > -1){
+    starsList.splice(index, 1);
+  }
+  sessionStorage.setItem("stars", JSON.stringify(starsList));
+}
+
+var iconFont = document.querySelector("#icon-font");
+var iconFontEm = iconFont.querySelector("em"); 
+wxlogin(chooseList, PREFIX, PREFIX);

@@ -145,5 +145,4 @@ function intelligenceList(prefix,techType,release, token, box){
   }
 }
 
-var prefix = "http://t1.zhiliaokeji.com";
-wxlogin(home, prefix, prefix);
+wxlogin(home, PREFIX, PREFIX);

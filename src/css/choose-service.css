@@ -1,6 +1,7 @@
 html,body {
   width: 100%;
   height:100%;
+  position: fixed;
 }
 body{
   background: rgb(250,250,250);
@@ -124,6 +125,7 @@ article{
   height: 1rem;
   position: absolute;
   right: 0;
+  top:50%;
 }
 #icon-font img{
   width: 1rem;
