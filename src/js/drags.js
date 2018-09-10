@@ -58,6 +58,8 @@ function drags(userEntity){
         if(data.code == 0){
           window.location.href  = "home.html";
         }
+      }else if(xmlhttp.status == 401){
+        _wxlogin();
       }
     }
   }

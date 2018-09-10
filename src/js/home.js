@@ -147,6 +147,8 @@ function intelligenceList(techType, release, token, box){
         }else{
           alert(data.msg);
         }
+      }else if(xmlhttp.status == 401){
+        _wxlogin();
       }
     }
   }
