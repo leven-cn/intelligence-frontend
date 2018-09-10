@@ -10,7 +10,7 @@ header{
   margin: 0.3rem;
   color: #fff;
   overflow: hidden;
-  background: linear-gradient(-25deg,rgba(51, 50, 51,0),rgba(80, 80, 80, 0.5));
+  background: linear-gradient(to bottom right,rgba(80, 80, 80,0.5),rgba(51, 50, 51, 0));
   border-radius: 0.3rem;
   padding: 0 0.3rem;
   box-sizing: border-box;

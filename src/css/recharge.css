@@ -1,25 +1,37 @@
-body{
-  background: rgb(250,250,250);
+html,body{
+  width: 100%;
+  height: 100%;
+  background: rgb(15, 15, 15);
+}
+
+main{
+  padding: 0 0.2rem;
+}
+
+h1{
+  width: 100%;
+  height: 2rem;
+  background: url(../img/recharge-title.svg) no-repeat;
+  margin: 0.3rem 0;
 }
 ul li{
-  width: 2rem;
-  height: 1.5rem;
-  float: left;
-  text-align: center;
-  background: #fff;
-  border:0.04rem solid rgb(111,182,236);
-  border-radius: 0.1rem;
-  font-size: 0.2rem;
-  margin:0.32rem 0 0 0.32rem;
+  width: 100%;
+  height: 2rem;
+  background-size: 100% 2rem;
+  font-size:0.6rem;
+  color:#000;
+  text-align: right;
+  margin-bottom: 0.1rem;
 }
 
-ul li p:nth-child(1){
-  color: rgb(111,182,236);
-  font-size:0.42rem;
-  padding: 0.2rem 0 0.06rem;
+ul li:nth-child(1){
+  background: url(../img/recharge-5points.svg) no-repeat;
 }
 
-ul li p:nth-child(2){
-  color: rgb(124, 189, 238);
-  font-size:0.28rem;
+ul li:nth-child(2){
+  background: url(../img/recharge-50points.svg) no-repeat;
+}
+
+ul li:nth-child(3){
+  background: url(../img/recharge-100points.svg) no-repeat;
 }
