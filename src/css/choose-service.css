@@ -70,19 +70,7 @@ ul li.active{
   border: 0.04rem solid rgba(109,203,129,0.9);
   background: rgba(255, 255, 255, 0.2);
 }
-ul li.ash{
-  border: 0.04rem solid rgba(231, 231, 231,0.7);
-  color: rgb(175, 175, 175);
-  pointer-events: none;
-}
-ul li.ash img{
-  filter: grayscale(100%);
-  filter: gray;
-}
-ul li.ash svg{
-  filter: grayscale(100%);
-  filter: gray;
-}
+
 
 ul li img{
   width: 1rem;
@@ -96,6 +84,20 @@ ul li em{
 ul li svg{
   fill: rgb(246, 195, 70);
   width: 0.2rem;
+}
+
+ul li.ash{
+  border: 0.04rem solid rgba(231, 231, 231,0.7);
+  color: rgb(175, 175, 175);
+  pointer-events: none;
+}
+ul li.ash img{
+  filter: grayscale(100%);
+  filter: gray;
+}
+ul li.ash svg{
+  filter: grayscale(100%);
+  filter: gray;
 }
 
 ul li img:last-child{
