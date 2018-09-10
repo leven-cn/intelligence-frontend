@@ -3,14 +3,12 @@
  */
 
 // 微信登录接口
-function wxlogin(callback, arg, prefix){
-  prefix = prefix || "";
-
+function wxlogin(callback, arg){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     token = getQueryParam("wxAuthToken");
     if(token == null){
-      _wxlogin(prefix);
+      _wxlogin();
     }else{
       localStorage.setItem("wxAuthToken", token);
     }
@@ -18,9 +16,9 @@ function wxlogin(callback, arg, prefix){
   callback(arg);
 }
 
-function _wxlogin(prefix){
+function _wxlogin(){
   localStorage.removeItem("wxAuthToken");
-  window.location.href = prefix + "/wx/login/?auth=token&next="
+  window.location.href = "/wx/login/?auth=token&next="
       + window.location.pathname + window.location.search
       + window.location.hash;
 }
