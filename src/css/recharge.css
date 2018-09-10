@@ -1,0 +1,25 @@
+body{
+  background: rgb(250,250,250);
+}
+ul li{
+  width: 2rem;
+  height: 1.5rem;
+  float: left;
+  text-align: center;
+  background: #fff;
+  border:0.04rem solid rgb(111,182,236);
+  border-radius: 0.1rem;
+  font-size: 0.2rem;
+  margin:0.32rem 0 0 0.32rem;
+}
+
+ul li p:nth-child(1){
+  color: rgb(111,182,236);
+  font-size:0.42rem;
+  padding: 0.2rem 0 0.06rem;
+}
+
+ul li p:nth-child(2){
+  color: rgb(124, 189, 238);
+  font-size:0.28rem;
+}
