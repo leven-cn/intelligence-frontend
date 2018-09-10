@@ -1,11 +1,11 @@
-function home(prefix){
+function home(){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     return;
   }
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", prefix+"/rest/home/", true);
+  xmlhttp.open("GET", "/rest/home/", true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
@@ -93,7 +93,7 @@ function home(prefix){
               var h3Text = this.parentElement.querySelector("h3").innerHTML;
               if(remove == true){
                 var deletehttp = new XMLHttpRequest;
-                deletehttp.open("DELETE", prefix + "/rest/home/?tech-type=" + h3Text, true);
+                deletehttp.open("DELETE", "/rest/home/?tech-type=" + h3Text, true);
                 deletehttp.setRequestHeader("Authorization", token);
                 deletehttp.send();
                 deletehttp.onreadystatechange = function(){
@@ -111,15 +111,22 @@ function home(prefix){
           } 
         }
       }else if(xmlhttp.status == 401){
-        _wxlogin(prefix);
+        _wxlogin();
       }
     }
   }
 }
 
-function intelligenceList(prefix,techType,release, token, box){
+/**
+ * 情报关注列表
+ * @param {string} techType 
+ * @param {string} release 
+ * @param {string} token 
+ * @param {string} box 
+ */
+function intelligenceList(techType, release, token, box){
   var xhr = new XMLHttpRequest;
-  xhr.open("GET", prefix + "/rest/intelligence/?tech-type="+techType+"&release="+release, true);
+  xhr.open("GET", "/rest/intelligence/?tech-type="+techType+"&release="+release, true);
   xhr.setRequestHeader("Authorization", token);
   xhr.send();
   xhr.onreadystatechange = function(){
@@ -145,4 +152,4 @@ function intelligenceList(prefix,techType,release, token, box){
   }
 }
 
-wxlogin(home, PREFIX, PREFIX);
+wxlogin(home);

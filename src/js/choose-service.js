@@ -1,17 +1,16 @@
 // 门类显示
 function chooseList(args){
-  args = args || ["", "", ""];
-  prefix = args[0];
-  category = args[1];
-  name = args[2];
+  args = args || ["", ""];
+  category = args[0];
+  name = args[1];
 
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    _wxlogin(prefix);
+    _wxlogin();
   }
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", prefix+"/rest/technology-type/?category="+category+"&name="+name, true);
+  xmlhttp.open("GET", "/rest/technology-type/?category="+category+"&name="+name, true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
@@ -92,7 +91,7 @@ function chooseList(args){
           }
         }
       }else if(xmlhttp.status == 401){
-        _wxlogin(prefix);
+        _wxlogin();
       }
     }
   }
@@ -125,7 +124,7 @@ function removeStar(item){
 
 var iconFont = document.querySelector("#icon-font");
 var iconFontEm = iconFont.querySelector("em"); 
-wxlogin(chooseList, [PREFIX, "", ""], PREFIX);
+wxlogin(chooseList, ["", ""]);
 
 //搜索
 var searchInput = document.querySelector("header").querySelectorAll("input");
@@ -135,5 +134,5 @@ searchInput[1].onclick = function(){
     selectText = "";
   }
   var searchText = searchInput[0].value;
-  wxlogin(chooseList, [PREFIX, selectText, searchText], PREFIX);
+  wxlogin(chooseList, [selectText, searchText]);
 }

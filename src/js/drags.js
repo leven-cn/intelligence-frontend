@@ -42,13 +42,13 @@ function defaultEvent(e) {
 
 
 // post
-function drags(prefix,userEntity){
+function drags(userEntity){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     return;
   }
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("POST", prefix+"/rest/technology-type/", true);
+  xmlhttp.open("POST", "/rest/technology-type/", true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.setRequestHeader("Content-Type", "application/json");
   xmlhttp.onreadystatechange = function(){
@@ -73,5 +73,5 @@ iconFont.onclick = function(){
   if(stars != null){
     starsList = JSON.parse(stars);
   }
-  drags(PREFIX, starsList);
+  drags(starsList);
 }
