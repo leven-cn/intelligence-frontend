@@ -61,7 +61,7 @@ function home(){
                 liElementEm[1].innerHTML = "历史档案";
                 this.dataset.offon = "false";
                 this.querySelector("ul").style.display = "block";
-                intelligenceList(prefix,h3Text,"1",token,$this);
+                intelligenceList(h3Text,"1",token,$this);
               }else{
                 this.querySelector("ul").style.display = "none";
                 liElementEm[0].style.display = "block";
@@ -76,11 +76,11 @@ function home(){
             var $this = this.parentElement.parentElement.querySelector("ul");
             var h3Text = this.parentElement.querySelector("h3").innerHTML;
             if(this.innerHTML == "历史档案"){
-              intelligenceList(prefix,h3Text,"0",token,$this);
+              intelligenceList(h3Text,"0",token,$this);
               this.innerHTML = "最新情报";
             }else{
               this.innerHTML = "历史档案";
-              intelligenceList(prefix,h3Text,"1",token,$this);
+              intelligenceList(h3Text,"1",token,$this);
             }
           }
           var deleteImg = homeList[i].getElementsByClassName("delete");
@@ -103,6 +103,8 @@ function home(){
                       if(homeList.length == 0){
                         articleElement.style.display = "block";
                       }
+                    }else if(xmlhttp.status == 401){
+                      _wxlogin();
                     }
                   }
                 }
