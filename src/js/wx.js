@@ -39,7 +39,7 @@ function wxpay(summary, fee, details){
       if(status == 200){
         var data = JSON.parse(xhr.responseText);
         if(data.code == 0){
-          // console.log(data.params);
+          console.log(data.params);
 
           // 微信支付弹框
           WeixinJSBridge.invoke(
