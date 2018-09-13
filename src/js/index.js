@@ -3,6 +3,6 @@ setInterval(function(){
   window.location.href = "home.html";
 },5000)
 
-document.body.onclick = function(){
+document.onclick = function(){
   window.location.href = "home.html";
 }
