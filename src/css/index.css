@@ -15,7 +15,7 @@ img:nth-child(1){
 }
 
 section{
-  font-size: 0.18rem;
+  font-size: 0.2rem;
   position: absolute;
   width: 100%;
   text-align: center;
@@ -24,7 +24,8 @@ section{
 }
 
 section p:nth-child(2){
-  margin-top: 0.15rem;
+  font-size: 0.22rem;
+  margin-top: 0.12rem;
   letter-spacing:1px;
 }
 
