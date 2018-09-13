@@ -4,6 +4,7 @@ html,body{
   background: #111;
   position: relative;
   color:#fff;
+  cursor:pointer;
 }
 
 img:nth-child(1){
