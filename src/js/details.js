@@ -1,26 +1,30 @@
 // 点击下拉出现
-var detailsList = document.querySelector("ul").querySelectorAll("li");
-var detailsArticle = document.querySelector("main").querySelectorAll("article");
-for(var i=0;i<detailsList.length;i++){
-	detailsList[i].index = i;
-	detailsList[i].onclick = function(){
-		for(var i=0;i<detailsList.length;i++){
-			detailsList[i].className = "";
-			detailsArticle[i].style.display = "none";
-		}
-		this.className = "active";
-		detailsArticle[this.index].style.display = "block";
+var asideImg = document.querySelector("aside").querySelector("img");
+var sectionElement = document.querySelector("section");
+
+asideImg.onclick = function(){
+	var asideMenu = this.parentElement;
+	if(asideMenu.dataset.menu == "true"){
+		document.querySelector("aside").querySelector("ul").style.right = "0";
+		asideMenu.dataset.menu = "false";
+	}else{
+		document.querySelector("aside").querySelector("ul").style.right = "-2rem";
+		asideMenu.dataset.menu = "true";
 	}
 }
 
-var detailsUl = document.querySelector("ul");
-
-window.onscroll = function(){
-	if(document.body.scrollTop > detailsUl.offsetTop){
-		detailsUl.style.position = "fixed";
-		detailsUl.style.top = "0.4rem";
-	}else if(document.body.scrollTop < detailsUl.offsetTop){
-		detailsUl.style.position = "static";
-		detailsUl.style.top = "";
+sectionElement.onclick = function(){
+	if(this.dataset.share == "true"){
+		this.style.transition="all 1s";
+		this.style.width="3.1rem";
+		setTimeout(function(){
+			document.querySelector("div").style.display = "block";
+		},1000)
+		this.dataset.share = "false";
+	}else{
+		this.style.transition="all 1s";
+		this.style.width="0.8rem";
+		this.querySelector("div").style.display = "none";
+		this.dataset.share = "true";
 	}
 }
