@@ -23,14 +23,14 @@ function _wxlogin(){
       + window.location.hash;
 }
 
-function wxpay(product, fee, details){
+function wxpay(summary, fee, details){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     _wxlogin();
   }
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/backend/order/api/order/?payment=wx", true);
+  xhr.open("POST", "/order/rest/pay/?payment=wx", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", token);
   xhr.onreadystatechange = function(){
@@ -38,8 +38,8 @@ function wxpay(product, fee, details){
       var status = xhr.status;
       if(status == 200){
         var data = JSON.parse(xhr.responseText);
-        if(data.ok){
-          console.log(data.params);
+        if(data.code == 0){
+          // console.log(data.params);
 
           // 微信支付弹框
           WeixinJSBridge.invoke(
@@ -48,6 +48,8 @@ function wxpay(product, fee, details){
             function(res){
               if(res.err_msg == "get_brand_wcpay_request：ok"){
                 alert('支付成功，等待处理');
+              }else{
+                alert(res.err_msg);
               }
             }
           );
@@ -65,6 +67,6 @@ function wxpay(product, fee, details){
   xhr.send(JSON.stringify({
     "details": details,
     "fee" : fee,
-    "product": product
+    "summary": summary
   }));
 }
