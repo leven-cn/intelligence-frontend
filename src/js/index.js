@@ -1,4 +1,8 @@
 
 setInterval(function(){
   window.location.href = "home.html";
-},2000)
+},5000)
+
+document.body.onclick = function(){
+  window.location.href = "home.html";
+}
