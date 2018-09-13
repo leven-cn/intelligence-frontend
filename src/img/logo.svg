@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.5614mm" height="56.7307mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5290 7398"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:url(#id0);text-shadow:-1px 0px 1px rgba(255,255,255,.8), 1px 0px 1px rgba(0,0,0,.8)}
+    .fil0 {fill:url(#id1)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="-0" y1="4452.6" x2="5289.68" y2="4452.6">
+   <stop offset="0" style="stop-color:#17AFBB"/>
+   <stop offset="1" style="stop-color:#372673"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="145.983" y1="2939.16" x2="5288.11" y2="2939.16">
+   <stop offset="0" style="stop-color:#67226F"/>
+   <stop offset="1" style="stop-color:#E73257"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <g>
+   <path class="fil0" d="M146 464c8,-26 20,-52 29,-79 57,-125 141,-230 262,-298 102,-59 216,-87 335,-87l3573 0c241,0 474,71 643,253 156,167 220,384 220,610l0 246c0,97 -3,197 -15,292 -13,97 -36,190 -69,282 -31,92 -72,180 -120,266 -48,85 -100,169 -153,253l-2022 3214 1863 0c264,0 471,164 572,403l2 3 2 3c7,18 13,36 20,54l-3297 0 2469 -3925c56,-90 103,-167 139,-231 38,-67 66,-131 87,-192 21,-61 38,-125 46,-190 8,-64 11,-143 11,-231l0 -246c0,-126 -31,-225 -97,-295 -66,-71 -166,-103 -302,-103l-4199 0 0 0z"/>
+   <path class="fil1" d="M5024 7300c-100,64 -213,98 -331,98l-3814 0c-246,0 -475,-80 -646,-262 -167,-179 -233,-412 -233,-653l0 -218c0,-85 5,-171 18,-254 13,-87 34,-172 64,-254 33,-88 74,-174 120,-256l3 -5 2 -3c47,-82 97,-162 146,-243l2 -5 2064 -3274 -1646 0c-130,0 -253,-33 -361,-105 -103,-69 -180,-164 -233,-275 -11,-28 -23,-54 -33,-84l3114 0 -2510 3981c-56,94 -103,174 -143,241 -38,67 -67,128 -87,184 -21,59 -34,113 -43,169 -8,56 -13,115 -13,184l0 218c0,146 36,259 108,336 72,77 174,115 307,115l4411 0c-5,16 -11,33 -16,49l-3 5 -2 5c-49,126 -129,234 -244,307l0 0z"/>
+  </g>
+ </g>
+</svg>
