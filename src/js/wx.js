@@ -47,9 +47,7 @@ function wxpay(summary, fee, details){
             data.params,
             function(res){
               if(res.err_msg == "get_brand_wcpay_request：ok"){
-                alert('支付成功，等待处理');
-              }else{
-                alert(res.err_msg);
+                alert('支付成功，正在处理订单');
               }
             }
           );
