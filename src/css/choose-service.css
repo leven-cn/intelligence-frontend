@@ -2,8 +2,6 @@ html,body {
   width: 100%;
   height:100%;
   position: fixed;
-}
-body{
   background: linear-gradient(to right,rgb(25, 25, 26),rgb(0, 0, 0));
 }
 

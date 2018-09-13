@@ -35,3 +35,29 @@ ul li:nth-child(2){
 ul li:nth-child(3){
   background: url(../img/recharge-100points.svg) no-repeat;
 }
+
+button{
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  margin-left: -1.4rem;
+  width: 2.6rem;
+  height: 1rem;
+  background: none;
+  color: #fff;
+  border:0.02rem solid #fff;
+  font-size:0.4rem;
+  border-radius: 0.2rem;
+}
+
+footer{
+  color: rgb(223, 223, 223);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0.5rem;
+}
+
+footer a{
+  color: #fff;
+}
