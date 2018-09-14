@@ -75,13 +75,12 @@ function chooseList(args){
         var chooseServiceList = chooseUl.querySelectorAll("li");
         for(var i=0; i<chooseServiceList.length;i++){
           var liElement = chooseServiceList[i];
-          var liH2Element = liElement.querySelector("h2");
-          if(stars.indexOf(liH2Element.innerHTML) > -1){
+          if(stars.indexOf(liElement.querySelector("h2").innerHTML) > -1){
             liElement.className = "active";
           }
 
           liElement.onclick = function(){
-            var item = liH2Element.innerHTML;
+            var item = this.querySelector("h2").innerHTML;
             if(this.className==""){
               this.className = "active";
               num++;
