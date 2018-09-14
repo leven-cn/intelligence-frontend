@@ -1,0 +1,67 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #282E33;
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  width: 70%;
+  border: 0.2rem solid #5E6C77;
+  font-size: 1.8rem;
+  padding: 0 1rem;
+  color: #5E6C77;
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: all .100s;
+  height: 4rem;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+}
+
+input[type="text"].keyup {
+  color: white;
+  border-color: white;
+  text-shadow: 0 0 0.4rem white;
+  box-shadow: 0 0 0.4rem white,inset 0 0 0.4rem white;
+}
+canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+img{
+  width: 15rem;
+  margin:-10rem 0 5rem;
+}
+
+button{
+  width: 10rem;
+  border:0.1rem solid #fff;
+  font-size:2rem;
+  background: none;
+  color: #fff;
+  height: 3.5rem;
+  border-radius: 0.4rem;
+  margin-top: 6rem;
+}
+
+footer{
+  font-size: 0.8rem;
+  color: #5E6C77;
+  position: absolute;
+  bottom: 5%;
+}
+
+footer a{
+  color: #fff;
+}
