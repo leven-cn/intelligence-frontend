@@ -1,16 +1,12 @@
 // 门类显示
 function chooseList(args){
-  args = args || ["", ""];
-  category = args[0];
-  name = args[1];
-
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     _wxlogin();
   }
 
   var xmlhttp = new XMLHttpRequest;
-  xmlhttp.open("GET", "/rest/technology-type/?category="+category+"&name="+name, true);
+  xmlhttp.open("GET", "/rest/technology-type/?category="+args.category+"&name="+args.name, true);
   xmlhttp.setRequestHeader("Authorization", token);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function(){
@@ -25,15 +21,16 @@ function chooseList(args){
         // 门类选择
         var chooseUl = document.querySelector("ul");
         chooseUl.innerHTML = "";
+        if(args.init){
+          sessionStorage.removeItem("stars");
+        }
         for(var i=0;i<data.types.length;i++){
           var dataType = data.types[i];
           var elemntStr = "<li";
           if(!dataType.isActive){
             elemntStr += ' class="ash"';
-          }else if(dataType.isStar){
-            elemntStr += ' class="active"';
           }
-          
+
           elemntStr += '>'+
             '<img src="img/'+dataType.type.toLowerCase()+'.svg" alt="'+dataType.type+'">'+
             '<h2>'+dataType.type+'</h2>'+
@@ -58,7 +55,7 @@ function chooseList(args){
           '</li>';
           chooseUl.innerHTML += elemntStr;
           
-          if(dataType.isStar && dataType.isActive){
+          if(args.init && dataType.isStar && dataType.isActive){
             addStar(dataType.type);
           }
         }
@@ -71,7 +68,7 @@ function chooseList(args){
         }
         iconFontEm.innerHTML = num;
 
-        //li active
+        // li active
         var chooseServiceList = chooseUl.querySelectorAll("li");
         for(var i=0; i<chooseServiceList.length;i++){
           var liElement = chooseServiceList[i];
@@ -128,8 +125,7 @@ function removeStar(item){
 
 var iconFont = document.querySelector("#icon-font");
 var iconFontEm = iconFont.querySelector("em");
-sessionStorage.removeItem("stars");
-wxlogin(chooseList, ["", ""]);
+wxlogin(chooseList, {"category": "", "name": "", "init": true});
 
 //搜索
 var searchInput = document.querySelector("header").querySelectorAll("input");
@@ -139,5 +135,5 @@ searchInput[1].onclick = function(){
     selectText = "";
   }
   var searchText = searchInput[0].value;
-  wxlogin(chooseList, [selectText, searchText]);
+  wxlogin(chooseList, {"category": selectText, "name": searchText, "init": false});
 }
