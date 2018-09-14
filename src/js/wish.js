@@ -12,7 +12,7 @@ caret.style.fontSize = "1.8rem";
 caret.style.position = 'absolute';
 caret.style.left = 0;
 caret.style.top = 0;
-caret.style.opacity = '1';
+caret.style.opacity = '0';
 document.body.appendChild(caret);
 
 function reposition() {
