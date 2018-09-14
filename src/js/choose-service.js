@@ -25,7 +25,6 @@ function chooseList(args){
         // 门类选择
         var chooseUl = document.querySelector("ul");
         chooseUl.innerHTML = "";
-        sessionStorage.removeItem("stars");
         for(var i=0;i<data.types.length;i++){
           var dataType = data.types[i];
           var elemntStr = "<li";
@@ -123,7 +122,8 @@ function removeStar(item){
 }
 
 var iconFont = document.querySelector("#icon-font");
-var iconFontEm = iconFont.querySelector("em"); 
+var iconFontEm = iconFont.querySelector("em");
+sessionStorage.removeItem("stars");
 wxlogin(chooseList, ["", ""]);
 
 //搜索
