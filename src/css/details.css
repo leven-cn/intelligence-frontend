@@ -52,10 +52,16 @@ h2{
   margin-bottom: 0.25rem;
 }
 
-aside{
+nav{
   position: fixed;
   right: 0;
-  top: 49%;
+  top: 45%;
+}
+
+aside{
+  width: 0.9rem;
+  height: 0.9rem;
+  position: relative;
 }
 
 aside img{
@@ -83,12 +89,13 @@ aside ul a{
 }
 
 section{
-  position: fixed;
-  right: 0;
-  top: 57%;
   width: 0.9rem;
+  height: 0.9rem;
   background: rgba(2, 2, 2, 0.6);
   border-radius: 0.9rem;
+  position: absolute;
+  right: 0;
+  margin-top: 0.16rem;
 }
 
 section div{
@@ -112,14 +119,13 @@ section div img{
 }
 
 .icon-top{
+  display: inline-block;
   width: 0.9rem;
   height: 0.9rem;
-  position: fixed;
-  top: 65%;
-  right: 0;
   background: rgba(2, 2, 2, 0.6);
   border-radius: 0.9rem;
   text-align: center;
+  margin-top: 1.2rem;
 }
 .icon-top img{
   width: 0.5rem;
@@ -141,5 +147,5 @@ section div img:nth-child(1){
 }
 
 code {
-  color: rgb(212, 52, 3);
+  color: rgb(236, 177, 173);
 }
