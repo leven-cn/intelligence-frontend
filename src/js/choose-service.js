@@ -70,12 +70,18 @@ function chooseList(args){
           num = JSON.parse(stars).length;
         }
         iconFontEm.innerHTML = num;
-        
+
         //li active
         var chooseServiceList = chooseUl.querySelectorAll("li");
         for(var i=0; i<chooseServiceList.length;i++){
-          chooseServiceList[i].onclick = function(){
-            var item = this.querySelector("h2").innerHTML;
+          var liElement = chooseServiceList[i];
+          var liH2Element = liElement.querySelector("h2");
+          if(stars.indexOf(liH2Element.innerHTML) > -1){
+            liElement.className = "active";
+          }
+
+          liElement.onclick = function(){
+            var item = liH2Element.innerHTML;
             if(this.className==""){
               this.className = "active";
               num++;
