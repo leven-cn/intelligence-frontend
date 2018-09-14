@@ -8,7 +8,7 @@
 		<title>情报详情</title>
 		<link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/details.css"/>
-    <link rel="stylesheet" href="css/zenburn.css">
+    <link rel="stylesheet" href="css/highlight.zenburn.css">
 	</head>
 	<body>
     <header>
@@ -17,73 +17,41 @@
     </header>
     <main>
       <h2 id="New">New</h2>
-      <p>the CSS Animation Worklet API to create</p>
-      <p>the CSS Animation Worklet API to create scripted animations in a dedicated thread</p>
+      <p>The doctype declaration for the HTML syntax is <code>&lt;!DOCTYPE html&gt;</code> and is case-insensitive.</p>
+      <p>The HTML syntax allows for MathML (<code>&lt;math&gt;</code>) and SVG  (<code>&lt;svg&gt;</code>) elements to be used inside a document</p>
       <p>the CSS contain property to indicate that an element’s subtree is independent of the rest of the page</p>
-<pre>
-<code class="hljs xml">
-  <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-selector-tag">body</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/javascript"</span>&gt;</span><span class="javascript">
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$init</span>(<span class="hljs-params"></span>) </span>{<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;}
-  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">checked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'title'</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- here goes the rest of the page --&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-
-</code>
-</pre>
+      <pre><code class="html">
+&lt;!doctype html&gt;
+&lt;title&gt;SVG in text/html&lt;/title&gt;
+&lt;p&gt;
+  A green circle:
+  &lt;svg&gt; &lt;circle r="50" cx="50" cy="50" fill="green"/&gt; &lt;/svg&gt;
+&lt;/p&gt;
+      </code></pre>
       <h2 id="Improvement">Improvement</h2>
+      <p>Using a meta element with a charset attribute that specifies the encoding within the first 1024 bytes of the document; for instance, <code>&lt;meta charset="UTF-8"&gt;</code> could be used to specify the UTF-8 encoding. This replaces the need for <code>&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</code> although that syntax is still allowed.</p>
+      <p>The <code>&amp;lang;</code> and <code>&amp;rang;</code> named character references now expand to U+27E8 and U+27E9 (mathematical left/right angle bracket) instead of U+2329 and U+232A (left/right-pointing angle bracket), respectively.</p>
+      <p>The ampersand (<code>&amp;</code>) may be left unescaped in more cases compared to HTML4.</p>
+      <p>Attributes have to be separated by at least one whitespace character.</p>
+      <p>Attributes with an empty value may be written as just the attribute name omitting the equals sign and the value, even if the attribute is not a boolean attribute. (It is commonly believed that HTML4 allowed the value to be omitted for boolean attributes. Instead, HTML4 allowed using only the attribute value and omitting the attribute name, for enumerated attributes, but this was not supported in browsers.)</p>
+      <p>Attributes omitting quotes for the value are allowed to use a larger set of characters compared to HTML4.</p>
+      <p>The HTML parser does not do any normalization of whitespace in attribute values; for instance, leading and trailing whitespace in the <code>id</code> attribute is not ignored (and thus now invalid), and newline characters can be used in the <code>value</code> attribute of the <code>input</code> element without using character references.</p>
+      <p>The <code>optgroup</code> end tag is now optional.</p>
+      <p>The <code>colgroup</code> start tag is now optional and is inferred by the HTML parser.</p>
+
+      <h2 id="Bugfix">Bugfix</h2>
       <p>the CSS Animation Worklet API to create</p>
       <p>the CSS Animation Worklet API to create scripted animations in a dedicated thread</p>
 <pre>
-<code class="hljs javascript">
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$initHighlight</span>(<span class="hljs-params">block, cls</span>) </span>{
-  <span class="hljs-keyword">try</span> {
-    <span class="hljs-keyword">if</span> (cls.search(<span class="hljs-regexp">/\bno\-highlight\b/</span>) != <span class="hljs-number">-1</span>)
-      <span class="hljs-keyword">return</span> process(block, <span class="hljs-literal">true</span>, <span class="hljs-number">0x0F</span>) +
-              <span class="hljs-string">` class="<span class="hljs-subst">${cls}</span>"`</span>;
-  } <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-comment">/* handle exception */</span>
-  }
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span> / <span class="hljs-number">2</span>; i &lt; classes.length; i++) {
-    <span class="hljs-keyword">if</span> (checkCondition(classes[i]) === <span class="hljs-literal">undefined</span>)
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'undefined'</span>);
-  }
-  }
-  <span class="hljs-keyword">export</span>  $initHighlight;
-  </code>
-</pre>
-      <h2 id="Repair">Repair</h2>
-      <p>the CSS Animation Worklet API to create</p>
-      <p>the CSS Animation Worklet API to create scripted animations in a dedicated thread</p>
-<pre>
-  <code class="hljs css">@<span class="hljs-keyword">font-face</span> {
-  <span class="hljs-attribute">font-family</span>: Chunkfive; <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'Chunkfive.otf'</span>);
-}
+<code class="css">
+  body{background: url(../img/point.svg) no-repeat -0.13rem -0.07rem;background-size: 0.6rem;padding-left: 0.5rem;margin-bottom: 0.2rem;line-height: 0.4rem;}
 
-<span class="hljs-selector-tag">body</span>, <span class="hljs-selector-class">.usertext</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#F0F0F0</span>; <span class="hljs-attribute">background</span>: <span class="hljs-number">#600</span>;
-  <span class="hljs-attribute">font-family</span>: Chunkfive, sans;
-}
-
-@<span class="hljs-keyword">import</span> url(print.css);
-@<span class="hljs-keyword">media</span> print {
-  <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href^=http]</span><span class="hljs-selector-pseudo">::after</span> {
-    <span class="hljs-attribute">content</span>: <span class="hljs-built_in">attr</span>(href)
-  }
-}
 </code>
 </pre>
-      <h2 id="Remove">Remove</h2>
+      <h2 id="Removed">Removed</h2>
       <p>the CSS Animation Worklet API to create</p>
       <p>the CSS Animation Worklet API to create scripted animations in a dedicated thread</p>
-      <h2 id="Reprecation">Reprecation</h2>
+      <h2 id="Deprecation">Deprecation</h2>
       <p>the CSS Animation Worklet API to create</p>
       <p>the CSS Animation Worklet API to create scripted animations in a dedicated thread</p>
     </main>
@@ -92,9 +60,9 @@
       <ul>
         <li><a href="#New">New</a></li>
         <li><a href="#Improvement">Improvement</a></li>
-        <li><a href="#Repair">Repair</a></li>
-        <li><a href="#Remove">Remove</a></li>
-        <li><a href="#Reprecation">Reprecation</a></li>
+        <li><a href="#Bugfix">Bugfix</a></li>
+        <li><a href="#Removed">Removed</a></li>
+        <li><a href="#Deprecation">Deprecation</a></li>
       </ul>
     </aside>
     <section data-share="true">
