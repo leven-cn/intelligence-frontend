@@ -5,38 +5,39 @@ html,body{
   position: relative;
   color:#fff;
   cursor:pointer;
+  font-size:10px;
 }
 
 img:nth-child(1){
-  width: 4rem;
+  width: 22rem;
   position: absolute;
   top:50%;
   left: 50%;
-  margin: -3rem 0 0 -2rem;
+  margin: -15rem 0 0 -11rem;
 }
 
 section{
-  font-size: 0.2rem;
+  font-size: 1.1rem;
   position: absolute;
   width: 100%;
   text-align: center;
   bottom: 25%;
-  letter-spacing:6px;
+  letter-spacing:0.6rem;
 }
 
 section p:nth-child(2){
-  font-size: 0.22rem;
-  margin-top: 0.1rem;
-  letter-spacing:1px;
+  font-size:1.2rem;
+  margin-top: 0.6rem;
+  letter-spacing:0.1rem;
 }
 
 img:nth-child(2){
   fill: #fff;
-  width: 0.5rem;
+  width: 2.6rem;
   position: absolute;
   top: 0;
-  right: 0.4rem;
+  right: 1rem;
   background: #fff;
-  padding: 0.2rem;
-  border-radius: 0 0 0.2rem 0.2rem;
+  padding:1.2rem;
+  border-radius: 0 0 1.1rem 1.1rem;
 }

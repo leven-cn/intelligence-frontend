@@ -3,28 +3,29 @@ html,body {
   height:100%;
   position: fixed;
   background: linear-gradient(to right,rgb(25, 25, 26),rgb(0, 0, 0));
+  font-size:10px;
 }
 
 header section{
   width: 90%;
   margin: 0 5%;
-  border: 0.01rem solid #292929;
-  height: 0.7rem;
-  line-height: 0.7rem;
+  border: 0.11rem solid #292929;
+  height: 4rem;
+  line-height: 4rem;
   background:#292929;
-  border-radius: 0.5rem;
-  margin-top: 0.3rem;
+  border-radius: 4rem;
+  margin-top:2rem;
   display: flex;
 }
 
 header section select{
-  font-size: 0.2rem;
-  height: 0.7rem;
+  font-size: 1.2rem;
+  height: 4rem;
   border: none;
   background: none;
-  width: 1.5rem;
+  width: 9rem;
   border-right: 0.01rem solid rgba(255, 255, 255,0.1);
-  padding-left: 0.2rem;
+  padding-left: 1rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -33,59 +34,59 @@ header section input[type="text"]{
   border: none;
   background: none;
   box-sizing: border-box;
-  padding:0 0.2rem;
-  font-size: 0.24rem;
-  line-height: 0.7rem;
+  padding:0 1.2rem;
+  font-size: 1.4rem;
+  line-height: 4rem;
   color: rgba(255, 255, 255, 0.8);
 }
 header section input[type="submit"]{
   background: url(../img/search.svg) no-repeat center #191919;
-  background-size: 0.5rem;
-  width: 0.9rem;
-  border-radius: 0 0.5rem 0.5rem 0;
+  background-size: 2.6rem;
+  width: 5.4rem;
+  border-radius: 0 4rem 4rem 0;
   border:none;
 }
 
 ul{
   width: 100%;
-  margin-top: 0.15rem;
+  margin-top: 1rem;
 }
 
 ul li{
-  width: 2rem;
-  height: 2.5rem;
+  width: 11.3rem;
+  height: 14rem;
   float: left;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
-  border:0.04rem solid rgba(111,182,236,0.9);
-  border-radius: 0.1rem;
-  font-size: 0.2rem;
-  margin:0.32rem 0 0 0.32rem;
+  border:0.2rem solid rgba(111,182,236,0.9);
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  margin:1.6rem 0 0 1.6rem;
   position: relative;
   color:rgba(255, 255, 255, 0.692);
 }
 ul li.active{
-  border: 0.04rem solid rgba(109,203,129,0.9);
+  border: 0.2rem solid rgba(109,203,129,0.9);
   background: rgba(255, 255, 255, 0.2);
 }
 
 
 ul li img{
-  width: 1rem;
-  padding:0.25rem 0 0.1rem;
+  width: 5.7rem;
+  padding:1.4rem 0 0.9rem;
 }
 ul li em{
   display: inline-block;
   font-size: 0;
-  padding-top: 0.15rem;
+  padding-top: 0.6rem;
 }
 ul li svg{
   fill: rgb(246, 195, 70);
-  width: 0.2rem;
+  width: 1.1rem;
 }
 
 ul li.ash{
-  border: 0.04rem solid rgba(231, 231, 231,0.7);
+  border: 0.2rem solid rgba(231, 231, 231,0.7);
   color: rgb(175, 175, 175);
   pointer-events: none;
 }
@@ -100,12 +101,12 @@ ul li.ash svg{
 
 ul li img:last-child{
   position: absolute;
-  top: -0.15rem;
-  right: -0.15rem;
-  width: 0.4rem;
+  top: -1rem;
+  right: -1rem;
+  width: 2.2rem;
   background: rgba(0, 0, 0, 0.7);
   padding: 0;
-  border-radius: 0.5rem;
+  border-radius: 2.2rem;
   display: none;
 }
 
@@ -115,8 +116,8 @@ ul li.active img:last-child{
 
 article{
   position: absolute;
-  bottom: 0.5rem;
-  font-size:0.3rem;
+  bottom: 2.5rem;
+  font-size:1.5rem;
   width: 100%;
   text-align: center;
   color: #888;
@@ -128,29 +129,29 @@ article a{
 
 
 #icon-font{
-  width: 1rem;
-  height: 1rem;
+  width: 5.5rem;
+  height: 5.5rem;
   position: absolute;
   right: 0;
   top:50%;
 }
 #icon-font img{
-  width: 1rem;
-  height: 1rem;
+  width: 5.5rem;
+  height: 5.5rem;
   position: absolute;
   top:0;
   left: 0;
 }
 #icon-font em{
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 0.4rem;
-  font-size:0.22rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  font-size:1.2rem;
   background: #EC6630;
   color: #fff;
   text-align: center;
-  line-height: 0.4rem;
+  line-height: 2rem;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.1rem;
 }

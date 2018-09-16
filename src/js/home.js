@@ -30,7 +30,7 @@ function home(){
           ulList.innerHTML += '<li data-offon="true" class="homeList">'+
               '<img src="img/x.svg" class="delete" alt="删除">'+
               '<section>'+
-              '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="HTMl"/>'+
+              '<img src="img/'+dataStars.techType.toLowerCase()+'.svg" alt="'+dataStars.techType+'"/>'+
               '<h3>'+dataStars.techType+'</h3>'+
               '<em>共<strong>'+dataStars.total+'</strong>条</em>'+
               '<em>历史档案</em>'+

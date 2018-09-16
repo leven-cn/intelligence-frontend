@@ -2,6 +2,8 @@ html,body{
   width: 100%;
   height: 100%;
   background: rgb(15, 15, 15);
+  font-size:10px;
+  overflow: hidden;
 }
 
 main{
@@ -10,44 +12,44 @@ main{
 
 h1{
   width: 100%;
-  height: 2rem;
-  background: url(../img/recharge-title.svg) no-repeat;
-  margin: 0.3rem 0;
+  height: 11rem;
+  background: url(../img/recharge-title.svg) no-repeat center;
+  background-size: 100%;
+  margin: 1rem 0 2rem;
 }
 ul li{
   width: 100%;
-  height: 2rem;
-  background-size: 100% 2rem;
-  font-size:0.6rem;
+  height: 11rem;
   color:#000;
-  text-align: right;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
+  background-size: 100% 10rem;
 }
 
 ul li:nth-child(1){
-  background: url(../img/recharge-5points.svg) no-repeat;
+  background: url(../img/recharge-5points.svg) no-repeat center;
 }
 
 ul li:nth-child(2){
-  background: url(../img/recharge-50points.svg) no-repeat;
+  background: url(../img/recharge-50points.svg) no-repeat center;
+  
 }
 
 ul li:nth-child(3){
-  background: url(../img/recharge-100points.svg) no-repeat;
+  background: url(../img/recharge-100points.svg) no-repeat center;
 }
 
 button{
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 8%;
   left: 50%;
-  margin-left: -1.4rem;
-  width: 2.6rem;
-  height: 1rem;
+  margin-left: -5rem;
+  width: 10rem;
+  height: 6%;
   background: none;
   color: #fff;
-  border:0.02rem solid #fff;
-  font-size:0.4rem;
-  border-radius: 0.2rem;
+  border:0.11rem solid #fff;
+  font-size:1.2rem;
+  border-radius: 0.3rem;
 }
 
 footer{
@@ -55,7 +57,8 @@ footer{
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: 0.5rem;
+  bottom: 3.5%;
+  font-size: 1.1rem;
 }
 
 footer a{
