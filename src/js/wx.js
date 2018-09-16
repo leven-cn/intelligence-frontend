@@ -23,6 +23,9 @@ function _wxlogin(){
       + window.location.hash;
 }
 
+/**
+ * 微信支付接口
+ */
 function wxpay(summary, fee, details){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
