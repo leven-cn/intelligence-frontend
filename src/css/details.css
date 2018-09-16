@@ -1,55 +1,55 @@
 html,body{
   background: #111;
   color:#fff;
+  font-size: 10px;
 }
 
 header{
   width: 100%;
-  height: 2.5rem;
+  height: 12rem;
   background: linear-gradient(to left,rgb(13, 13, 14),rgb(37, 37, 37));
   color: #fff;
   box-sizing: border-box;
-  padding: 0.5rem 0.38rem;
-  /* position: fixed; */
-  /* top:0; */
-  /* display: none; */
+  padding: 1.2rem 2.5rem;
+
 }
 
 header p{
-  font-size:0.22rem;
+  font-size:1.3rem;
 }
 header img{
   float: right;
-  width: 0.5rem;
+  width: 2.5em;
 }
 header h1{
-  padding: 0.1rem;
-  font-size: 0.6rem;
+  padding: 1rem 0;
+  font-size: 3.8rem;
 }
 
 header h1 em{
-  font-size: 0.75rem;
+  font-size:4.7rem;
   text-shadow:0.05rem 0.03rem rgb(19, 19, 19);
 }
 
 main{
-  padding: 0 0.3rem;
+  padding: 0 2rem;
 }
 
 main p{
-  background: url(../img/point.svg) no-repeat -0.13rem -0.07rem;
-  background-size: 0.6rem;
-  padding-left: 0.5rem;
-  margin-bottom: 0.2rem;
-  line-height: 0.4rem;
+  background: url(../img/point.svg) no-repeat -0.9rem -0.3rem;
+  background-size: 3rem;
+  padding-left: 1.9rem;
+  margin-bottom: 0.7rem;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
 }
 
 h2{
-  padding:0.5rem 0 0.05rem;
+  padding:2rem 0 0.5rem;
   display: inline-block;
-  font-size: 0.5rem;
+  font-size: 2.8rem;
   border-bottom:0.02rem solid #fff;
-  margin-bottom: 0.25rem;
+  margin: 1rem 0 1.5rem;
 }
 
 nav{
@@ -59,82 +59,86 @@ nav{
 }
 
 aside{
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 4.6rem;
+  height: 4.6rem;
   position: relative;
 }
 
 aside img{
-  width: 0.5rem;
+  width: 2.6rem;
   position: absolute;
   right: 0;
   background: rgba(2,2,2,0.8);
-  border-radius: 0.7rem;
-  padding: 0.2rem;
+  border-radius: 2.6rem;
+  padding: 1rem;
   z-index: 1;
 }
 aside ul{
   box-sizing: border-box;
-  font-size:0.22rem;
-  padding: 0.2rem 0.5rem;
+  font-size:1.4rem;
+  padding: 1.3rem 1.8rem;
   background:rgba(2,2,2,0.9);
   position: absolute;
-  right:-2.7rem;
-  top:-3.26rem;
-  border-radius: 0.15rem;
+  right:-13rem;
+  top:-15.5rem;
+  border-radius: 0.6rem;
 }
 aside ul a{
-  line-height: 0.66rem;
+  line-height: 3rem;
   color: #fff;
 }
 
 section{
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 4.8rem;
+  height: 4.8rem;
   background: rgba(2, 2, 2, 0.6);
-  border-radius: 0.9rem;
+  border-radius: 4.8rem;
   position: absolute;
   right: 0;
-  margin-top: 0.16rem;
+  margin-top: 1rem;
 }
 
 section div{
   position: absolute;
   display: none;
   font-size: 0;
-  width: 2.3rem;
-  padding:0.17rem 0.12rem 0.17rem 0.17rem;
+  width: 11.2rem;
+  padding:1rem 0.1rem 1rem 0.5rem;
   float: left;
   box-sizing: border-box;
 }
 
 section div a{
   display: inline-block;
-  padding-left: 0.12rem;
+  padding-left: 0.7rem;
+}
+
+aside ul a:hover{
+  color: rgb(236, 177, 173);
+  text-shadow: 0 0 0.4rem rgb(236, 177, 173);
 }
 
 section div img{
   float: left;
-  width: 0.6rem;
 }
 
 .icon-top{
   display: inline-block;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 4.8rem;
+  height: 4.8rem;
   background: rgba(2, 2, 2, 0.6);
-  border-radius: 0.9rem;
+  border-radius: 4.8rem;
   text-align: center;
-  margin-top: 1.2rem;
+  margin-top: 6.6rem;
 }
 .icon-top img{
-  width: 0.5rem;
-  margin-top: 0.16rem;
+  width: 2.8rem;
+  margin-top:1rem;
 }
 
 section img:first-child{
-  width: 0.5rem;
-  padding: 0.2rem;
+  width: 2.6rem;
+  padding: 1rem;
   float: right;
 }
 
@@ -143,9 +147,13 @@ section div img:nth-child(1){
   padding: 0;
   border-radius: 0.8rem;
   float: left;
-  width: 0.55rem;
+  width: 2.8rem;
 }
 
 code {
   color: rgb(236, 177, 173);
+}
+
+pre{
+  font-size: 1.2rem;
 }
