@@ -215,3 +215,14 @@ article svg{
   margin-top: 1.3rem;
 }
 
+.recharge-a{
+  background: #eee;
+  color: rgb(194, 7, 7);
+  line-height: 3rem;
+  height: 3rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  text-align: center;
+  margin-top: 0.2rem;
+  display: none;
+}
