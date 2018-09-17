@@ -3,6 +3,7 @@ html,body{
   height: 100%;
   background: linear-gradient(to right,rgb(25, 25, 26),rgb(0, 0, 0));
   font-size:10px;
+  padding-bottom: 1.8rem;
 }
 
 header{
@@ -81,11 +82,11 @@ ul{
   width: 100%;
   box-sizing: border-box;
   padding: 0 1.4rem;
-  margin-top: 2.8rem;
+  margin-top: 1rem;
 }
 
 ul li{
-  margin-bottom:1.8rem;
+  margin-top:1.8rem;
   position: relative;
   width: 100%;
 }
