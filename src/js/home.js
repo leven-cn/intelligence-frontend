@@ -69,6 +69,7 @@ function home(){
                 liElementEm[0].style.display = "block";
                 liElementEm[1].style.display = "none";
                 this.dataset.offon = "true";
+                document.getElementsByClassName("recharge-a")[0].style.display = "none";
               }
             }
           }
