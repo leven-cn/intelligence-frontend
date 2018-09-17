@@ -54,7 +54,7 @@ ul{
 
 ul li{
   width: 29%;
-  height: 12.2rem;
+  height: 13.4rem;
   float: left;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
@@ -73,8 +73,8 @@ ul li.active{
 
 
 ul li img{
-  width: 5.4rem;
-  padding:1.2rem 0 0.2rem;
+  width: 5.7rem;
+  padding:1.2rem 0 0.7rem;
 }
 ul li em{
   display: inline-block;
@@ -83,7 +83,7 @@ ul li em{
 }
 ul li svg{
   fill: rgb(246, 195, 70);
-  width: 0.9rem;
+  width: 1rem;
 }
 
 ul li.ash{
