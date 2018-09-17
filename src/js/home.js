@@ -40,6 +40,7 @@ function home(){
               '</li>';
         }
         if(data.stars.length == 0){
+          ulList.style.display = "none";
           articleElement.style.display = "block";
         }
 
