@@ -72,7 +72,7 @@ function chooseList(args){
         var chooseServiceList = chooseUl.querySelectorAll("li");
         for(var i=0; i<chooseServiceList.length;i++){
           var liElement = chooseServiceList[i];
-          if(stars.indexOf(liElement.querySelector("h2").innerHTML) > -1){
+          if(stars != null && stars.indexOf(liElement.querySelector("h2").innerHTML) > -1){
             liElement.className = "active";
           }
 
