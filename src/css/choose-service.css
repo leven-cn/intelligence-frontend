@@ -23,8 +23,7 @@ header section select{
   height: 4rem;
   border: none;
   background: none;
-  width: 20.5%;
-  border-right: 0.1rem solid rgba(255, 255, 255,0.1);
+  width: 24.5%;
   padding-left: 1.7rem;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -32,12 +31,14 @@ header section select{
 header section input[type="text"]{
   flex: 1;
   border: none;
-  background: none;
+  border-left: 0.1rem solid rgba(255, 255, 255,0.1);
+  background: #292929;
   box-sizing: border-box;
   padding:0 1.2rem;
   font-size: 1.4rem;
   line-height: 4rem;
   color: rgba(255, 255, 255, 0.8);
+  margin-left: -1.5rem;
 }
 header section input[type="submit"]{
   background: url(../img/search.svg) no-repeat center #191919;
