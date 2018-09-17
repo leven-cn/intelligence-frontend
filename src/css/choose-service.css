@@ -23,7 +23,7 @@ header section select{
   height: 4rem;
   border: none;
   background: none;
-  width: 24.5%;
+  width: 26%;
   padding-left: 1.7rem;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -38,7 +38,7 @@ header section input[type="text"]{
   font-size: 1.4rem;
   line-height: 4rem;
   color: rgba(255, 255, 255, 0.8);
-  margin-left: -1.5rem;
+  margin-left: -1.9rem;
 }
 header section input[type="submit"]{
   background: url(../img/search.svg) no-repeat center #191919;
