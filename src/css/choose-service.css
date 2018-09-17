@@ -54,7 +54,7 @@ ul{
 
 ul li{
   width: 29%;
-  height: 13.4rem;
+  height: 14rem;
   float: left;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
@@ -74,7 +74,7 @@ ul li.active{
 
 ul li img{
   width: 5.7rem;
-  padding:1.2rem 0 0.7rem;
+  padding:1.5rem 0 0.7rem;
 }
 ul li em{
   display: inline-block;
