@@ -32,7 +32,7 @@ ul li{
   height: 29%;
   color:#000;
   background-size: 100%;
-  margin-bottom: 2.6%;
+  margin-bottom: 3%;
 }
 
 ul li:nth-child(1){
@@ -50,7 +50,7 @@ ul li:nth-child(3){
 
 button{
   position: absolute;
-  bottom: 11.5%;
+  bottom: 12%;
   left: 50%;
   margin-left: -5rem;
   width: 10rem;
