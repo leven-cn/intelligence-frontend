@@ -53,15 +53,16 @@ ul{
 }
 
 ul li{
-  width: 11.3rem;
-  height: 14rem;
+  width: 29%;
+  height: 12.2rem;
   float: left;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border:0.2rem solid rgba(111,182,236,0.9);
+  box-sizing: border-box;
   border-radius: 0.5rem;
   font-size: 1.1rem;
-  margin:1.6rem 0 0 1.6rem;
+  margin:3% 0 0 3%;
   position: relative;
   color:rgba(255, 255, 255, 0.692);
 }
@@ -72,8 +73,8 @@ ul li.active{
 
 
 ul li img{
-  width: 5.7rem;
-  padding:1.4rem 0 0.9rem;
+  width: 5.4rem;
+  padding:1.2rem 0 0.2rem;
 }
 ul li em{
   display: inline-block;
@@ -82,7 +83,7 @@ ul li em{
 }
 ul li svg{
   fill: rgb(246, 195, 70);
-  width: 1.1rem;
+  width: 0.9rem;
 }
 
 ul li.ash{
