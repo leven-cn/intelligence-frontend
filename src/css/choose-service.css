@@ -9,7 +9,7 @@ html,body {
 header section{
   width: 90%;
   margin: 0 5%;
-  border: 0.11rem solid #292929;
+  border: 0.1rem solid #292929;
   height: 4rem;
   line-height: 4rem;
   background:#292929;
@@ -23,26 +23,28 @@ header section select{
   height: 4rem;
   border: none;
   background: none;
-  width: 9rem;
-  border-right: 0.01rem solid rgba(255, 255, 255,0.1);
-  padding-left: 1rem;
+  width: 26.5%;
+  padding-left: 1.7rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
 header section input[type="text"]{
   flex: 1;
   border: none;
-  background: none;
+  border-left: 0.1rem solid rgba(255, 255, 255,0.1);
+  background: #292929;
   box-sizing: border-box;
   padding:0 1.2rem;
   font-size: 1.4rem;
   line-height: 4rem;
   color: rgba(255, 255, 255, 0.8);
+  margin-left: -1.9rem;
 }
 header section input[type="submit"]{
   background: url(../img/search.svg) no-repeat center #191919;
   background-size: 2.6rem;
-  width: 5.4rem;
+  width: 15%;
+  height: 4rem;
   border-radius: 0 4rem 4rem 0;
   border:none;
 }
@@ -53,15 +55,16 @@ ul{
 }
 
 ul li{
-  width: 11.3rem;
+  width: 27%;
   height: 14rem;
   float: left;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border:0.2rem solid rgba(111,182,236,0.9);
+  box-sizing: border-box;
   border-radius: 0.5rem;
   font-size: 1.1rem;
-  margin:1.6rem 0 0 1.6rem;
+  margin:4.6% 0 0 4.6%;
   position: relative;
   color:rgba(255, 255, 255, 0.692);
 }
@@ -73,7 +76,7 @@ ul li.active{
 
 ul li img{
   width: 5.7rem;
-  padding:1.4rem 0 0.9rem;
+  padding:1.5rem 0 0.7rem;
 }
 ul li em{
   display: inline-block;
@@ -82,7 +85,7 @@ ul li em{
 }
 ul li svg{
   fill: rgb(246, 195, 70);
-  width: 1.1rem;
+  width: 1rem;
 }
 
 ul li.ash{
