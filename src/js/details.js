@@ -39,14 +39,14 @@ hljs.initHighlightingOnLoad();
  * 微信分享
  **/
 function wxShare(){
-  // var token = localStorage.getItem("wxAuthToken");
-  // if(token == null){
-  //   return;
-  // }
+  var token = localStorage.getItem("wxAuthToken");
+  if(token == null){
+    return;
+  }
 
   var xhr = new XMLHttpRequest;
   xhr.open("GET", "/wx/rest/jsapi-ticket/", true);
-  // xhr.setRequestHeader("Authorization", token);
+  xhr.setRequestHeader("Authorization", token);
   xhr.send();
   xhr.onreadystatechange = function(){
     if(xhr.readyState == 4){
@@ -71,8 +71,8 @@ function wxShare(){
 
           // 分享给微信朋友或QQ
           wx.updateAppMessageShareData({
-              title: 'HTML 5.0 - 技术情报站', // 分享标题
-              desc: 'HTML 5.0更新了', // 分享描述
+              title: '技术情报站 - 选择比努力更重要',
+              desc: '第一手技术情报, 非新闻式，15分钟新鲜度',
               link: '',
               imgUrl: '', // 分享图标
           },function(res){
@@ -81,7 +81,7 @@ function wxShare(){
         
           // 分享给朋友圈或QQ空间
           wx.updateTimelineShareData({
-            title: '', // 分享标题
+            title: '技术情报站 - 选择比努力更重要',
             link: '',
             imgUrl: '', // 分享图标
           }, function(res) {
@@ -101,4 +101,4 @@ function wxShare(){
   }
 }
 
-wxShare()
+wxlogin(wxShare);
