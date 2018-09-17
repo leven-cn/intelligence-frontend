@@ -9,7 +9,7 @@ html,body {
 header section{
   width: 90%;
   margin: 0 5%;
-  border: 0.11rem solid #292929;
+  border: 0.1rem solid #292929;
   height: 4rem;
   line-height: 4rem;
   background:#292929;
@@ -23,9 +23,9 @@ header section select{
   height: 4rem;
   border: none;
   background: none;
-  width: 9rem;
-  border-right: 0.01rem solid rgba(255, 255, 255,0.1);
-  padding-left: 1rem;
+  width: 20.5%;
+  border-right: 0.1rem solid rgba(255, 255, 255,0.1);
+  padding-left: 1.7rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -42,7 +42,8 @@ header section input[type="text"]{
 header section input[type="submit"]{
   background: url(../img/search.svg) no-repeat center #191919;
   background-size: 2.6rem;
-  width: 5.4rem;
+  width: 15%;
+  height: 4rem;
   border-radius: 0 4rem 4rem 0;
   border:none;
 }
