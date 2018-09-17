@@ -43,7 +43,8 @@ header h1{
 
 header h2{
   font-size:9rem;
-  padding-top: 0.1rem;
+  line-height: 7rem;
+  padding-top: 1.5rem;
   color:rgb(179, 179, 179);
   margin-top: 0.1rem;
   text-shadow:0 0.5rem 0.4rem rgb(15, 15, 15), -0.1rem -0.1rem 0.1rem #fff;
