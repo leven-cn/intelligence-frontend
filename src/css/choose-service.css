@@ -51,7 +51,8 @@ header section input[type="submit"]{
 
 ul{
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 0.7rem;
   position: absolute;
   height: 73%;
   overflow-x: auto;
@@ -67,7 +68,7 @@ ul li{
   box-sizing: border-box;
   border-radius: 0.5rem;
   font-size: 1.1rem;
-  margin:4.6% 0 0 4.6%;
+  margin:0 0 4.6% 4.6%;
   position: relative;
   color:rgba(255, 255, 255, 0.692);
 }
