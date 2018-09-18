@@ -3,7 +3,7 @@ var toUrl = "home.html";
 if(wxIntroduceCode == null){
   localStorage.removeItem("wxAuthToken");
 }else{
-  toUrl += "?/wx-introduce-code=" + wxIntroduceCode;
+  toUrl += "?wx-introduce-code=" + wxIntroduceCode;
 }
 
 setInterval(function(){
