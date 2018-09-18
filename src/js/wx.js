@@ -3,7 +3,7 @@
  */
 
 // 微信登录接口
-function wxlogin(callback, arg){
+function wxlogin(callback, arg, insert){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
     token = getQueryParam("wxAuthToken");
@@ -15,13 +15,15 @@ function wxlogin(callback, arg){
   }
 
   // 注入微信推荐码
-  var wxIntroduceCode = getQueryParam("wx-introduce-code");
-  if(wxIntroduceCode != null && localStorage.getItem("wx-introduce-code") == null){
-    localStorage.setItem("wx-introduce-code", wxIntroduceCode);
-  }
-  var aElementList = document.querySelectorAll("a");
-  for(var i=0; i<aElementList.length;i++){
-    aElementList[i].href += '?wx-introduce-code=' + getQueryParam("wx-introduce-code");
+  if(insert){
+    var wxIntroduceCode = getQueryParam("wx-introduce-code");
+    if(wxIntroduceCode != null && localStorage.getItem("wx-introduce-code") == null){
+      localStorage.setItem("wx-introduce-code", wxIntroduceCode);
+    }
+    var aElementList = document.querySelectorAll("a");
+    for(var i=0; i<aElementList.length;i++){
+      aElementList[i].href += '?wx-introduce-code=' + getQueryParam("wx-introduce-code");
+    }
   }
 
   callback(arg);

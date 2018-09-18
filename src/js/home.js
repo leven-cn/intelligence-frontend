@@ -162,4 +162,4 @@ function intelligenceList(techType, release, token, box){
   }
 }
 
-wxlogin(home);
+wxlogin(home, null, true);

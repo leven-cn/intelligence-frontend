@@ -70,20 +70,18 @@ function details(){
       }else if(xmlhttp.status == 401){
         _wxlogin();
       }else if(xmlhttp.status == 404){
-        window.location.href = "home.html";
+        window.location.href = "home.html?wx-introduce-code=" + getQueryParam("wx-introduce-code");
       }
     }
   }
 }
 
-wxlogin(details);
+wxlogin(details, null, false);
 
 
-// 点击下拉出现
-var asideImg = document.querySelector("aside").querySelector("img");
-// var sectionElement = document.querySelector("section");
 
-asideImg.onclick = function(){
+// 目录
+document.querySelector("aside").querySelector("img").onclick = function(){
 	var asideMenu = this.parentElement;
 	var asideUl = document.querySelector("aside").querySelector("ul");
 	if(asideMenu.dataset.menu == "true"){
@@ -97,7 +95,7 @@ asideImg.onclick = function(){
 	}
 }
 
-// sectionElement.onclick = function(){
+// document.querySelector("section").onclick = function(){
 // 	if(this.dataset.share == "true"){
 // 		this.style.transition="all 1s";
 // 		this.style.width="16rem";

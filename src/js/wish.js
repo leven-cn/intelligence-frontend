@@ -931,5 +931,5 @@ function wish(){
   }
 }
 
-wxlogin(wish);
+wxlogin(wish, null, true);
 
