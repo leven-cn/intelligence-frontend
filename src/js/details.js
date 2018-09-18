@@ -67,6 +67,10 @@ function details(){
   
         // 语法高亮
         hljs.initHighlighting();
+      }else if(xmlhttp.status == 401){
+        _wxlogin();
+      }else if(xmlhttp.status == 404){
+        window.location.href = "home.html";
       }
     }
   }
