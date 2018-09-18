@@ -56,7 +56,7 @@ function drags(userEntity){
       if(xmlhttp.status == 200){
         var data = JSON.parse(xmlhttp.responseText);
         if(data.code == 0){
-          window.location.href  = "home.html";
+          window.location.href = "home.html?wx-introduce-code=" + getQueryParam("wx-introduce-code");
         }
       }else if(xmlhttp.status == 401){
         _wxlogin();

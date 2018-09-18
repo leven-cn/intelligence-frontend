@@ -178,4 +178,4 @@ function wxShare(){
   }
 }
 
-wxlogin(wxShare);
+// wxlogin(wxShare);

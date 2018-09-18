@@ -36,7 +36,7 @@ function home(){
               '<em>历史档案</em>'+
               '<em>'+dataStars.unread+'</em>'+
               '</section>'+
-              '<a href="/pay/" class="recharge-a">点数不足，无法接收最新情报，请充值</a>'+
+              '<a href="/pay/?wx-introduce-code='+getQueryParam("wx-introduce-code")+'" class="recharge-a">点数不足，无法接收最新情报，请充值</a>'+
               '<ul></ul>'+
               '</li>';
         }
@@ -146,7 +146,7 @@ function intelligenceList(techType, release, token, box){
             if(intelligence.isRead){
               elemntStr += ' class="active"';
             }
-            elemntStr += '><a href="details.html?tech-type='+techType+'&version='+intelligence.version+'&release-date='+intelligence.releaseDate+'"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseDate+'</em></a></li>';
+            elemntStr += '><a href="details.html?tech-type='+techType+'&version='+intelligence.version+'&release-date='+intelligence.releaseDate+'&wx-introduce-code='+getQueryParam("wx-introduce-code")+'"><em>'+intelligence.version+' 版本更新</em><em>'+intelligence.releaseDate+'</em></a></li>';
             box.innerHTML += elemntStr;
             if(data.isNotify){
               document.getElementsByClassName("recharge-a")[0].style.display = "block";
