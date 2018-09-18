@@ -1,49 +1,75 @@
-var techType = getQueryParam("tech-type");
-var version = getQueryParam("version");
-var releaseDate = getQueryParam("release-date");
-var headerElement = document.querySelector("header");
-headerElement.innerHTML = '<p><em><strong>Release Date：</strong> '+releaseDate+'</em><img src="img/pc.svg" alt="pc"></p><h1>'+techType+' <em>'+version+'</em></h1>';
+/**
+ * 情报详情页 - 详情内容
+ */
+function _details_section(section, contents){
+  for(var i=0;i<contents.length;i++){
 
-var xmlhttp = new XMLHttpRequest;
-xmlhttp.open("GET", "/rest/intelligence-details/?tech-type="+techType+"&version="+version, true);
-// xmlhttp.setRequestHeader("Authorization", token);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function(){
-  if(xmlhttp.readyState == 4){
-    if(xmlhttp.status == 200){
-      var data = JSON.parse(xmlhttp.responseText);
-      if(data.code !=0){
-        alert(data.msg);
-        return;
-      }
-      var mainSection = document.querySelector("main").getElementsByTagName("section");
-      for(var i=0;i<data.details.new.length;i++){
-        mainSection[0].innerHTML += '<p>'+data.details.new[i].text+'</p>';
-        var sample = data.details.new[i].sample;
-        if(sample != undefined){
-          for(var i=0;i<sample.length;i++){
-            mainSection[0].innerHTML += '<pre><code class="'+sample[i].lang.toLowerCase()+'">'+sample[i].code+'</code></pre>';
-          }
+    // 文本
+    if(contents[i].text != undefined){
+      section.innerHTML += '<p>'+contents[i].text+'</p>';
+    }
+
+    // 代码示例
+    var sample = contents[i].sample
+    if(sample != undefined){
+      for(var j=0;j<sample.length;j++){
+
+        // 代码描述
+        var desc = sample[j].description;
+        if(desc != undefined && desc != ''){
+          section.innerHTML += '<p>'+desc+'</p>';
         }
-      }
-      for(var i=0;i<data.details.improvement.length;i++){
-        mainSection[1].innerHTML += '<p>'+data.details.improvement[i].text+'</p>';
-      }
-      for(var i=0;i<data.details.bugfix.length;i++){
-        mainSection[2].innerHTML += '<p>'+data.details.bugfix[i].text+'</p>';
-      }
-      for(var i=0;i<data.details.removed.length;i++){
-        mainSection[3].innerHTML += '<p>'+data.details.removed[i].text+'</p>';
-      }
-      for(var i=0;i<data.details.deprecation.length;i++){
-        mainSection[4].innerHTML += '<p>'+data.details.deprecation[i].text+'</p>';
+
+        // 源代码
+        var code = sample[j].code;
+        if(code != undefined && code != ''){
+          section.innerHTML += '<pre><code class="'+sample[j].lang.toLowerCase()+'">'+code+'</code></pre>';
+        }
       }
     }
   }
 }
 
-// 语法高亮
-hljs.initHighlightingOnLoad();
+function details(){
+  var token = localStorage.getItem("wxAuthToken");
+  if(token == null){
+    return;
+  }
+
+  // 情报详情页 - 标题栏
+  var techType = getQueryParam("tech-type");
+  var version = getQueryParam("version");
+  document.querySelector("header").innerHTML = '<p><em><strong>Release Date：</strong> '+getQueryParam("release-date")+'</em><img src="img/pc.svg" alt="pc"></p><h1>'+techType+' <em>'+version+'</em></h1>';
+
+  // 情报详情页 - 内容
+  var xmlhttp = new XMLHttpRequest;
+  xmlhttp.open("GET", "/rest/intelligence-details/?tech-type="+techType+"&version="+version, true);
+  xmlhttp.setRequestHeader("Authorization", token);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4){
+      if(xmlhttp.status == 200){
+        var data = JSON.parse(xmlhttp.responseText);
+        if(data.code !=0){
+          alert(data.msg);
+          return;
+        }
+        var mainSection = document.querySelector("main").getElementsByTagName("section");
+        _details_section(mainSection[0], data.details.new);
+        _details_section(mainSection[1], data.details.improvement);
+        _details_section(mainSection[2], data.details.bugfix);
+        _details_section(mainSection[3], data.details.removed);
+        _details_section(mainSection[4], data.details.deprecation);
+  
+        // 语法高亮
+        hljs.initHighlighting();
+      }
+    }
+  }
+}
+
+wxlogin(details);
+
 
 // 点击下拉出现
 var asideImg = document.querySelector("aside").querySelector("img");
