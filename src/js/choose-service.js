@@ -64,7 +64,8 @@ function chooseList(args){
         var  num = 0;
         var stars = sessionStorage.getItem("stars");
         if(stars != null){
-          num = JSON.parse(stars).length;
+          stars = JSON.parse(stars);
+          num = stars.length;
         }
         iconFontEm.innerHTML = num;
 
@@ -99,28 +100,22 @@ function chooseList(args){
 }
 
 function addStar(item){
-  var starsList = [];
   var stars = sessionStorage.getItem("stars");
-  if(stars != null){
-    starsList = JSON.parse(stars);
+  stars = (stars!=null) ? JSON.parse(stars) : [];
+  if(stars.indexOf(item) == -1){
+    stars.push(item);
   }
-  if(starsList.indexOf(item) == -1){
-    starsList.push(item);
-  }
-  sessionStorage.setItem("stars", JSON.stringify(starsList));
+  sessionStorage.setItem("stars", JSON.stringify(stars));
 }
 
 function removeStar(item){
-  var starsList = [];
   var stars = sessionStorage.getItem("stars");
-  if(stars != null){
-    starsList = JSON.parse(stars);
-  }
-  var index = starsList.indexOf(item);
+  stars = (stars!=null) ? JSON.parse(stars) : [];
+  var index = stars.indexOf(item);
   if(index > -1){
-    starsList.splice(index, 1);
+    stars.splice(index, 1);
   }
-  sessionStorage.setItem("stars", JSON.stringify(starsList));
+  sessionStorage.setItem("stars", JSON.stringify(stars));
 }
 
 var iconFont = document.querySelector("#icon-font");
