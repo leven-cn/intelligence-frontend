@@ -16,7 +16,7 @@ function wxlogin(callback, arg){
 
   // 注入微信推荐码
   var wxIntroduceCode = getQueryParam("wx-introduce-code");
-  if(localStorage.getItem("wx-introduce-code") == null){
+  if(wxIntroduceCode != null && localStorage.getItem("wx-introduce-code") == null){
     localStorage.setItem("wx-introduce-code", wxIntroduceCode);
   }
   var aElementList = document.querySelectorAll("a");
