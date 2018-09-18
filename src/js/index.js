@@ -1,6 +1,7 @@
 var wxIntroduceCode = localStorage.getItem("wx-introduce-code");
 var toUrl = "home.html";
 if(wxIntroduceCode == null){
+  localStorage.removeItem("wx-introduce-code");
   localStorage.removeItem("wxAuthToken");
 }else{
   toUrl += "?wx-introduce-code=" + wxIntroduceCode;
