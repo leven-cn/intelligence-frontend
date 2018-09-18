@@ -2,6 +2,10 @@
  * 情报详情页 - 详情内容
  */
 function _details_section(section, contents){
+  if(contents == undefined){
+    return;
+  }
+
   for(var i=0;i<contents.length;i++){
 
     // 文本
