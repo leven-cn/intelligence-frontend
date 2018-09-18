@@ -1,3 +1,4 @@
+localStorage.removeItem("wx-introduce-code");
 var wxIntroduceCode = localStorage.getItem("wx-introduce-code");
 var toUrl = "home.html";
 if(wxIntroduceCode == null){
