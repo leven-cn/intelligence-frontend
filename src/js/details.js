@@ -81,7 +81,7 @@ wxlogin(details);
 
 // 点击下拉出现
 var asideImg = document.querySelector("aside").querySelector("img");
-var sectionElement = document.querySelector("section");
+// var sectionElement = document.querySelector("section");
 
 asideImg.onclick = function(){
 	var asideMenu = this.parentElement;
@@ -97,19 +97,19 @@ asideImg.onclick = function(){
 	}
 }
 
-sectionElement.onclick = function(){
-	if(this.dataset.share == "true"){
-		this.style.transition="all 1s";
-		this.style.width="16rem";
-		document.querySelector("div").style.display = "block";
-		this.dataset.share = "false";
-	}else{
-		this.style.transition="all 1s";
-		this.style.width="4.8rem";
-		this.querySelector("div").style.display = "none";
-		this.dataset.share = "true";
-	}
-}
+// sectionElement.onclick = function(){
+// 	if(this.dataset.share == "true"){
+// 		this.style.transition="all 1s";
+// 		this.style.width="16rem";
+// 		document.querySelector("div").style.display = "block";
+// 		this.dataset.share = "false";
+// 	}else{
+// 		this.style.transition="all 1s";
+// 		this.style.width="4.8rem";
+// 		this.querySelector("div").style.display = "none";
+// 		this.dataset.share = "true";
+// 	}
+// }
 
 
 /**
