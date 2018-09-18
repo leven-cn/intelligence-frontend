@@ -17,12 +17,12 @@ function wxlogin(callback, arg, insert){
   // 注入微信推荐码
   if(insert){
     var wxIntroduceCode = getQueryParam("wx-introduce-code");
-    if(wxIntroduceCode != null && localStorage.getItem("wx-introduce-code") == null){
+    if(wxIntroduceCode != null){
       localStorage.setItem("wx-introduce-code", wxIntroduceCode);
-    }
-    var aElementList = document.querySelectorAll("a");
-    for(var i=0; i<aElementList.length;i++){
-      aElementList[i].href += '?wx-introduce-code=' + getQueryParam("wx-introduce-code");
+      var aElementList = document.querySelectorAll("a");
+      for(var i=0; i<aElementList.length;i++){
+        aElementList[i].href += '?wx-introduce-code=' + wxIntroduceCode;
+      }
     }
   }
 

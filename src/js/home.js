@@ -1,7 +1,7 @@
 function home(){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    return;
+    _wxlogin();
   }
 
   var xmlhttp = new XMLHttpRequest;

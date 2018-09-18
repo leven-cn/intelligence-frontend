@@ -890,8 +890,9 @@ function simulate(dimensions, options) {
 function wish(){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    return;
+    _wxlogin();
   }
+
   var inputElement = document.querySelector("input");
   inputElement.onfocus = function(){
     this.placeholder = "";

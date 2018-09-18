@@ -45,8 +45,9 @@ function defaultEvent(e) {
 function drags(userEntity){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    return;
+    _wxlogin();
   }
+
   var xmlhttp = new XMLHttpRequest;
   xmlhttp.open("POST", "/rest/technology-type/", true);
   xmlhttp.setRequestHeader("Authorization", token);

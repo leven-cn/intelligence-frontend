@@ -37,7 +37,7 @@ function _details_section(section, contents){
 function details(){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    return;
+    _wxlogin();
   }
 
   // 情报详情页 - 标题栏
@@ -115,7 +115,7 @@ document.querySelector("aside").querySelector("img").onclick = function(){
 function wxShare(){
   var token = localStorage.getItem("wxAuthToken");
   if(token == null){
-    return;
+    _wxlogin();
   }
 
   var xhr = new XMLHttpRequest;
