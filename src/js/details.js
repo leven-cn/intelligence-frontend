@@ -1,3 +1,50 @@
+var techType = getQueryParam("tech-type");
+var version = getQueryParam("version");
+var releaseDate = getQueryParam("release-date");
+var headerElement = document.querySelector("header");
+headerElement.innerHTML = '<p><em><strong>Release Date：</strong> '+releaseDate+'</em><img src="img/pc.svg" alt="pc"></p><h1>'+techType+' <em>'+version+'</em></h1>';
+
+var xmlhttp = new XMLHttpRequest;
+xmlhttp.open("GET", "/rest/intelligence-details/?tech-type="+techType+"&version="+version, true);
+// xmlhttp.setRequestHeader("Authorization", token);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState == 4){
+    if(xmlhttp.status == 200){
+      var data = JSON.parse(xmlhttp.responseText);
+      if(data.code !=0){
+        alert(data.msg);
+        return;
+      }
+      var mainSection = document.querySelector("main").getElementsByTagName("section");
+      for(var i=0;i<data.details.new.length;i++){
+        mainSection[0].innerHTML += '<p>'+data.details.new[i].text+'</p>';
+        var sample = data.details.new[i].sample;
+        if(sample != undefined){
+          for(var i=0;i<sample.length;i++){
+            mainSection[0].innerHTML += '<pre><code class="'+sample[i].lang.toLowerCase()+'">'+sample[i].code+'</code></pre>';
+          }
+        }
+      }
+      for(var i=0;i<data.details.improvement.length;i++){
+        mainSection[1].innerHTML += '<p>'+data.details.improvement[i].text+'</p>';
+      }
+      for(var i=0;i<data.details.bugfix.length;i++){
+        mainSection[2].innerHTML += '<p>'+data.details.bugfix[i].text+'</p>';
+      }
+      for(var i=0;i<data.details.removed.length;i++){
+        mainSection[3].innerHTML += '<p>'+data.details.removed[i].text+'</p>';
+      }
+      for(var i=0;i<data.details.deprecation.length;i++){
+        mainSection[4].innerHTML += '<p>'+data.details.deprecation[i].text+'</p>';
+      }
+    }
+  }
+}
+
+// 语法高亮
+hljs.initHighlightingOnLoad();
+
 // 点击下拉出现
 var asideImg = document.querySelector("aside").querySelector("img");
 var sectionElement = document.querySelector("section");
@@ -29,10 +76,6 @@ sectionElement.onclick = function(){
 		this.dataset.share = "true";
 	}
 }
-
-
-// 语法高亮
-hljs.initHighlightingOnLoad();
 
 
 /**
