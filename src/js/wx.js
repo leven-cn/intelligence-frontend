@@ -10,9 +10,20 @@ function wxlogin(callback, arg){
     if(token == null){
       _wxlogin();
     }else{
-      localStorage.setItem("wxAuthToken", token);
+      localStorage.setItem("wxAuthToken", token); 
     }
   }
+
+  // 注入微信推荐码
+  var wxIntroduceCode = getQueryParam("wx-introduce-code");
+  if(localStorage.getItem("wx-introduce-code") == null){
+    localStorage.setItem("wx-introduce-code", wxIntroduceCode);
+  }
+  var aElementList = document.querySelectorAll("a");
+  for(var i=0; i<aElementList.length;i++){
+    aElementList[i].href += '?wx-introduce-code=' + getQueryParam("wx-introduce-code");
+  }
+
   callback(arg);
 }
 
