@@ -909,9 +909,8 @@ function wish(){
           var data = JSON.parse(xmlhttp.responseText);
           console.log(data);
           if(data.code == 0){
-            var r = confirm("悬赏已发,静待佳音\n回到情报库");
-            if(r){
-              window.location.href = "choose-service.html";
+            if(confirm("悬赏已发,静待佳音\n返回情报库")){
+              window.location.href = "choose-service.html?wx-introduce-code=" + getQueryParam("wx-introduce-code");
             }
           }else{
             alert(data.msg);
