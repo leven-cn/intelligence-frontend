@@ -17,4 +17,4 @@ function rechargeByWxpay(){
     wxpay("情报交易",fee,[{"name":product,"count":1}]);
   }
 }
-wxlogin(rechargeByWxpay);
+wxlogin(rechargeByWxpay, null, true);

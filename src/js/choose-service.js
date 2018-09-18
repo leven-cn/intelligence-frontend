@@ -120,7 +120,7 @@ function removeStar(item){
 
 var iconFont = document.querySelector("#icon-font");
 var iconFontEm = iconFont.querySelector("em");
-wxlogin(chooseList, {"category": "", "name": "", "init": true});
+wxlogin(chooseList, {"category": "", "name": "", "init": true}, true);
 
 //搜索
 var searchInput = document.querySelector("header").querySelectorAll("input");
@@ -129,6 +129,5 @@ searchInput[1].onclick = function(){
   if(selectText == "全部"){
     selectText = "";
   }
-  var searchText = searchInput[0].value;
-  wxlogin(chooseList, {"category": selectText, "name": searchText, "init": false});
+  wxlogin(chooseList, {"category": selectText, "name": searchInput[0].value, "init": false}, true);
 }
