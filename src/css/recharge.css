@@ -31,35 +31,41 @@ ul li{
   width: 100%;
   height: 29%;
   color:#000;
-  background-size: 100%;
   margin-bottom: 3%;
 }
 
 ul li:nth-child(1){
-  background: url(../img/recharge-5points.svg) no-repeat center;
+  background: url(../img/recharge-50points.svg) no-repeat center;
+  background-size: 100% 7rem;
 }
 
 ul li:nth-child(2){
-  background: url(../img/recharge-50points.svg) no-repeat center;
-  
+  background: url(../img/recharge-100points.svg) no-repeat center;
+  background-size: 100% 6.5rem;
 }
 
 ul li:nth-child(3){
-  background: url(../img/recharge-100points.svg) no-repeat center;
+  background: url(../img/recharge-200points.svg) no-repeat center;
+  background-size: 100% 6.5rem;
 }
 
 button{
   position: absolute;
-  bottom: 12%;
+  bottom: 111%;
   left: 50%;
   margin-left: -5rem;
   width: 10rem;
-  height: 6%;
+  height: 7%;
+  line-height: 7%;
   background: none;
   color: #fff;
   border:0.11rem solid #fff;
   font-size:1.2rem;
   border-radius: 0.3rem;
+}
+
+button img{
+  width: 5rem;
 }
 
 footer{
