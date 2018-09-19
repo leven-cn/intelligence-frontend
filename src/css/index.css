@@ -9,11 +9,11 @@ html,body{
 }
 
 img:nth-child(1){
-  width: 24rem;
+  width: 25rem;
   position: absolute;
   top:50%;
   left: 50%;
-  margin: -15rem 0 0 -12rem;
+  margin: -17rem 0 0 -12.5rem;
 }
 
 section{
@@ -21,7 +21,7 @@ section{
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: 23%;
+  bottom: 27%;
   letter-spacing:0.6rem;
 }
 
