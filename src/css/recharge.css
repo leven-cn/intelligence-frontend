@@ -36,17 +36,17 @@ ul li{
 
 ul li:nth-child(1){
   background: url(../img/recharge-50points.svg) no-repeat center;
-  background-size: 100% 7rem;
+  background-size: 100%;
 }
 
 ul li:nth-child(2){
   background: url(../img/recharge-100points.svg) no-repeat center;
-  background-size: 100% 6.5rem;
+  background-size: 100%;
 }
 
 ul li:nth-child(3){
   background: url(../img/recharge-200points.svg) no-repeat center;
-  background-size: 100% 6.5rem;
+  background-size: 100%;
 }
 
 button{
