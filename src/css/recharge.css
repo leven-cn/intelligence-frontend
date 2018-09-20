@@ -4,6 +4,7 @@ html,body{
   background: rgb(15, 15, 15);
   font-size:10px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 main{
@@ -94,32 +95,24 @@ footer a{
 
 .popup{
   display: none;
-  background: url(../img/recharge-bg.svg) no-repeat center;
+  background: url(../img/recharge-bg.svg) no-repeat center center;
   position: fixed;
   z-index: 2;
   top:50%;
   background-size: 100% 100%;
-  height: 33rem;
+  height: 60%;
   width: calc(100% - 2rem);
-  margin:-16.5rem 1rem 1rem;
+  margin:-48% 1rem 1rem;
   box-sizing: border-box;
   text-align: center;
   padding-top: 5rem;
 }
 
-
-.popup img:nth-child(1){
-  width: 3rem;
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
-}
-
 .popup a{
   display: inline-block;
-  margin-top: 2.5rem;
+  margin-top: 2.7rem;
 }
-.popup a img:nth-child(1){
-  width: 26rem;
+.popup a img{
+  width: 28rem;
   position: static;
 }

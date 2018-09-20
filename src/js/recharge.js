@@ -2,7 +2,6 @@
 var rechargeList = document.querySelector("ul").querySelectorAll("li");
 var button = document.querySelector("button");
 var popupElement = document.getElementsByClassName("popup")[0];
-var deleteElement = document.getElementsByClassName("delete")[0];
 var maskElement = document.getElementsByClassName("mask")[0];
 
 button.onclick = function(){
@@ -10,7 +9,7 @@ button.onclick = function(){
   maskElement.style.display = "block";
 }
 
-deleteElement.onclick = function(){
+document.body.onclick = function(){
   popupElement.style.display = "none";
   maskElement.style.display = "none";
 }
