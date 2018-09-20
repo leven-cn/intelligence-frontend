@@ -98,7 +98,7 @@ footer a{
   position: fixed;
   z-index: 2;
   top:50%;
-  background-size: 100%;
+  background-size: 100% 33rem;
   height: 33rem;
   width: calc(100% - 2rem);
   margin:-16.5rem 1rem 1rem;
