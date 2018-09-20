@@ -104,14 +104,24 @@ footer a{
   margin:-48% 1rem 1rem;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 5rem;
+  
+}
+.popup section{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .popup a{
   display: inline-block;
-  margin-top: 2.7rem;
 }
 .popup a img{
   width: 28rem;
   position: static;
+}
+.popup a:nth-child(2) img{
+  margin-top: 4.5rem;
 }
