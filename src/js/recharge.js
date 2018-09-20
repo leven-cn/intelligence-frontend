@@ -9,9 +9,9 @@ button.onclick = function(){
   maskElement.style.display = "block";
 }
 
-document.body.onclick = function(){
+maskElement.onclick = function(){
   popupElement.style.display = "none";
-  maskElement.style.display = "none";
+  this.style.display = "none";
 }
 
 
